@@ -19,5 +19,3 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-prova
