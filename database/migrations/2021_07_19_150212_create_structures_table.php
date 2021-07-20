@@ -24,7 +24,7 @@ class CreateStructuresTable extends Migration
             $table->smallInteger('sqm');
             $table->boolean('visible');
             $table->string('slug');
-            $table->text('cover_img_path');
+            $table->text('cover_img_path')->nullable();
             $table->timestamps();
         });
     }
