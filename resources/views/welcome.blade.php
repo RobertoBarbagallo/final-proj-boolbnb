@@ -62,13 +62,18 @@
                 margin-bottom: 30px;
             }
         </style>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/user/structures/') }}">Carica Strutture</a>
+                         <a href="#">Sponsorizza</a>
+                            @if(Auth::user()->user_img_path)
+                             <img class="avatar" src="{{ asset('storage/' . Auth::user()->user_img_path) }}" alt="Card image cap">
+                            @endif
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
