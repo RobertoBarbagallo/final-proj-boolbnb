@@ -38,6 +38,10 @@ class User extends Authenticatable
     ];
 
     public function structures() {
+<<<<<<< HEAD
         return $this->hasMany('App\Structure');
+=======
+        return $this->hasMany("App\Structure");
+>>>>>>> 701ed1550d90d694938d23e9b66fef24951fcc79
     }
 }
