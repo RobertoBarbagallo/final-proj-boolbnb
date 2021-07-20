@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Structure extends Model
 {
+
+    protected $fillable = [
+       'id', 'user_id', 'name', 'lat', 'long', 'rooms', 'beds', 'bathrooms', 'sqm', 'visible', 'slug', 'cover_img_path'
+    ];
+
     public function user() {
         return $this->belongsTo("App\User");
       }
