@@ -20,13 +20,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-
-<<<<<<< HEAD
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-=======
 Route::prefix('user')
     ->namespace('user')
     ->middleware('auth')
@@ -34,4 +27,3 @@ Route::prefix('user')
     ->group(function () {
         Route::resource("/structures", "StructureController");
     });
->>>>>>> 000d70ea38d9ca4c6a8c02fe1e0c7568903cb868
