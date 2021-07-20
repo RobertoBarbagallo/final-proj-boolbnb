@@ -26,7 +26,6 @@ class CreateStructuresTable extends Migration
             $table->string('slug');
             $table->text('cover_img_path');
             $table->timestamps();
-            
         });
     }
 
