@@ -58,7 +58,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phone' => ['digits_between:8,20', 'max:255'],
             'birth_date' => ['date', 'max:255'],
-            'user_img_path' => ['mimes:jpeg,jpg,bmp,png,svg,webp,gif', 'max:255'],
+            'user_img_path' => ['mimes:jpeg,jpg,bmp,png,svg,webp,gif'],
         ]);
     }
 
