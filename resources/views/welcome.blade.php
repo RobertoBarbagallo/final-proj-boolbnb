@@ -69,8 +69,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/user/structures/') }}">Carica Strutture</a>
-                         <a href="#">Sponsorizza</a>
+                        <a href="{{ url('/user/structures/') }}">Area privata</a>
                             @if(Auth::user()->user_img_path)
                              <img class="avatar" src="{{ asset('storage/' . Auth::user()->user_img_path) }}" alt="Card image cap">
                             @endif
