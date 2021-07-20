@@ -6,3 +6,11 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+    .avatar{
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        border-radius: 50%;
+    }
+

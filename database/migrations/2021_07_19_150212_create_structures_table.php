@@ -22,7 +22,7 @@ class CreateStructuresTable extends Migration
             $table->tinyInteger('beds');
             $table->tinyInteger('bathrooms');
             $table->smallInteger('sqm');
-            $table->boolean('visible');
+            $table->boolean('visible')->default(1);
             $table->string('slug');
             $table->text('cover_img_path')->nullable();
             $table->timestamps();
