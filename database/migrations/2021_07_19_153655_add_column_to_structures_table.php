@@ -15,7 +15,6 @@ class AddColumnToStructuresTable extends Migration
     {
         Schema::table('structures', function (Blueprint $table) {
             $table->foreignId('user_id')->after('id')->constrained('users')->onDelete('cascade');
-    
         });
     }
 
