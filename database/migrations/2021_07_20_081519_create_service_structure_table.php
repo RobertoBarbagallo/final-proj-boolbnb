@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStructureServiceTable extends Migration
+class CreateServiceStructureTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateStructureServiceTable extends Migration
      */
     public function up()
     {
-        Schema::create('structure_service', function (Blueprint $table) {
+        Schema::create('service_structure', function (Blueprint $table) {
             $table->foreignId('structure_id')->constrained('structures')->onDelete('cascade');
             $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
             $table->primary(["structure_id", "service_id"]);
