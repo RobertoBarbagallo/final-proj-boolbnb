@@ -10950,3 +10950,11 @@ a.text-dark:focus {
   border-radius: 50%;
 }
 
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
