@@ -71,7 +71,13 @@ class RegisterController extends Controller
     protected function create(array $data)
 
     {
+        $profileImg = null;
 
+        if (key_exists('user_img_path', $data)) {
+
+            $profileImg = Storage::put('uploads', $data['user_img_path']);
+
+        }
         return User::create([
             'name' => $data['name'],
             'lastname' => $data['lastname'],
@@ -79,7 +85,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'phone' => $data['phone'],
             'birth_date' => $data['birth_date'],
-            'user_img_path' => Storage::put('uploads' , $data['user_img_path'])
+            'user_img_path' => $profileImg
         ]);
     }
 }
