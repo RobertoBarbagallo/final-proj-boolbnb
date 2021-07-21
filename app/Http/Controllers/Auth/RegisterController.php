@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -52,12 +53,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['string', 'max:255'],
-            'lastname' => ['string', 'max:255'],
+            'name' => ['required','string', 'max:255'],
+            'lastname' => ['required','string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone' => ['digits_between:8,20', 'max:255'],
-            'birth_date' => ['date', 'max:255'],
+            'phone' => ['max:255'],
+            'birth_date' => ['required','date', 'max:255'],
             'user_img_path' => ['mimes:jpeg,jpg,bmp,png,svg,webp,gif'],
         ]);
     }
@@ -71,21 +72,20 @@ class RegisterController extends Controller
     protected function create(array $data)
 
     {
-        $profileImg = null;
+        $default_img ="defaults/default.png";
 
-        if (key_exists('user_img_path', $data)) {
-
-            $profileImg = Storage::put('uploads', $data['user_img_path']);
-
+        if(key_exists('user_img_path', $data)){
+            $default_img = Storage::put('uploads', $data['user_img_path']);
         }
+        
         return User::create([
             'name' => $data['name'],
             'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'phone' => $data['phone'],
+            'phone' => $data['phone']??null,
             'birth_date' => $data['birth_date'],
-            'user_img_path' => $profileImg
+            'user_img_path' => $default_img
         ]);
     }
 }
