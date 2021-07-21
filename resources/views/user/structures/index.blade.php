@@ -15,18 +15,19 @@
             @endif
             <div class="card-body">
                 <h5 class="mt-0">{{$structure->name}}</h5>
-                @if($post->tags)
+                @if($structure->services)
                 @foreach($structure->services as $service)
                 <span class="badge badge-pill badge-info">{{$service->name}}</span>
                 @endforeach
                 @endif
             </div>
             <div class="card-footer text-center">
-                <a class="btn btn-outline-primary my-1" href="{{route("user.structure.show", $structure->id)}}" role="button">Dettagli...</a><br>
+                <a class="btn btn-outline-primary my-1" href="{{route("user.structures.show", $structure->id)}}" role="button">Dettagli...</a><br>
             </div>
         </div>
         @endforeach
         @endif
     </div>
 </div>    
+<div id="map-div"></div>
 @endsection

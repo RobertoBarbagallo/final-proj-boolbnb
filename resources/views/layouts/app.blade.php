@@ -15,9 +15,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.5.0/maps/maps.css'>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.5.0/maps/maps-web.min.js">
+    </script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/map.css') }}" rel="stylesheet"> --}}
 </head>
 <body>
     <div id="app">
@@ -74,5 +78,15 @@
             @yield('content')
         </main>
     </div>
+    <script>
+    const GOLDEN_GATE_BRIDGE = {lng: -122.47483, lat: 37.80776};
+        var map = tt.map({
+            key: 'Cywd0Bxu0V2NFQLj5nU7dAsTOAAWKZxm'
+            , container: 'map-div'
+            , center: GOLDEN_GATE_BRIDGE
+            , zoom: 12
+        });
+
+    </script>
 </body>
 </html>

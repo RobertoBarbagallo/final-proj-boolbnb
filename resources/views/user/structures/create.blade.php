@@ -8,7 +8,7 @@
 
 @include("partials.components.errors")
 <div class="container">
-    <form action="" method="post" id="postform" enctype="multipart/form-data">
+    <form method="post" action="{{ route('user.structures.store')}}" id="postform" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">
@@ -22,6 +22,24 @@
             <label for="address">Indirizzo</label>
             <textarea class="form-control" id="address" name="address" rows="5" aria-describedby="addressHelp" placeholder="Inserisci l'indirizzo"></textarea>
             <small id="addressHelp" class="form-text text-muted">Inserisci in questo campo l'indirizzo della struttura</small>
+        </div>
+
+        <div class="form-group">
+            <label for="houseNumber">Civico</label>
+            <input type="number" class="form-control" id="houseNumber" name="houseNumber" aria-describedby="houseNumberHelp" placeholder="Inserisci il civico">
+            <small id="houseNumberHelp" class="form-text text-muted">Inserisci in questo campo il civico della struttura</small>
+        </div>
+
+        <div class="form-group">
+            <label for="city">Città</label>
+            <input type="text" class="form-control" id="city" name="city" aria-describedby="cityHelp" placeholder="Inserisci la città">
+            <small id="cityHelp" class="form-text text-muted">Inserisci in questo campo la città della struttura</small>
+        </div>
+
+        <div class="form-group">
+            <label for="province">Provincia</label>
+            <input type="text" class="form-control" id="province" name="province" aria-describedby="provinceHelp" placeholder="Inserisci la provincia">
+            <small id="provinceHelp" class="form-text text-muted">Inserisci in questo campo la provincia della struttura</small>
         </div>
 
         <div class="form-group">
@@ -63,7 +81,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label>Servizi</label><br>
 
             @foreach($services as $service)
@@ -75,14 +93,14 @@
                 </label>
             </div>
             @endforeach
-        </div>
+        </div> --}}
 
         <div class="form-group">
             <label for="content">Aggiungi immagine di copertina</label>
             <input type="file" accept=".jpg, .png, .svg, .jpeg" class="form-control-file" id="cover_img_path" name="cover_img_path" aria-describedby="imgHelp" placeholder="Inserisci il file">
             <small id="imgHelp" class="form-text text-muted">Inserisci in questo campo l'immagine di copertina</small>
         </div>
-        <input class="btn btn-primary" type="submit" value="Invia"><br>
+        <input class="btn btn-primary" id='submit' type="submit" value="Invia"><br>
     </form>
 
 
