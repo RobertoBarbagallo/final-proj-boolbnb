@@ -21,8 +21,6 @@ Route::get('/', function () {
 Auth::routes();
 Auth::routes();
 
-
-
 Route::prefix('user')
     ->namespace('user')
     ->middleware('auth')

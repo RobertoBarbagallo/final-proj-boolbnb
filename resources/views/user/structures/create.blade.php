@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        {{-- <div class="form-group">
+        <div class="form-group">
             <label>Servizi</label><br>
 
             @foreach($services as $service)
@@ -93,7 +93,7 @@
                 </label>
             </div>
             @endforeach
-        </div> --}}
+        </div> 
 
         <div class="form-group">
             <label for="content">Aggiungi immagine di copertina</label>
