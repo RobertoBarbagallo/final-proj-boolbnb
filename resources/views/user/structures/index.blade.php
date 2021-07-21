@@ -10,8 +10,9 @@
 
         @foreach($structures as $structure)
         <div class="card mycard my-4">
+            
             @if($structure->cover_img_path)
-                <img class="card-img-top myimg" src="{{ asset('storage/' . $structure->cover_img_path) }}" alt="Cover of structure">
+            <img class="card-img-top myimg" src="{{ asset('storage/' . $structure->cover_img_path) }}" alt="Cover of structure">
             @endif
             <div class="card-body">
                 <h5 class="mt-0">{{$structure->name}}</h5>
@@ -24,10 +25,13 @@
             <div class="card-footer text-center">
                 <a class="btn btn-outline-primary my-1" href="{{route("user.structures.show", $structure->id)}}" role="button">Dettagli...</a><br>
             </div>
+            
+
         </div>
+
         @endforeach
         @endif
     </div>
-</div>    
+</div>
 <div id="map-div"></div>
 @endsection
