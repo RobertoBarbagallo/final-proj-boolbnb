@@ -8,7 +8,7 @@
 
 @include("partials.components.errors")
 <div class="container">
-    <form action="{{ route('user.structures.store') }}" method="post" id="postform" enctype="multipart/form-data">
+    <form action="" method="post" id="postform" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">
@@ -49,16 +49,18 @@
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="radio" name="visible" id="visible" value="0" checked>
-            <label class="form-check-label" for="visible">
-                Struttura visibile
-            </label>
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="radio" name="visible" id="visible" value="1">
-            <label class="form-check-label" for="visible">
-               Struttura non visibile
-            </label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="visible" id="visible" value="0" checked>
+                <label class="form-check-label" for="visible">
+                    Struttura visibile
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="visible" id="visible" value="1">
+                <label class="form-check-label" for="visible">
+                    Struttura non visibile
+                </label>
+            </div>
         </div>
 
         <div class="form-group">
