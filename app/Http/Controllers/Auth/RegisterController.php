@@ -77,7 +77,7 @@ class RegisterController extends Controller
         if(key_exists('user_img_path', $data)){
             $default_img = Storage::put('uploads', $data['user_img_path']);
         }
-
+        
         return User::create([
             'name' => $data['name'],
             'lastname' => $data['lastname'],
