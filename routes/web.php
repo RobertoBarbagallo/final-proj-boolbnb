@@ -20,8 +20,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-
 Route::prefix('user')
     ->namespace('user')
     ->middleware('auth')
