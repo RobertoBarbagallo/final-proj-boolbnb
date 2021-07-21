@@ -37401,7 +37401,20 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+var viewMessage = document.getElementById("viewMessage");
+var target = document.getElementById("target");
+var clickMessages = false;
+viewMessage.addEventListener("click", function () {
+  clickMessages = !clickMessages;
 
+  if (!clickMessages) {
+    target.className = "hidden";
+  } else {
+    target.className = "show";
+  }
+
+  console.log(clickMessages);
+});
 
 /***/ }),
 
