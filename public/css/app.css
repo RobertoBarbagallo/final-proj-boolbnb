@@ -10946,7 +10946,7 @@ a.text-dark:focus {
   width: 60px;
   height: 60px;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   border-radius: 50%;
 }
 
