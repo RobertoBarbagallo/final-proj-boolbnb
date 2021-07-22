@@ -17,4 +17,12 @@ class StructureController extends Controller
             'result' => $structures
         ]);
     }
+
+    public function filter(){
+        $structures = Structure::with('name')->get();
+        $name_filter = isset($_GET['name']) ? strtolower($_GET['name']) : "";
+        return response()->json([
+            'result' => $this->filter($structures, $name_filter),
+        ]);
+    }
 }
