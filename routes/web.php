@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('api/structure', 'Api\StructureController@index');
+
 Auth::routes();
 
 Route::prefix('user')

@@ -16,9 +16,9 @@ class StructureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $structures = Structure::all();
+        $structures = Structure::orderBy("id", "DESC")->where("user_id", $request->user()->id)->get();
         return view("user.structures.index",[
             'structures' => $structures
         ]);
