@@ -6,6 +6,7 @@ use Faker\Generator as Faker;
 
 use App\Message;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 
 class MessagesTableSeeder extends Seeder
@@ -17,12 +18,12 @@ class MessagesTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 5; $i++) { 
+        for ($i=0; $i < 8; $i++) { 
 
             DB::table('messages')->insert([
 
                 'sender_email' => $faker->unique()->Email,
-                'structure_id' => rand(1,5),
+                'structure_id' => rand(1,10),
                 'content' => $faker->text,
                 
             ]);

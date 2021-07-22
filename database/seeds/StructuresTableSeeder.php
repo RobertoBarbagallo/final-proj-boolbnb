@@ -17,7 +17,7 @@ class StructuresTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 5; $i++) { 
+        for ($i=0; $i < 10; $i++) { 
 
             $lang = 45.536363;
             $long = 10.142320;
@@ -29,7 +29,7 @@ class StructuresTableSeeder extends Seeder
                 'beds' => rand(1,8),
                 'bathrooms' => rand(1,4),
                 'sqm' => rand(60,500),
-                'user_id' => rand(1,5),
+                'user_id' => rand(1,10),
                 'slug' => Str::slug($name),
                 "lat" => $faker->latitude($min = ($lang - (rand(0,5000) / 1000)), $max = ($lang + (rand(0,500) / 1000))),
                 "lng" => $faker->longitude($min = ($long - (rand(0,5000) / 1000)), $max = ($long + (rand(0,500) / 1000))),
