@@ -16,8 +16,8 @@ class CreateStructuresTable extends Migration
         Schema::create('structures', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->decimal('lat', 8,6);
-            $table->decimal('long', 9,6);
+            $table->decimal('lat', 8,6)->nullable();
+            $table->decimal('lng', 9,6)->nullable();
             $table->tinyInteger('rooms');
             $table->tinyInteger('beds');
             $table->tinyInteger('bathrooms');

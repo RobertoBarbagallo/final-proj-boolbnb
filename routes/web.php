@@ -18,8 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('api/structure', 'Api\StructureController@index');
+
 Auth::routes();
-Auth::routes();
+
 
 Route::prefix('user')
     ->namespace('user')
