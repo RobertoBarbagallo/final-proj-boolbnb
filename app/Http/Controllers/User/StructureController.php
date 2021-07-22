@@ -176,6 +176,6 @@ class StructureController extends Controller
 
         $structure->delete();
 
-        return redirect()->route("user.structures.index");
+        return redirect()->route("user.structures.index" );
     }
 }
