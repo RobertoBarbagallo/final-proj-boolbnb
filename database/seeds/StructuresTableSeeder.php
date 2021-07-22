@@ -1,5 +1,8 @@
 <?php
 
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+use Faker\Generator as Faker;
 use Faker\Core\Number;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -12,17 +15,26 @@ class StructuresTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        DB::table('structures')->insert([
-            'name' => Str::random(6),
-            'lat' => rand(5,8),
-            'long' => rand(5,8),
-            'rooms' => rand(1,8),
-            'beds' => rand(1,8),
-            'bathrooms' => rand(1,4),
-            'sqm' => rand(60,500),
-            'user_id' => 1,
-        ]);
+        for ($i=0; $i < 2; $i++) { 
+
+            $lang = 45.536363;
+            $long = 10.142320;
+            $name = 'Hotel di '. $faker->name;
+
+            DB::table('structures')->insert([
+                'name' => $name,
+                'rooms' => rand(1,10),
+                'beds' => rand(1,8),
+                'bathrooms' => rand(1,4),
+                'sqm' => rand(60,500),
+                'user_id' => rand(1,14),
+                'slug' => Str::slug($name),
+                "lat" => $faker->latitude($min = ($lang - (rand(0,5000) / 1000)), $max = ($lang + (rand(0,500) / 1000))),
+                "long" => $faker->longitude($min = ($long - (rand(0,5000) / 1000)), $max = ($long + (rand(0,500) / 1000))),
+            ]);
+
+        }
     }
 }

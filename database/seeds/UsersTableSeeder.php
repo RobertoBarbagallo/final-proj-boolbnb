@@ -1,7 +1,8 @@
 <?php
 
-namespace Database\Seeders;
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -15,14 +16,22 @@ class UsersTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        DB::table('users')->insert([
-            'name' => Str::random(6),
-            'lastname' => Str::random(10),
-            'email' => Str::random(10).'@gmail.com',
-            'birth_date' => Carbon::create('2000', '01', '01'),
-            'password' => Hash::make('password'),
-        ]);
+        for ($i=0; $i < 20; $i++) { 
+
+            DB::table('users')->insert([
+                'name' => $faker->name,
+                'lastname' => $faker->lastName,
+                'email' => $faker->unique()->safeEmail,
+                'email_verified_at' => now(),
+                'password' => Hash::make('password'),
+                'birth_date' => Carbon::create(rand(1950, 2005), rand(1, 12), rand(1, 30)),
+                'remember_token' => Str::random(10),
+                'user_img_path' => 'defaults/default.png',
+            ]);
+
+        }
+
     }
 }
