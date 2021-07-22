@@ -21,7 +21,7 @@
 
         <div class="form-group">
             <label for="address">Indirizzo</label>
-            <input type="text" class="form-control" id="address" name="address" rows="5" aria-describedby="addressHelp" placeholder="Inserisci l'indirizzo"  >
+            <input type="text" class="form-control" id="address" name="address" rows="5" aria-describedby="addressHelp" placeholder="Inserisci l'indirizzo">
             <small id="addressHelp" class="form-text text-muted">Inserisci in questo campo l'indirizzo della struttura</small>
         </div>
 

@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::get('api/structure', 'Api\StructureController@index');
 
 Auth::routes();
+Auth::routes();
 
 Route::prefix('user')
     ->namespace('user')
