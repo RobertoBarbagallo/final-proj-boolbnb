@@ -37345,7 +37345,8 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./myScript */ "./resources/js/myScript.js");
+__webpack_require__(/*! ./myScript */ "./resources/js/myScript.js"); // import tt from '@tomtom-international/web-sdk-maps';
+// import tt from '@tomtom-international/web-sdk-services';
 
 /***/ }),
 
