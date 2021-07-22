@@ -12,15 +12,15 @@ class ServicesStructuresTableSeeder extends Seeder
      */
     public function run()
     {
-        // for ($i=1; $i < 15; $i++) { 
+        for ($i=1; $i < 15; $i++) { 
 
-        //     DB::table('service_structure')->insert([
+            DB::table('service_structure')->insert([
 
-        //         'structure_id' => $i,
-        //         'service_id' => rand(1,21),
+                'structure_id' => rand(1,5),
+                'service_id' => rand(1,21),
         
-        //     ]);
+            ]);
 
-        // }
+        }
     }
 }
