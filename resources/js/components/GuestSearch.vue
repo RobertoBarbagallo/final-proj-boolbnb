@@ -29,7 +29,6 @@ import axios from "axios";
    export default {
     name: "GuestSearch",
     props: {
-<<<<<<< HEAD
         name: Object,
     },
        data() {
@@ -39,11 +38,6 @@ import axios from "axios";
             filterBeds: "",
             filterResults: [],
         };
-=======
-        name: String,
-        cover_img_path: String,
-        
->>>>>>> 3c557b5c3c7cb9f57b6b2dfd4b5ea79adaa2ef31
     },
     computed: {
     },

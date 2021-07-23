@@ -1,4 +1,4 @@
- @dump($messages)
+
 @extends('layouts.app')
 
 @section('content')
