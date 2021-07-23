@@ -20,15 +20,8 @@
     name: "GuestSearch",
     props: {
         name: String,
-    },
-       data() {
-        return {
-            results: [],
-            structures: [],
-            filter: {
-                name: this.name,
-            }
-        };
+        cover_img_path: String,
+        
     },
     computed: {
     },
