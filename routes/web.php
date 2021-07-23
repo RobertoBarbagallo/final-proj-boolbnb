@@ -22,8 +22,6 @@ Route::match(array('GET', 'POST'), '/', 'HomeController@index')->name('home.inde
 Route::post("/search", 'HomeController@search')->name('home.search');
 Route::get('/guestsearch', 'HomeController@show')->name('home.show');
 
-Route::get('api/structure', 'Api\StructureController@index');
-
 Auth::routes();
 
 Route::prefix('user')
@@ -33,3 +31,5 @@ Route::prefix('user')
     ->group(function () {
         Route::resource("/structures", "StructureController");
     });
+
+// Route::get('api/structure', 'Api\StructureController@index');
