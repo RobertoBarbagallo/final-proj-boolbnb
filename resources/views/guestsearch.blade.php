@@ -2,9 +2,6 @@
 
 @dump($name)
 @section('content')
-    <guest-search
-    name = "{{$name}}"
-    >
-    </guest-search>
+    <guest-search name = "{{$name}}"></guest-search>
 
 @endsection    

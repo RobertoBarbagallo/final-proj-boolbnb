@@ -80,7 +80,7 @@
             @yield('content')
         </main>
     </div>
-    <script>
+    {{-- <script>
     const GOLDEN_GATE_BRIDGE = {lng: -122.47483, lat: 37.80776};
         var map = tt.map({
             key: 'Cywd0Bxu0V2NFQLj5nU7dAsTOAAWKZxm'
@@ -89,6 +89,6 @@
             , zoom: 12
         });
 
-    </script>
+    </script> --}}
 </body>
 </html>

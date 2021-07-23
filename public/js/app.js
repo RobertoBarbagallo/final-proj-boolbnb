@@ -1941,8 +1941,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1957,7 +1955,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GuestSearch",
   props: {
@@ -1966,18 +1966,21 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       results: [],
-      name: this.name
+      structures: [],
+      filter: {
+        name: this.name
+      }
     };
   },
   computed: {},
   mounted: function mounted() {
     var _this = this;
 
-    this.results = [];
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/structures/filter", {
-      params: this.name
+    axios;
+    get("/api/structures/filter", {
+      params: this.filter
     }).then(function (resp) {
-      _this.results = resp.data.results;
+      _this.structures = resp.data;
     })["catch"](function (er) {
       console.error(er);
       alert("Errore in fase di filtraggio dati.");
@@ -37765,9 +37768,7 @@ var render = function() {
         "div",
         { staticClass: "col-md-8" },
         [
-          _c("h1", [_vm._v(_vm._s(_vm.name))]),
-          _vm._v(" "),
-          _c("h3", [_vm._v(_vm._s(this.name))]),
+          _c("h1", [_vm._v("Ricerca: " + _vm._s(_vm.name))]),
           _vm._v(" "),
           _vm._l(_vm.results, function(result) {
             return _c("div", { key: result.id }, [
