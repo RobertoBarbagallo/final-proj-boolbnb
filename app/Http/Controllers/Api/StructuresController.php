@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Structure;
 use Illuminate\Http\Request;
 
-class StructureController extends Controller
+class StructuresController extends Controller
 {
     public function index(){
         
@@ -18,11 +18,15 @@ class StructureController extends Controller
         ]);
     }
 
-    public function filter(){
-        $structures = Structure::with('name')->get();
-        $name_filter = isset($_GET['name']) ? strtolower($_GET['name']) : "";
+    public function filter(Request $request){
+
+        $data = $request->get('name');
+
+        $structures = Structure::where('name', 'like', "%$data%")->get();
+
         return response()->json([
-            'result' => $this->filter($structures, $name_filter),
+            'success' => true,
+            'results' => $structures,
         ]);
     }
 }

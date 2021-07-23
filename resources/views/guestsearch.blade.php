@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @dump($name)
-@dump($structures)
-
-
 @section('content')
+    <guest-search
+    name = "{{$name}}"
+    >
+    </guest-search>
 
-@endsection
+@endsection    

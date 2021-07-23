@@ -33,3 +33,4 @@ class MessagesTableSeeder extends Seeder
        
     }
 }
+
