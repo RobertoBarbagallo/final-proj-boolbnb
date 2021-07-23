@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
-@dump($name)
 @section('content')
-    <guest-search name = "{{$name}}"></guest-search>
+    <guest-search
+    :name = "{{json_encode($name,TRUE)}}"
+    >
+    </guest-search>
 
 @endsection    

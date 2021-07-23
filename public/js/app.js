@@ -1937,48 +1937,9 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/GuestSearch.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "GuestSearch",
-  props: {
-    name: String,
-    cover_img_path: String
-  },
-  computed: {},
-  mounted: function mounted() {
-    var _this = this;
-
-    axios;
-    get("/api/structures/filter", {
-      params: this.filter
-    }).then(function (resp) {
-      _this.structures = resp.data;
-    })["catch"](function (er) {
-      console.error(er);
-      alert("Errore in fase di filtraggio dati.");
-    });
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/js/components/GuestSearch.vue: Unexpected token (51:0)\n\n\u001b[0m \u001b[90m 49 |\u001b[39m     }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 50 |\u001b[39m     mounted() {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 51 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 52 |\u001b[39m         axios\u001b[0m\n\u001b[0m \u001b[90m 53 |\u001b[39m             \u001b[36mget\u001b[39m(\u001b[32m\"/api/structures/filter\"\u001b[39m\u001b[33m,\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 54 |\u001b[39m                 params\u001b[33m:\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mfilter\u001b[0m\n    at Parser._raise (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:816:17)\n    at Parser.raiseWithData (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:809:17)\n    at Parser.raise (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:770:17)\n    at Parser.unexpected (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:9893:16)\n    at Parser.parseExprAtom (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11307:20)\n    at Parser.parseExprSubscripts (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10881:23)\n    at Parser.parseUpdate (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10861:21)\n    at Parser.parseMaybeUnary (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10839:23)\n    at Parser.parseExprOps (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10696:23)\n    at Parser.parseMaybeConditional (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10670:23)\n    at Parser.parseMaybeAssign (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10633:21)\n    at Parser.parseExpressionBase (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10573:23)\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10567:39\n    at Parser.allowInAnd (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:12328:16)\n    at Parser.parseExpression (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10567:17)\n    at Parser.parseStatementContent (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:12665:23)\n    at Parser.parseStatement (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:12534:17)\n    at Parser.parseBlockOrModuleBlockBody (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:13123:25)\n    at Parser.parseBlockBody (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:13114:10)\n    at Parser.parseBlock (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:13098:10)\n    at Parser.parseFunctionBody (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11989:24)\n    at Parser.parseFunctionBodyAndFinish (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11973:10)\n    at Parser.parseMethod (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11923:10)\n    at Parser.parseObjectMethod (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11851:19)\n    at Parser.parseObjPropValue (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11884:23)\n    at Parser.parsePropertyDefinition (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11808:10)\n    at Parser.parseObjectLike (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11699:25)\n    at Parser.parseExprAtom (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11223:23)\n    at Parser.parseExprSubscripts (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10881:23)\n    at Parser.parseUpdate (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10861:21)\n    at Parser.parseMaybeUnary (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10839:23)\n    at Parser.parseExprOps (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10696:23)\n    at Parser.parseMaybeConditional (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10670:23)\n    at Parser.parseMaybeAssign (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10633:21)\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10595:39\n    at Parser.allowInAnd (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:12328:16)");
 
 /***/ }),
 
@@ -37755,20 +37716,63 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.avancedSearch.apply(null, arguments)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "mb-3" }, [
+          _c("label", { attrs: { for: "beds" } }, [_vm._v("Numero di Ospiti")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.filterBeds,
+                expression: "filterBeds"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "number", id: "beds", placeholder: "beds" },
+            domProps: { value: _vm.filterBeds },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.filterBeds = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+          [_vm._v("Filtra")]
+        )
+      ]
+    ),
+    _vm._v(" "),
     _c("div", { staticClass: "row justify-content-center" }, [
       _c(
         "div",
         { staticClass: "col-md-8" },
-        [
-          _c("h1", [_vm._v("Ricerca: " + _vm._s(_vm.name))]),
-          _vm._v(" "),
-          _vm._l(_vm.results, function(result) {
-            return _c("div", { key: result.id }, [
-              _c("h3", [_vm._v(_vm._s(result.name))])
-            ])
-          })
-        ],
-        2
+        _vm._l(this.filterResults, function(result) {
+          return _c("div", { key: result.id }, [
+            _c("h3", [_vm._v(_vm._s(result.name))]),
+            _vm._v(" "),
+            _c("h4", [_vm._v(_vm._s(result.beds))])
+          ])
+        }),
+        0
       )
     ])
   ])

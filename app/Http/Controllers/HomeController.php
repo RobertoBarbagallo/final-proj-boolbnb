@@ -41,12 +41,9 @@ class HomeController extends Controller
 
     public function show(Request $request)
     {
-        $name = $request->input('name');
-        $structures = Structure::all();
+        $name = json_encode($request->query());
         return view("guestsearch", [
-            "name" => $name,
-            "structures" => $structures
-
+            "name" => json_decode($name, true)
         ]);
     }
 
