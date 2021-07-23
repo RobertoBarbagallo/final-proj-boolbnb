@@ -1,3 +1,4 @@
+ @dump($messages)
 @extends('layouts.app')
 
 @section('content')
@@ -30,7 +31,12 @@
     </div>
 
     <div class="btn-row row d-flex justify-content-center align-items-center">
-        <button type="button" class="btn btn-primary my-2 mx-3"><a class="text-light" href="{{ route('user.structures.edit', $structure->id) }}"><i class="fa fa-pencil-square text-secondary" aria-hidden="true"> Modifica</i></a></button>
+    <show-buttons 
+    edit-link = "{{ route('user.structures.edit', $structure->id) }}"
+    :structure-messages ="{{$messages}}"
+    >
+    </show-buttons>
+        {{-- <button type="button" class="btn btn-primary my-2 mx-3"><a class="text-light" href="{{ route('user.structures.edit', $structure->id) }}"><i class="fa fa-pencil-square text-secondary" aria-hidden="true"> Modifica</i></a></button>
         <form action="{{ route('user.structures.destroy', $structure->id) }}" method="post"  id="delete_form">
             @csrf
             @method('DELETE')
@@ -44,7 +50,7 @@
             <p>{{ $message->content }}</p>
         </div>
         @endforeach
-        @endif
+        @endif --}}
     </div>
 </div>
 @endsection

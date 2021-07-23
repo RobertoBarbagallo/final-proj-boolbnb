@@ -1991,12 +1991,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GuestSearch",
-  props: {// EditLink: String,
-    // StructureMessages: String,
+  props: {
+    EditLink: String,
+    StructureMessages: JSON
   },
-  computed: {}
+  data: function data() {
+    return {
+      ClickMessages: false
+    };
+  },
+  computed: {},
+  methods: {
+    ShowMessages: function ShowMessages() {
+      this.ClickMessages = !this.ClickMessages;
+    }
+  },
+  mounted: function mounted() {
+    this.StructureMessages = JSON.parse(StructureMessages);
+  }
 });
 
 /***/ }),
@@ -37744,46 +37769,62 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "button",
+      { staticClass: "btn btn-primary my-2 mx-3", attrs: { type: "button" } },
+      [
+        _c("a", { staticClass: "text-light", attrs: { href: this.EditLink } }, [
+          _c(
+            "i",
+            {
+              staticClass: "fa fa-pencil-square text-secondary",
+              attrs: { "aria-hidden": "true" }
+            },
+            [_vm._v("\n        Modifica")]
+          )
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    this.StructureMessages
+      ? _c(
+          "button",
+          { staticClass: "btn btn-primary", on: { click: _vm.ShowMessages } },
+          [_vm._v("\n    Visualizza messaggi\n  ")]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    this.ClickMessages
+      ? _c(
+          "div",
+          _vm._l(_vm.StructureMessages, function(meessage) {
+            return _c("div", { key: meessage.id, staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [_vm._v("Messaggio")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(meessage.sender_email))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(_vm._s(meessage.content))
+                ]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "btn btn-primary", attrs: { href: "#" } },
+                  [_vm._v("Go somewhere")]
+                )
+              ])
+            ])
+          }),
+          0
+        )
+      : _vm._e()
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary my-2 mx-3", attrs: { type: "button" } },
-        [
-          _c("a", { staticClass: "text-light", attrs: { href: "#" } }, [
-            _c(
-              "i",
-              {
-                staticClass: "fa fa-pencil-square text-secondary",
-                attrs: { "aria-hidden": "true" }
-              },
-              [_vm._v("\n        Modifica")]
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary my-2 mx-3",
-          attrs: { id: "viewMessage" }
-        },
-        [_vm._v("\n    Visualizza messaggi\n  ")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "hidden", attrs: { id: "target" } }, [
-        _c("p", [_vm._v("ciao")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
