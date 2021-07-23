@@ -1973,15 +1973,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GuestSearch",
   props: {
-    name: Object
-  },
-  data: function data() {
-    return {
-      search: this.name,
-      results: [],
-      filterBeds: "",
-      filterResults: []
-    };
+    name: String,
+    cover_img_path: String
   },
   computed: {},
   methods: {
