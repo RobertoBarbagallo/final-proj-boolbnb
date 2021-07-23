@@ -25,15 +25,11 @@ class MessagesTableSeeder extends Seeder
                 'sender_email' => $faker->unique()->Email,
                 'structure_id' => rand(1,10),
                 'content' => $faker->text,
-                
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
 
         }
-        // $new_message = new Message();
-        // $new_message->sender_email = "ciao@ciao.com";
-        // $new_message->content = "ciao";
-        // $new_message->structure_id = 1;
-        // $new_message->save();
        
     }
 }
