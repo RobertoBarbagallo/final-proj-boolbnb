@@ -1957,27 +1957,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GuestSearch",
   props: {
-    name: String
+    name: Object
   },
   data: function data() {
     return {
+      search: this.name,
       results: [],
-      name: this.name
+      filterBeds: "",
+      filterResults: []
     };
   },
   computed: {},
-  mounted: function mounted() {
-    var _this = this;
+  methods: {
+    avancedSearch: function avancedSearch() {
+      var _this = this;
 
-    this.results = [];
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/structures/filter", {
-      params: this.name
-    }).then(function (resp) {
-      _this.results = resp.data.results;
+      return this.filterResults = this.results.filter(function (el) {
+        return el.beds > _this.filterBeds;
+      });
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    var params = new URLSearchParams(this.search).toString();
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/structures/filter?" + params).then(function (resp) {
+      _this2.results = resp.data.results;
+      _this2.filterResults = resp.data.results;
     })["catch"](function (er) {
       console.error(er);
       alert("Errore in fase di filtraggio dati.");
@@ -37760,22 +37782,63 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.avancedSearch.apply(null, arguments)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "mb-3" }, [
+          _c("label", { attrs: { for: "beds" } }, [_vm._v("Numero di Ospiti")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.filterBeds,
+                expression: "filterBeds"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "number", id: "beds", placeholder: "beds" },
+            domProps: { value: _vm.filterBeds },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.filterBeds = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+          [_vm._v("Filtra")]
+        )
+      ]
+    ),
+    _vm._v(" "),
     _c("div", { staticClass: "row justify-content-center" }, [
       _c(
         "div",
         { staticClass: "col-md-8" },
-        [
-          _c("h1", [_vm._v(_vm._s(_vm.name))]),
-          _vm._v(" "),
-          _c("h3", [_vm._v(_vm._s(this.name))]),
-          _vm._v(" "),
-          _vm._l(_vm.results, function(result) {
-            return _c("div", { key: result.id }, [
-              _c("h3", [_vm._v(_vm._s(result.name))])
-            ])
-          })
-        ],
-        2
+        _vm._l(this.filterResults, function(result) {
+          return _c("div", { key: result.id }, [
+            _c("h3", [_vm._v(_vm._s(result.name))]),
+            _vm._v(" "),
+            _c("h4", [_vm._v(_vm._s(result.beds))])
+          ])
+        }),
+        0
       )
     ])
   ])

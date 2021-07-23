@@ -21,6 +21,7 @@ class StructuresController extends Controller
     public function filter(Request $request){
 
         $data = $request->get('name');
+        
 
         $structures = Structure::where('name', 'like', "%$data%")->get();
 
