@@ -10942,19 +10942,3 @@ a.text-dark:focus {
   }
 }
 
-.avatar {
-  width: 60px;
-  height: 60px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  border-radius: 50%;
-}
-
-.hidden {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
