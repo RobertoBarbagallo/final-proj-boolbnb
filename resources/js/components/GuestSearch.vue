@@ -18,7 +18,7 @@
                 <div v-for="result in this.filterResults" :key="result.id">
                     <h3>{{result.name}}</h3>
                     <h4>{{result.beds}}</h4>
-                    
+
                 </div>
             </div>
         </div>
@@ -60,6 +60,7 @@ import axios from "axios";
                 .catch(er => {
                     console.error(er);
                     alert("Errore in fase di filtraggio dati.");
+                    
                 });
         },
 };
