@@ -1962,6 +1962,70 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ShowButtons.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ShowButtons.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "GuestSearch",
+  props: {
+    EditLink: String,
+    StructureMessages: JSON
+  },
+  data: function data() {
+    return {
+      ClickMessages: false
+    };
+  },
+  computed: {},
+  methods: {
+    ShowMessages: function ShowMessages() {
+      this.ClickMessages = !this.ClickMessages;
+    }
+  },
+  mounted: function mounted() {
+    this.StructureMessages = JSON.parse(StructureMessages);
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -37690,6 +37754,83 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ShowButtons.vue?vue&type=template&id=04400ea9&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ShowButtons.vue?vue&type=template&id=04400ea9& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "button",
+      { staticClass: "btn btn-primary my-2 mx-3", attrs: { type: "button" } },
+      [
+        _c("a", { staticClass: "text-light", attrs: { href: this.EditLink } }, [
+          _c(
+            "i",
+            {
+              staticClass: "fa fa-pencil-square text-secondary",
+              attrs: { "aria-hidden": "true" }
+            },
+            [_vm._v("\n        Modifica")]
+          )
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    this.StructureMessages
+      ? _c(
+          "button",
+          { staticClass: "btn btn-primary", on: { click: _vm.ShowMessages } },
+          [_vm._v("\n    Visualizza messaggi\n  ")]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    this.ClickMessages
+      ? _c(
+          "div",
+          _vm._l(_vm.StructureMessages, function(meessage) {
+            return _c("div", { key: meessage.id, staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [_vm._v("Messaggio")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(meessage.sender_email))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(_vm._s(meessage.content))
+                ]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "btn btn-primary", attrs: { href: "#" } },
+                  [_vm._v("Go somewhere")]
+                )
+              ])
+            ])
+          }),
+          0
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -49910,7 +50051,8 @@ module.exports = function(module) {
 
 var map = {
 	"./components/ExampleComponent.vue": "./resources/js/components/ExampleComponent.vue",
-	"./components/GuestSearch.vue": "./resources/js/components/GuestSearch.vue"
+	"./components/GuestSearch.vue": "./resources/js/components/GuestSearch.vue",
+	"./components/ShowButtons.vue": "./resources/js/components/ShowButtons.vue"
 };
 
 
@@ -49963,14 +50105,10 @@ var files = __webpack_require__("./resources/js sync recursive \\.vue$/");
 files.keys().map(function (key) {
   return Vue.component(key.split('/').pop().split('.')[0], files(key)["default"]);
 }); // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-<<<<<<< HEAD
-
-=======
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
->>>>>>> c3297676421aa4450365ee45e2e9e0ecd00e8cdc
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50166,6 +50304,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/ShowButtons.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/ShowButtons.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ShowButtons_vue_vue_type_template_id_04400ea9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ShowButtons.vue?vue&type=template&id=04400ea9& */ "./resources/js/components/ShowButtons.vue?vue&type=template&id=04400ea9&");
+/* harmony import */ var _ShowButtons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ShowButtons.vue?vue&type=script&lang=js& */ "./resources/js/components/ShowButtons.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ShowButtons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ShowButtons_vue_vue_type_template_id_04400ea9___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ShowButtons_vue_vue_type_template_id_04400ea9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ShowButtons.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ShowButtons.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/ShowButtons.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowButtons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ShowButtons.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ShowButtons.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowButtons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ShowButtons.vue?vue&type=template&id=04400ea9&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/ShowButtons.vue?vue&type=template&id=04400ea9& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowButtons_vue_vue_type_template_id_04400ea9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ShowButtons.vue?vue&type=template&id=04400ea9& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ShowButtons.vue?vue&type=template&id=04400ea9&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowButtons_vue_vue_type_template_id_04400ea9___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShowButtons_vue_vue_type_template_id_04400ea9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -50184,13 +50391,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 __webpack_require__(/*! /Users/robertobarbagallo/Desktop/final-proj-boolbnb/resources/js/app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! /Users/robertobarbagallo/Desktop/final-proj-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
->>>>>>> c3297676421aa4450365ee45e2e9e0ecd00e8cdc
 
 
 /***/ })

@@ -103,8 +103,10 @@ class StructureController extends Controller
      */
     public function show(Structure $structure)
     {
+        $messages = json_encode($structure->messages, FALSE);
         return view("user.structures.show", [
-            "structure" => $structure
+            "structure" => $structure,
+            "messages" => $messages
         ]);
     }
 
