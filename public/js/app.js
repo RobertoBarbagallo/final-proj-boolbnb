@@ -1937,9 +1937,72 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/GuestSearch.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/js/components/GuestSearch.vue: Unexpected token (51:0)\n\n\u001b[0m \u001b[90m 49 |\u001b[39m     }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 50 |\u001b[39m     mounted() {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 51 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 52 |\u001b[39m         axios\u001b[0m\n\u001b[0m \u001b[90m 53 |\u001b[39m             \u001b[36mget\u001b[39m(\u001b[32m\"/api/structures/filter\"\u001b[39m\u001b[33m,\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 54 |\u001b[39m                 params\u001b[33m:\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mfilter\u001b[0m\n    at Parser._raise (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:816:17)\n    at Parser.raiseWithData (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:809:17)\n    at Parser.raise (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:770:17)\n    at Parser.unexpected (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:9893:16)\n    at Parser.parseExprAtom (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11307:20)\n    at Parser.parseExprSubscripts (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10881:23)\n    at Parser.parseUpdate (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10861:21)\n    at Parser.parseMaybeUnary (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10839:23)\n    at Parser.parseExprOps (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10696:23)\n    at Parser.parseMaybeConditional (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10670:23)\n    at Parser.parseMaybeAssign (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10633:21)\n    at Parser.parseExpressionBase (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10573:23)\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10567:39\n    at Parser.allowInAnd (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:12328:16)\n    at Parser.parseExpression (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10567:17)\n    at Parser.parseStatementContent (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:12665:23)\n    at Parser.parseStatement (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:12534:17)\n    at Parser.parseBlockOrModuleBlockBody (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:13123:25)\n    at Parser.parseBlockBody (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:13114:10)\n    at Parser.parseBlock (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:13098:10)\n    at Parser.parseFunctionBody (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11989:24)\n    at Parser.parseFunctionBodyAndFinish (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11973:10)\n    at Parser.parseMethod (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11923:10)\n    at Parser.parseObjectMethod (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11851:19)\n    at Parser.parseObjPropValue (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11884:23)\n    at Parser.parsePropertyDefinition (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11808:10)\n    at Parser.parseObjectLike (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11699:25)\n    at Parser.parseExprAtom (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:11223:23)\n    at Parser.parseExprSubscripts (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10881:23)\n    at Parser.parseUpdate (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10861:21)\n    at Parser.parseMaybeUnary (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10839:23)\n    at Parser.parseExprOps (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10696:23)\n    at Parser.parseMaybeConditional (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10670:23)\n    at Parser.parseMaybeAssign (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10633:21)\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:10595:39\n    at Parser.allowInAnd (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/@babel/parser/lib/index.js:12328:16)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "GuestSearch",
+  props: {
+    name: Object
+  },
+  data: function data() {
+    return {
+      search: this.name,
+      results: [],
+      filterBeds: "",
+      filterResults: []
+    };
+  },
+  computed: {},
+  methods: {
+    avancedSearch: function avancedSearch() {
+      var _this = this;
+
+      return this.filterResults = this.results.filter(function (el) {
+        return el.beds >= _this.filterBeds;
+      });
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    var params = new URLSearchParams(this.search).toString();
+    axios.get("/api/structures/filter?" + params).then(function (resp) {
+      _this2.results = resp.data.results;
+      _this2.filterResults = resp.data.results;
+    })["catch"](function (er) {
+      console.error(er);
+      alert("Errore in fase di filtraggio dati.");
+    });
+  }
+});
 
 /***/ }),
 

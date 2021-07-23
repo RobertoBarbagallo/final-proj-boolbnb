@@ -48,21 +48,6 @@
 
     },
     mounted() {
-<<<<<<< HEAD
-        axios
-            get("/api/structures/filter", {
-                params: this.filter
-            })
-            .then((resp) => {
-                this.structures = resp.data;
-            })
-            .catch(er => {
-                console.error(er);
-                alert("Errore in fase di filtraggio dati.");
-            });
-    }
-}
-=======
     let params = new URLSearchParams(this.search).toString()
        axios
                 .get("/api/structures/filter?" + params)
@@ -77,5 +62,4 @@
                 });
         },
 };
->>>>>>> 3342feac4fdf1238847e60d52c3897691870e990
 </script>
