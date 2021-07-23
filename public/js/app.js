@@ -1969,6 +1969,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GuestSearch",
@@ -1979,8 +1994,14 @@ __webpack_require__.r(__webpack_exports__);
     return {
       search: this.name,
       results: [],
-      filterBeds: "",
-      filterResults: []
+      filterResults: [],
+      servicesList: [],
+      matchingStructures: [],
+      requestUrl: "",
+      filters: {
+        filterBeds: null,
+        filterServices: null
+      }
     };
   },
   computed: {},
@@ -1988,18 +2009,40 @@ __webpack_require__.r(__webpack_exports__);
     avancedSearch: function avancedSearch() {
       var _this = this;
 
-      return this.filterResults = this.results.filter(function (el) {
-        return el.beds >= _this.filterBeds;
-      });
+      // this.filterResults = this.results.filter(
+      //     (el) => el.beds >= this.filterBeds); 
+      // this.filterResults.forEach(element => {
+      //     console.log(element)
+      var params = new URLSearchParams(this.filters).toString();
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.url + params).then(function (resp) {
+        _this.matchingStructures = resp.data.results;
+      })["catch"](function (er) {
+        console.error(er);
+        alert("Errore in fase di filtraggio dati.");
+      }); //ELEMENT OVVERO LE STRUTTURE CON NUMERO DI LETTI SELEZIONATI IN REALTA' NON HANNO UNA CHIAVE "SERVIZI" POICHE' LA RELAZIONE ESISTE IN PHP MA NON IN JS (al momento)
+      //SUGGERISCO DI PENSARE AD UN MODO PER INTERROGARE NUOVAMENTE L'API
+      //mi salverei l'url della prima ricerca in una varialbile, poi passerei i vuovi filtri alla api che gestirà tutti i campi es:
+      // let params = new URLSearchParams(this.filters).toString();
+      // if(element.services.some(r=> selectedServices.indexOf(r) >= 0)){
+      //     element.push(matchingStructures)
+      // }    
     }
   },
   mounted: function mounted() {
     var _this2 = this;
 
     var params = new URLSearchParams(this.search).toString();
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/structures/services").then(function (resp) {
+      _this2.servicesList = resp.data.results;
+    })["catch"](function (er) {
+      console.error(er);
+      alert("Errore in fase di filtraggio dati.");
+    });
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/structures/filter?" + params).then(function (resp) {
+      _this2.requestUrl = resp.data.url;
       _this2.results = resp.data.results;
       _this2.filterResults = resp.data.results;
+      _this2.matchingStructures = resp.data.results;
     })["catch"](function (er) {
       console.error(er);
       alert("Errore in fase di filtraggio dati.");
@@ -37817,6 +37860,64 @@ var render = function() {
               }
             }
           })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Servizi")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-check form-check-inline" },
+            _vm._l(this.servicesList, function(service) {
+              return _c(
+                "label",
+                { key: service.id, staticClass: "form-check-label" },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.filterServices,
+                        expression: "filterServices"
+                      }
+                    ],
+                    staticClass: "form-check-input",
+                    attrs: { name: "services[]", type: "checkbox" },
+                    domProps: {
+                      value: service.id,
+                      checked: Array.isArray(_vm.filterServices)
+                        ? _vm._i(_vm.filterServices, service.id) > -1
+                        : _vm.filterServices
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.filterServices,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = service.id,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 && (_vm.filterServices = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.filterServices = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.filterServices = $$c
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v("\n          " + _vm._s(service.name) + "\n        ")
+                ]
+              )
+            }),
+            0
+          )
         ]),
         _vm._v(" "),
         _c(
