@@ -14,6 +14,7 @@
     props: {
         name: String,
         cover_img_path: String,
+        
     },
     computed: {
 
