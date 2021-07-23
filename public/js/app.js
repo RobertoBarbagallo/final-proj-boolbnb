@@ -1989,7 +1989,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       return this.filterResults = this.results.filter(function (el) {
-        return el.beds > _this.filterBeds;
+        return el.beds >= _this.filterBeds;
       });
     }
   },

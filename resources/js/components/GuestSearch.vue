@@ -44,7 +44,7 @@ import axios from "axios";
     methods: {
 
         avancedSearch(){
-            return  this.filterResults = this.results.filter((el)=>el.beds > this.filterBeds)
+            return  this.filterResults = this.results.filter((el)=>el.beds >= this.filterBeds)
         }
 
     },
