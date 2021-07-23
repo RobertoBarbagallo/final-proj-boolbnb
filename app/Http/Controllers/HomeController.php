@@ -42,8 +42,11 @@ class HomeController extends Controller
     public function show(Request $request)
     {
         $name = $request->input('name');
+        $structures = Structure::all();
         return view("guestsearch", [
-            "name" => $name
+            "name" => $name,
+            "structures" => $structures
+
         ]);
     }
 
