@@ -18,19 +18,17 @@ class UsersTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 5; $i++) { 
+        for ($i=0; $i < 10; $i++) { 
 
             DB::table('users')->insert([
                 'name' => $faker->name,
                 'lastname' => $faker->lastName,
-                'email' => $faker->unique()->safeEmail,
+                'email' => $faker->unique()->Email,
                 'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
-                // 'password' => Hash::make('password'),
                 'password' => 'password',
                 'birth_date' => Carbon::create(rand(1950, 2005), rand(1, 12), rand(1, 30)),
-                'remember_token' => Str::random(10),
                 'user_img_path' => 'defaults/default.png',
             ]);
 

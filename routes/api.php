@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/structures', 'Api\StructuresController@index');
+Route::get('/structures/filter', 'Api\StructuresController@filter');
+Route::get('/structures/services', 'Api\StructuresController@servicesList');

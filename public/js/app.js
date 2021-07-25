@@ -1941,6 +1941,147 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "GuestSearch",
+  props: {
+    name: Object
+  },
+  data: function data() {
+    return {
+      search: this.name,
+      results: [],
+      filterResults: [],
+      servicesList: [],
+      matchingStructures: [],
+      requestUrl: "",
+      filters: {
+        filterBeds: null,
+        filterServices: null
+      }
+    };
+  },
+  computed: {},
+  methods: {
+    avancedSearch: function avancedSearch() {
+      var _this = this;
+
+      // this.filterResults = this.results.filter(
+      //     (el) => el.beds >= this.filterBeds); 
+      // this.filterResults.forEach(element => {
+      //     console.log(element)
+      var params = new URLSearchParams(this.filters).toString();
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.url + params).then(function (resp) {
+        _this.matchingStructures = resp.data.results;
+      })["catch"](function (er) {
+        console.error(er);
+        alert("Errore in fase di filtraggio dati.");
+      }); //ELEMENT OVVERO LE STRUTTURE CON NUMERO DI LETTI SELEZIONATI IN REALTA' NON HANNO UNA CHIAVE "SERVIZI" POICHE' LA RELAZIONE ESISTE IN PHP MA NON IN JS (al momento)
+      //SUGGERISCO DI PENSARE AD UN MODO PER INTERROGARE NUOVAMENTE L'API
+      //mi salverei l'url della prima ricerca in una varialbile, poi passerei i vuovi filtri alla api che gestirà tutti i campi es:
+      // let params = new URLSearchParams(this.filters).toString();
+      // if(element.services.some(r=> selectedServices.indexOf(r) >= 0)){
+      //     element.push(matchingStructures)
+      // }    
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    var params = new URLSearchParams(this.search).toString();
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/structures/services").then(function (resp) {
+      _this2.servicesList = resp.data.results;
+    })["catch"](function (er) {
+      console.error(er);
+      alert("Errore in fase di filtraggio dati.");
+    });
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/structures/filter?" + params).then(function (resp) {
+      _this2.requestUrl = resp.data.url;
+      _this2.results = resp.data.results;
+      _this2.filterResults = resp.data.results;
+      _this2.matchingStructures = resp.data.results;
+    })["catch"](function (er) {
+      console.error(er);
+      alert("Errore in fase di filtraggio dati.");
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ShowButtons.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ShowButtons.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1954,10 +2095,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GuestSearch",
   props: {
-    name: String,
-    cover_img_path: String
+    EditLink: String,
+    StructureMessages: JSON
   },
-  computed: {}
+  data: function data() {
+    return {
+      ClickMessages: false
+    };
+  },
+  computed: {},
+  methods: {
+    ShowMessages: function ShowMessages() {
+      this.ClickMessages = !this.ClickMessages;
+    }
+  },
+  mounted: function mounted() {
+    this.StructureMessages = JSON.parse(StructureMessages);
+  }
 });
 
 /***/ }),
@@ -37709,20 +37863,204 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" })
-      ])
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.avancedSearch.apply(null, arguments)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "mb-3" }, [
+          _c("label", { attrs: { for: "beds" } }, [_vm._v("Numero di Ospiti")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.filterBeds,
+                expression: "filterBeds"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "number", id: "beds", placeholder: "beds" },
+            domProps: { value: _vm.filterBeds },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.filterBeds = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Servizi")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-check form-check-inline" },
+            _vm._l(this.servicesList, function(service) {
+              return _c(
+                "label",
+                { key: service.id, staticClass: "form-check-label" },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.filterServices,
+                        expression: "filterServices"
+                      }
+                    ],
+                    staticClass: "form-check-input",
+                    attrs: { name: "services[]", type: "checkbox" },
+                    domProps: {
+                      value: service.id,
+                      checked: Array.isArray(_vm.filterServices)
+                        ? _vm._i(_vm.filterServices, service.id) > -1
+                        : _vm.filterServices
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.filterServices,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = service.id,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 && (_vm.filterServices = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.filterServices = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.filterServices = $$c
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v("\n          " + _vm._s(service.name) + "\n        ")
+                ]
+              )
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+          [_vm._v("Filtra")]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-8" },
+        _vm._l(this.filterResults, function(result) {
+          return _c("div", { key: result.id }, [
+            _c("h3", [_vm._v(_vm._s(result.name))]),
+            _vm._v(" "),
+            _c("h4", [_vm._v(_vm._s(result.beds))])
+          ])
+        }),
+        0
+      )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ShowButtons.vue?vue&type=template&id=04400ea9&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ShowButtons.vue?vue&type=template&id=04400ea9& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "button",
+      { staticClass: "btn btn-primary my-2 mx-3", attrs: { type: "button" } },
+      [
+        _c("a", { staticClass: "text-light", attrs: { href: this.EditLink } }, [
+          _c(
+            "i",
+            {
+              staticClass: "fa fa-pencil-square text-secondary",
+              attrs: { "aria-hidden": "true" }
+            },
+            [_vm._v("\n        Modifica")]
+          )
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    this.StructureMessages
+      ? _c(
+          "button",
+          { staticClass: "btn btn-primary", on: { click: _vm.ShowMessages } },
+          [_vm._v("\n    Visualizza messaggi\n  ")]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    this.ClickMessages
+      ? _c(
+          "div",
+          _vm._l(_vm.StructureMessages, function(meessage) {
+            return _c("div", { key: meessage.id, staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [_vm._v("Messaggio")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(meessage.sender_email))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(_vm._s(meessage.content))
+                ]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  { staticClass: "btn btn-primary", attrs: { href: "#" } },
+                  [_vm._v("Go somewhere")]
+                )
+              ])
+            ])
+          }),
+          0
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -50068,6 +50406,10 @@ files.keys().map(function (key) {
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+<<<<<<< HEAD
+=======
+Vue.component('guest-search', __webpack_require__(/*! ./components/GuestSearch.vue */ "./resources/js/components/GuestSearch.vue")["default"]);
+>>>>>>> 23e5ad82b7434faeff3df5ba98e41a13fd5b1c95
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50350,8 +50692,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\stefa\Documents\VisualStudio\final-proj-boolbnb\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\stefa\Documents\VisualStudio\final-proj-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+>>>>>>> 23e5ad82b7434faeff3df5ba98e41a13fd5b1c95
 
 
 /***/ })

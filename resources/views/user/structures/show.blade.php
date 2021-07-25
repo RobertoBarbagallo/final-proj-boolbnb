@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -30,21 +31,11 @@
     </div>
 
     <div class="btn-row row d-flex justify-content-center align-items-center">
-        <button type="button" class="btn btn-primary my-2 mx-3"><a class="text-light" href="{{ route('user.structures.edit', $structure->id) }}"><i class="fa fa-pencil-square text-secondary" aria-hidden="true"> Modifica</i></a></button>
-        <form action="{{ route('user.structures.destroy', $structure->id) }}" method="post"  id="delete_form">
-            @csrf
-            @method('DELETE')
-            <input class="btn btn-danger" type="submit"  value="Cancella">
-        </form>
-        @if(count($structure->messages) > 0)
-        <button class="btn btn-primary my-2 mx-3" id="viewMessage">Visualizza messaggi</button>
-        @foreach($structure->messages as $message)
-        <div id="target" class="hidden">
-            <p>{{ $message->sender_email }}</p>
-            <p>{{ $message->content }}</p>
-        </div>
-        @endforeach
-        @endif
+    <show-buttons 
+    edit-link = "{{ route('user.structures.edit', $structure->id) }}"
+    :structure-messages ="{{$messages}}"
+    >
+    </show-buttons>
     </div>
 </div>
 @endsection
