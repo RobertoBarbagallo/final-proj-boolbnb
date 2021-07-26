@@ -17,6 +17,7 @@
                 <h5 class="text-secondary">Letti disponibili: {{ $structure->beds }}</h5>
                 <h5 class="text-secondary">Bagni : {{ $structure->bathrooms }}</h5>
                 <h5 class="text-secondary">Metri quadri struttura: {{ $structure->sqm }}</h5>
+                <h5 class="text-secondary">Indirizzo Struttura: {{ $address }}</h5>
                 <div>
                     <img src="{{ $structure->cover_image_url ? asset('storage/' . $structure->cover_img_url) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png'}}" alt="">
                 </div>
@@ -39,5 +40,16 @@
     </div>
     <div id="map-div"></div>
 </div>
+@endsection
+@section('script')
+<script src="{{ asset('js/mapsScript.js') }}" defer></script>
+<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.5.0/maps/maps-web.min.js"></script>
+
+<script>
+
+    var lat = @JSON($structure['lat']);
+    var lng = @JSON($structure['lng']);
+
+</script>
 
 @endsection
