@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Service;
 use App\Structure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -62,10 +63,14 @@ class StructureController extends Controller
             'cover_img_path' => ['mimes:jpeg,jpg,bmp,png,svg,webp,gif']
         ]);
 
-
-
+        $address = $request->address;
+        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/geocode/' . $address. '.json?limit=1&key=qISPPmwNd3vUBqM2P2ONkZuJGTaaQEmb')->json();
+            $lat = $response['results'][0]['position']['lat'];
+            $lng = $response['results'][0]['position']['lon'];
         $newStructure = new Structure();
         $newStructure->fill($newStructureData);
+        $newStructure->lat = $lat;
+        $newStructure->lng = $lng;
         $slug = Str::slug($newStructure->name);
         $slug_base = $slug;
         $slugExist = Structure::where('slug', $slug)->first();
@@ -120,9 +125,17 @@ class StructureController extends Controller
     {
         $services = Service::all();
 
+
+        $lat = $structure->lat;
+        $lng = $structure->lng;
+
+        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/reverseGeocode/' . $lat. '%2C%20' . $lng . '.json?limit=1&key=qISPPmwNd3vUBqM2P2ONkZuJGTaaQEmb')->json();
+            $readableAddress = $response['addresses'][0]['address']['freeformAddress'];
+
         return view("user.structures.edit", [
             "structure" => $structure,
             "services" => $services,
+            "address" => $readableAddress
         ]);
     }
 

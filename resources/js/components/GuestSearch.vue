@@ -40,6 +40,7 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import axios from "axios";
 export default {
   name: "GuestSearch",
@@ -65,6 +66,24 @@ export default {
     avancedSearch() {
     // this.filterResults = this.results.filter(
     //     (el) => el.beds >= this.filterBeds); 
+=======
+   export default {
+    name: "GuestSearch",
+    props: {
+        name: Object,
+    },
+       data() {
+        return {
+            search: this.name,
+            results : [],
+            filterBeds: "",
+            filterResults: [],
+        };
+    },
+    computed: {
+    },
+    methods: {
+>>>>>>> 566fe4b3244553d1cf9c8670de442e08dc0e8387
 
     // this.filterResults.forEach(element => {
     //     console.log(element)

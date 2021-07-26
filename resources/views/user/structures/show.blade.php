@@ -37,5 +37,7 @@
     >
     </show-buttons>
     </div>
+    <div id="map-div"></div>
 </div>
+
 @endsection
