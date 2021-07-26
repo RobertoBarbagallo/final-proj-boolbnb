@@ -4,13 +4,14 @@ const APPLICATION_VERSION = '1.0';
  
     tt.setProductInfo(APPLICATION_NAME, APPLICATION_VERSION); 
 
-const ADDRESS = { lng, lat };
-var marker = new tt.Marker().setLngLat(ADDRESS).addTo('map-div');
+let structureMap = [ lng, lat ];
+// var marker = new tt.Marker().setLngLat(ADDRESS).addTo('map-div');
 // console.log(lat);
 
 var map = tt.map({
     key: API_KEY,
     container: 'map-div',
-    center: ADDRESS,
+    center: structureMap,
+    // style: 'tomtom://vector/1/basic-main',
     zoom: 12
 });
