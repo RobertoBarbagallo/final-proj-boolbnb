@@ -33,3 +33,6 @@ Route::prefix('user')
     });
 
 // Route::get('api/structure', 'Api\StructureController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
