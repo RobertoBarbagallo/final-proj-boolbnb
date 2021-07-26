@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Service;
+use App\Sponsorship;
 use App\Structure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -106,12 +107,15 @@ class StructureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Structure $structure)
-    {
+    public function show(Structure $structure , Sponsorship $sponsorship)
+    {   $sponsorships=Sponsorship::all();
+        
         $messages = json_encode($structure->messages, FALSE);
         return view("user.structures.show", [
             "structure" => $structure,
-            "messages" => $messages
+            "messages" => $messages,
+            "sponsorships" => $sponsorships
+
         ]);
     }
 

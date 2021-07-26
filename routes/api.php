@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Http\Request;
@@ -20,4 +21,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/structures', 'Api\StructuresController@index');
 Route::get('/structures/filter', 'Api\StructuresController@filter');
-Route::get('/structures/services', 'Api\StructuresController@servicesList');

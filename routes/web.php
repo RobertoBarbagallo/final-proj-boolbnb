@@ -1,3 +1,4 @@
+  
 <?php
 
 use Illuminate\Support\Facades\Auth;
@@ -32,11 +33,12 @@ Route::prefix('user')
         Route::resource("/structures", "StructureController");
     });
 
+    Route::prefix('user')
+    ->namespace('user')
+    ->middleware('auth')
+    ->name("user.")
+    ->group(function () {
+        Route::resource("/sponsorships", "SponsorshipController");
+    });
+
 // Route::get('api/structure', 'Api\StructureController@index');
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -27,17 +26,27 @@
                 @endforeach
             </div>
 
+
+
+        </div>
+
+
+        <div id="map-div"></div>
+    </div>
+    <div>
+
+        <div class="btn-row row d-flex justify-content-center align-items-center">
+            <show-buttons edit-link="{{ route('user.structures.edit', $structure->id) }}" :structure-messages="{{$messages}}">
+            </show-buttons>
+            <div>
+                <form action="{{ route('user.structures.destroy', $structure->id) }}" method="post" class="delete_form">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" value="Cancella" class="btn btn-secondary "><a href="#"><i class="fa fa-trash text-secondary" aria-hidden="true"> Cancella</i></a></button>
+
+                </form>
+            </div>
         </div>
     </div>
 
-    <div class="btn-row row d-flex justify-content-center align-items-center">
-    <show-buttons 
-    edit-link = "{{ route('user.structures.edit', $structure->id) }}"
-    :structure-messages ="{{$messages}}"
-    >
-    </show-buttons>
-    </div>
-    <div id="map-div"></div>
-</div>
-
-@endsection
+    @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Structure;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,10 +12,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -23,6 +24,27 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('welcome');
     }
+
+    public function search(Request $request)
+    {
+        $name = $request->input('search');
+        $request->validate([
+            'search' => ['string', 'max:255'],
+        ]);
+
+        return redirect()->route('home.show', [
+            "name" => $name
+        ]);
+    }
+
+    public function show(Request $request)
+    {
+        $name = json_encode($request->query());
+        return view("guestsearch", [
+            "name" => json_decode($name, true)
+        ]);
+    }
+
 }
