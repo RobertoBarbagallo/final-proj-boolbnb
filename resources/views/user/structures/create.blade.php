@@ -24,7 +24,7 @@
             <small id="addressHelp" class="form-text text-muted">Inserisci in questo campo l'indirizzo della struttura</small>
         </div>
 
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="houseNumber">Civico</label>
             <input type="number" class="form-control" id="houseNumber" name="houseNumber" aria-describedby="houseNumberHelp" placeholder="Inserisci il civico">
             <small id="houseNumberHelp" class="form-text text-muted">Inserisci in questo campo il civico della struttura</small>
@@ -40,7 +40,7 @@
             <label for="province">Provincia</label>
             <input type="text" class="form-control" id="province" name="province" aria-describedby="provinceHelp" placeholder="Inserisci la provincia">
             <small id="provinceHelp" class="form-text text-muted">Inserisci in questo campo la provincia della struttura</small>
-        </div>
+        </div> --}}
 
         <div class="form-group">
             <label for="rooms">Camere</label>

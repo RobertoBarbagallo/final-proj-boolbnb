@@ -125,9 +125,17 @@ class StructureController extends Controller
     {
         $services = Service::all();
 
+
+        $lat = $structure->lat;
+        $lng = $structure->lng;
+
+        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/reverseGeocode/' . $lat. '%2C%20' . $lng . '.json?limit=1&key=qISPPmwNd3vUBqM2P2ONkZuJGTaaQEmb')->json();
+            $readableAddress = $response['addresses'][0]['address']['freeformAddress'];
+
         return view("user.structures.edit", [
             "structure" => $structure,
             "services" => $services,
+            "address" => $readableAddress
         ]);
     }
 
