@@ -35,7 +35,7 @@
 
 
     
-</div>
+
 <div class="btn-row row d-flex justify-content-center align-items-center">
     <show-buttons edit-link="{{ route('user.structures.edit', $structure->id) }}"  :structure-messages="{{$messages}}">
     </show-buttons>
@@ -46,6 +46,9 @@
             <delete-button></delete-button>
         </form>
     </div>
+    
+</div>
+<div id="map-div"></div>
 </div>
 @endsection
 @section('script')
