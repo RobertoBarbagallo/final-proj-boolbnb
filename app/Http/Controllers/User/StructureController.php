@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Service;
+use App\Sponsorship;
 use App\Structure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -33,9 +34,11 @@ class StructureController extends Controller
     public function create()
     {
         $services = Service::all();
+        $sponsorships= Sponsorship::all();
 
         return view('user.structures.create', [
             "services" => $services,
+            "sponsorships"=>$sponsorships
         ]);
     }
 
@@ -91,6 +94,8 @@ class StructureController extends Controller
         }
         
         $newStructure->save();
+
+       /*  $newStructure->sponsorships()->sync($newStructureData["sponsorships"]); */
         
         if ($request['services'] && count($request['services']) > 0) {
             $newStructure->services()->sync($request["services"]);
@@ -117,8 +122,8 @@ class StructureController extends Controller
         $lng = $structure->lng;
 
         $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/reverseGeocode/' . $lat. '%2C%20' . $lng . '.json?limit=1&key=' . env('TOMTOM_API_KEY'))->json();
-            $readableAddress = $response['addresses'][0]['address']['freeformAddress'];
-
+          $readableAddress = $response['addresses'][0]['address']['freeformAddress']; 
+            
         return view("user.structures.show", [
             "structure" => $structure,
             "messages" => $messages,
@@ -203,4 +208,7 @@ class StructureController extends Controller
         $structure->delete();
         return redirect()->route("user.structures.index");
     }
+
+   
 }
+

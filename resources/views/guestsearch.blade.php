@@ -6,4 +6,4 @@
     >
     </guest-search>
 
-@endsection    
+@endsection      
