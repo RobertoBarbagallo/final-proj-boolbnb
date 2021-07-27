@@ -10958,3 +10958,8 @@ a.text-dark:focus {
   display: block;
 }
 
+#map-div {
+  width: 500px;
+  height: 500px;
+}
+
