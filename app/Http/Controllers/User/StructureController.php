@@ -116,7 +116,7 @@ class StructureController extends Controller
         $lat = $structure->lat;
         $lng = $structure->lng;
 
-        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/reverseGeocode/' . $lat. '%2C%20' . $lng . '.json?limit=1&key=qISPPmwNd3vUBqM2P2ONkZuJGTaaQEmb')->json();
+        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/reverseGeocode/' . $lat. '%2C%20' . $lng . '.json?limit=1&key=' . env('TOMTOM_API_KEY'))->json();
             $readableAddress = $response['addresses'][0]['address']['freeformAddress'];
 
         return view("user.structures.show", [
@@ -141,7 +141,7 @@ class StructureController extends Controller
         $lat = $structure->lat;
         $lng = $structure->lng;
 
-        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/reverseGeocode/' . $lat. '%2C%20' . $lng . '.json?limit=1&key=qISPPmwNd3vUBqM2P2ONkZuJGTaaQEmb')->json();
+        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/reverseGeocode/' . $lat. '%2C%20' . $lng . '.json?limit=1&key=' . env('TOMTOM_API_KEY'))->json();
             $readableAddress = $response['addresses'][0]['address']['freeformAddress'];
 
         return view("user.structures.edit", [
