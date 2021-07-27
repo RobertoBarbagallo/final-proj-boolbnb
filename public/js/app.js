@@ -1956,6 +1956,25 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2024,27 +2043,155 @@ __webpack_require__.r(__webpack_exports__);
     return {
       search: this.name,
       results: [],
-      filterBeds: "",
-      filterResults: []
+      upgrade: false,
+      filterResults: [],
+      servicesList: [],
+      requestUrl: "",
+      filterServicesExist: false,
+      matchingStructures: [],
+      filterResultsIds: [],
+      matchingStructuresIds: [],
+      doubleFilteredArrayIds: [],
+      doubleFilteredArray: [],
+      finalArrayToPrint: [],
+      filterBeds: 1,
+      filters: {
+        filterServices: []
+      }
     };
   },
   computed: {},
   methods: {
-    avancedSearch: function avancedSearch() {
+    upgradeFunction: function upgradeFunction() {
       var _this = this;
 
-      return this.filterResults = this.results.filter(function (el) {
-        return el.beds >= _this.filterBeds;
+      this.filterResults = [];
+      this.finalArrayToPrint = [];
+
+      if (this.filterBeds > 1) {
+        this.upgrade = true;
+      } else {
+        this.upgrade = false;
+      }
+
+      if (this.matchingStructures.length > 0) {
+        this.results.forEach(function (value) {
+          if (value.beds >= _this.filterBeds) {
+            _this.filterResults.push(value);
+
+            _this.finalArrayToPrint.push(value);
+          }
+        });
+        this.controlValues();
+      } else {
+        this.results.forEach(function (value) {
+          if (value.beds >= _this.filterBeds) {
+            _this.filterResults.push(value);
+
+            _this.finalArrayToPrint.push(value);
+          }
+        });
+      }
+    },
+    avancedSearch: function avancedSearch(event) {
+      var _this2 = this;
+
+      if (event.target.checked) {
+        this.filters.filterServices.push(event.target.value);
+      } else if (!event.target.checked) {
+        var index = this.filters.filterServices.indexOf(event.target.value);
+
+        if (index > -1) {
+          this.filters.filterServices.splice(index, 1);
+        }
+      }
+
+      this.matchingStructures = [];
+      this.finalArrayToPrint = [];
+      var params = new URLSearchParams(this.filters).toString();
+      this.filterServicesExist = true;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.requestUrl + "&" + params).then(function (resp) {
+        if (_this2.filters.filterServices.length > 0) {
+          _this2.matchingStructures = resp.data.lastFilteredData;
+          _this2.finalArrayToPrint = _this2.matchingStructures;
+
+          _this2.controlValues();
+        } else {
+          _this2.matchingStructures = resp.data.results;
+          _this2.finalArrayToPrint = _this2.matchingStructures;
+        }
+      })["catch"](function (er) {
+        console.error(er);
+        alert("Le strutture per la città selezionata non includono i servizi richiesti");
       });
+
+      if (this.filters.filterServices.length < 1) {
+        this.filterServicesExist = false;
+      }
+    },
+    objects_to_array_of_id: function objects_to_array_of_id(array) {
+      var resultArray = [];
+      array.forEach(function (element) {
+        resultArray.push(element.id);
+      });
+      return resultArray;
+    },
+    controlValues: function controlValues() {
+      var _this3 = this;
+
+      if (this.upgrade && this.filterServicesExist) {
+        this.finalArrayToPrint = [];
+        this.doubleFilteredArrayIds = [];
+        this.filterResultsIds = [];
+        this.doubleFilteredArray = [];
+        this.filterResultsIds = this.objects_to_array_of_id(this.filterResults);
+        this.matchingStructuresIds = [];
+        this.matchingStructuresIds = this.objects_to_array_of_id(this.matchingStructures);
+        this.doubleFilteredArrayIds = this.intersect_safe(this.filterResultsIds, this.matchingStructuresIds);
+        this.results.forEach(function (element) {
+          if (_this3.doubleFilteredArrayIds.includes(element.id)) {
+            _this3.doubleFilteredArray.push(element);
+
+            _this3.finalArrayToPrint.push(element);
+          }
+        });
+      }
+    },
+    intersect_safe: function intersect_safe(a, b) {
+      var ai = 0,
+          bi = 0;
+      var result = [];
+
+      while (ai < a.length && bi < b.length) {
+        if (a[ai] < b[bi]) {
+          ai++;
+        } else if (a[ai] > b[bi]) {
+          bi++;
+        } else
+          /* they're equal */
+          {
+            result.push(a[ai]);
+            ai++;
+            bi++;
+          }
+      }
+
+      return result;
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this4 = this;
 
     var params = new URLSearchParams(this.search).toString();
-    axios.get("/api/structures/filter?" + params).then(function (resp) {
-      _this2.results = resp.data.results;
-      _this2.filterResults = resp.data.results;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/structures/services").then(function (resp) {
+      _this4.servicesList = resp.data.results;
+    })["catch"](function (er) {
+      console.error(er);
+      alert("Errore in fase di filtraggio dati.");
+    });
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/structures/filter?" + params).then(function (resp) {
+      _this4.requestUrl = resp.data.url;
+      _this4.results = resp.data.results;
     })["catch"](function (er) {
       console.error(er);
       alert("Errore in fase di filtraggio dati.");
@@ -38542,64 +38689,118 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "form",
-      {
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.avancedSearch.apply(null, arguments)
-          }
-        }
-      },
-      [
-        _c("div", { staticClass: "mb-3" }, [
-          _c("label", { attrs: { for: "beds" } }, [_vm._v("Numero di Ospiti")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.filterBeds,
-                expression: "filterBeds"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "number", id: "beds", placeholder: "beds" },
-            domProps: { value: _vm.filterBeds },
-            on: {
-              input: function($event) {
+    _c("form", [
+      _c("div", { staticClass: "mb-3" }, [
+        _c("label", { attrs: { for: "beds" } }, [_vm._v("Numero di Ospiti")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.filterBeds,
+              expression: "filterBeds"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "number", id: "beds", placeholder: "beds" },
+          domProps: { value: _vm.filterBeds },
+          on: {
+            input: [
+              function($event) {
                 if ($event.target.composing) {
                   return
                 }
                 _vm.filterBeds = $event.target.value
+              },
+              function($event) {
+                return _vm.upgradeFunction()
               }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [_vm._v("Filtra")]
-        )
-      ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "row justify-content-center" }, [
+            ]
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("label", [_vm._v("Servizi")]),
+      _vm._v(" "),
       _c(
         "div",
-        { staticClass: "col-md-8" },
-        _vm._l(this.filterResults, function(result) {
-          return _c("div", { key: result.id }, [
-            _c("h3", [_vm._v(_vm._s(result.name))]),
-            _vm._v(" "),
-            _c("h4", [_vm._v(_vm._s(result.beds))])
-          ])
+        { staticClass: "form-check row mb-3" },
+        _vm._l(this.servicesList, function(service) {
+          return _c(
+            "label",
+            { key: service.id, staticClass: "form-check-label col-3 mb-1" },
+            [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: { name: "services[]", type: "checkbox" },
+                domProps: { value: service.id },
+                on: {
+                  change: function($event) {
+                    return _vm.avancedSearch($event)
+                  }
+                }
+              }),
+              _vm._v("\n        " + _vm._s(service.name) + "\n      ")
+            ]
+          )
         }),
         0
       )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-center" }, [
+      this.filterServicesExist == false && this.upgrade == false
+        ? _c(
+            "div",
+            { staticClass: "col-md-8" },
+            _vm._l(this.results, function(result) {
+              return _c("div", { key: result.id, staticClass: "my-3" }, [
+                _c("h3", [_vm._v(_vm._s(result.name))]),
+                _vm._v(" "),
+                _c("h4", [_vm._v(_vm._s(result.beds))])
+              ])
+            }),
+            0
+          )
+        : this.filterServicesExist == false && this.upgrade
+        ? _c(
+            "div",
+            { staticClass: "col-md-8" },
+            _vm._l(this.filterResults, function(result) {
+              return _c("div", { key: result.id, staticClass: "my-3" }, [
+                _c("h3", [_vm._v(_vm._s(result.name))]),
+                _vm._v(" "),
+                _c("h4", [_vm._v(_vm._s(result.beds))])
+              ])
+            }),
+            0
+          )
+        : this.filterServicesExist && this.upgrade == false
+        ? _c(
+            "div",
+            { staticClass: "col-md-8" },
+            _vm._l(this.matchingStructures, function(result) {
+              return _c("div", { key: result.id, staticClass: "my-3" }, [
+                _c("h3", [_vm._v(_vm._s(result.name))]),
+                _vm._v(" "),
+                _c("h4", [_vm._v(_vm._s(result.beds))])
+              ])
+            }),
+            0
+          )
+        : _c(
+            "div",
+            { staticClass: "col-md-8" },
+            _vm._l(this.doubleFilteredArray, function(result) {
+              return _c("div", { key: result.id, staticClass: "my-3" }, [
+                _c("h3", [_vm._v(_vm._s(result.name))]),
+                _vm._v(" "),
+                _c("h4", [_vm._v(_vm._s(result.beds))])
+              ])
+            }),
+            0
+          )
     ])
   ])
 }
@@ -38643,7 +38844,7 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    this.StructureMessages
+    this.StructureMessages.lenght > 0
       ? _c(
           "button",
           { staticClass: "btn btn-primary", on: { click: _vm.ShowMessages } },

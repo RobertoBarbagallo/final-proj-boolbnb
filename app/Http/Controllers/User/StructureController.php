@@ -111,16 +111,25 @@ class StructureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Structure $structure , Sponsorship $sponsorship)
-    {   $sponsorships=Sponsorship::all();
+    public function show(Request $request, Structure $structure)
+    {
+        $requestUserId = $request->user()->id;
 
+        if ($structure->user_id == $requestUserId){
         $messages = json_encode($structure->messages, FALSE);
+
+        $lat = $structure->lat;
+        $lng = $structure->lng;
+
+        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/reverseGeocode/' . $lat. '%2C%20' . $lng . '.json?limit=1&key=' . env('TOMTOM_API_KEY'))->json();
+            $readableAddress = $response['addresses'][0]['address']['freeformAddress'];
+
         return view("user.structures.show", [
             "structure" => $structure,
             "messages" => $messages,
-            "sponsorships" => $sponsorships
-
+            "address" => $readableAddress
         ]);
+      }
     }
 
     /**
@@ -137,7 +146,7 @@ class StructureController extends Controller
         $lat = $structure->lat;
         $lng = $structure->lng;
 
-        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/reverseGeocode/' . $lat. '%2C%20' . $lng . '.json?limit=1&key=qISPPmwNd3vUBqM2P2ONkZuJGTaaQEmb')->json();
+        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/reverseGeocode/' . $lat. '%2C%20' . $lng . '.json?limit=1&key=' . env('TOMTOM_API_KEY'))->json();
             $readableAddress = $response['addresses'][0]['address']['freeformAddress'];
 
         return view("user.structures.edit", [
@@ -196,10 +205,8 @@ class StructureController extends Controller
     public function destroy($id)
     {
         $structure = Structure::FindOrFail($id);
-
         $structure->delete();
-
-        return redirect()->route("user.structures.index" );
+        return redirect()->route("user.structures.index");
     }
 
    

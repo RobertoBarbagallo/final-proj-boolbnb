@@ -30,7 +30,6 @@ class StructuresTableSeeder extends Seeder
                 'bathrooms' => rand(1,4),
                 'sqm' => rand(60,500),
                 'user_id' => rand(1,10),
-                'user_id' => rand(1,10),
                 'slug' => Str::slug($name),
                 'created_at' => now(),
                 'updated_at' => now(),
