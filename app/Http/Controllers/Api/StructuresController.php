@@ -12,8 +12,6 @@ class StructuresController extends Controller
     public function index(){
         
         $structures = Structure::all();
-        
-
         return response()->json([
             'result' => $structures
         ]);
@@ -34,7 +32,7 @@ class StructuresController extends Controller
     public function filter(Request $request){
         
         $url = $request->fullUrl();
-        $nameFilter = $request->get('name');
+        $nameFilter = $request->get('town');
     
         $bedsFilter = $request->get('beds');
        
