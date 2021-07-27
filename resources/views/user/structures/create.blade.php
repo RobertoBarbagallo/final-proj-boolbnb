@@ -94,6 +94,7 @@
             </div>
             @endforeach
         </div> 
+        
 
         <div class="form-group">
             <label for="content">Aggiungi immagine di copertina</label>
