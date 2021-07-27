@@ -1,4 +1,5 @@
 const API_KEY = 'Yt7Qt2t3MRFVjylnAAnd3ZIq4QfWadz4';
+// const API_KEY = getenv('TOMTOM_API_KEY');
 const APPLICATION_NAME = 'BoolBnb';
 const APPLICATION_VERSION = '1.0';
  
@@ -6,7 +7,7 @@ const APPLICATION_VERSION = '1.0';
 
 let structureMap = [ lng, lat ];
 // var marker = new tt.Marker().setLngLat(ADDRESS).addTo('map-div');
-// console.log(lat);
+// console.log(API_KEY);
 
 var map = tt.map({
     key: API_KEY,
