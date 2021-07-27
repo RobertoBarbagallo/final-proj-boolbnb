@@ -16,3 +16,7 @@ var map = tt.map({
     // style: 'tomtom://vector/1/basic-main',
     zoom: 12
 });
+
+var marker = new tt.Marker()
+.setLngLat([lng, lat])
+.addTo(map);
