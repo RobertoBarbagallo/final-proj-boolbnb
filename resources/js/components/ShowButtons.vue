@@ -2,7 +2,7 @@
   <div>
     <button type="button" class="btn btn-primary my-2 mx-3">
       <a class="text-light" :href="this.EditLink"
-        ><i class="fa fa-pencil-square text-secondary" aria-hidden="true">
+        ><i class="fa fa-pencil-square text-light" aria-hidden="true">
           Modifica</i
         ></a
       >

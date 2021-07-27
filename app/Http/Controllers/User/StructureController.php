@@ -34,9 +34,11 @@ class StructureController extends Controller
     public function create()
     {
         $services = Service::all();
+        $sponsorships= Sponsorship::all();
 
         return view('user.structures.create', [
             "services" => $services,
+            "sponsorships"=>$sponsorships
         ]);
     }
 
@@ -92,6 +94,8 @@ class StructureController extends Controller
         }
         
         $newStructure->save();
+
+       /*  $newStructure->sponsorships()->sync($newStructureData["sponsorships"]); */
         
         if ($request['services'] && count($request['services']) > 0) {
             $newStructure->services()->sync($request["services"]);
@@ -109,7 +113,7 @@ class StructureController extends Controller
      */
     public function show(Structure $structure , Sponsorship $sponsorship)
     {   $sponsorships=Sponsorship::all();
-        
+
         $messages = json_encode($structure->messages, FALSE);
         return view("user.structures.show", [
             "structure" => $structure,
@@ -197,4 +201,7 @@ class StructureController extends Controller
 
         return redirect()->route("user.structures.index" );
     }
+
+   
 }
+
