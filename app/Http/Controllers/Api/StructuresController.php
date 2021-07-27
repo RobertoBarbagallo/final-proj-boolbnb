@@ -79,7 +79,6 @@ class StructuresController extends Controller
         return response()->json([
             'success' => true,
             'results' => $structures,
-            'url' => $url
         ]);
     }
 

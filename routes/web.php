@@ -1,3 +1,4 @@
+  
 <?php
 
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::match(array('GET', 'POST'), '/', 'HomeController@index')->name('home.index');
 Route::post("/search", 'HomeController@search')->name('home.search');
 Route::get('/guestsearch', 'HomeController@show')->name('home.show');
+Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
 
 Auth::routes();
 
@@ -30,6 +32,10 @@ Route::prefix('user')
     ->name("user.")
     ->group(function () {
         Route::resource("/structures", "StructureController");
+        Route::post("/structures/sponsorship", "StructureController@sponsorship")->name('structures.sponsorship');
+
     });
+
+
 
 // Route::get('api/structure', 'Api\StructureController@index');
