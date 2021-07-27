@@ -2001,10 +2001,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GuestSearch",
@@ -2018,12 +2014,16 @@ __webpack_require__.r(__webpack_exports__);
       upgrade: false,
       filterResults: [],
       servicesList: [],
-      matchingStructures: [],
-      matchhingStructuresFiltered: [],
       requestUrl: "",
       filterServicesExist: false,
+      matchingStructures: [],
+      filterResultsIds: [],
+      matchingStructuresIds: [],
+      doubleFilteredArrayIds: [],
+      doubleFilteredArray: [],
+      finalArrayToPrint: [],
+      filterBeds: 1,
       filters: {
-        filterBeds: null,
         filterServices: []
       }
     };
@@ -2033,54 +2033,133 @@ __webpack_require__.r(__webpack_exports__);
     upgradeFunction: function upgradeFunction() {
       var _this = this;
 
-      this.upgrade = true;
       this.filterResults = [];
+      this.finalArrayToPrint = [];
+
+      if (this.filterBeds > 1) {
+        this.upgrade = true;
+      } else {
+        this.upgrade = false;
+      }
 
       if (this.matchingStructures.length > 0) {
-        this.matchingStructures.forEach(function (value) {
-          if (value.beds >= _this.filters.filterBeds) {
-            _this.matchhingStructuresFiltered.push(value);
+        this.results.forEach(function (value) {
+          if (value.beds >= _this.filterBeds) {
+            _this.filterResults.push(value);
+
+            _this.finalArrayToPrint.push(value);
           }
         });
+        this.controlValues();
       } else {
         this.results.forEach(function (value) {
-          if (value.beds >= _this.filters.filterBeds) {
+          if (value.beds >= _this.filterBeds) {
             _this.filterResults.push(value);
+
+            _this.finalArrayToPrint.push(value);
           }
         });
       }
     },
-    avancedSearch: function avancedSearch() {
+    avancedSearch: function avancedSearch(event) {
       var _this2 = this;
 
-      var params = new URLSearchParams(this.filters).toString();
+      if (event.target.checked) {
+        this.filters.filterServices.push(event.target.value);
+      } else if (!event.target.checked) {
+        var index = this.filters.filterServices.indexOf(event.target.value);
 
-      if (this.filters.filterServices.length > 0) {
-        this.filterServicesExist = true;
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.requestUrl + "&" + params).then(function (resp) {
+        if (index > -1) {
+          this.filters.filterServices.splice(index, 1);
+        }
+      }
+
+      this.matchingStructures = [];
+      this.finalArrayToPrint = [];
+      var params = new URLSearchParams(this.filters).toString();
+      this.filterServicesExist = true;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.requestUrl + "&" + params).then(function (resp) {
+        if (_this2.filters.filterServices.length > 0) {
           _this2.matchingStructures = resp.data.lastFilteredData;
-        })["catch"](function (er) {
-          console.error(er);
-          alert("Le strutture per la città selezionata non includono i servizi richiesti");
+          _this2.finalArrayToPrint = _this2.matchingStructures;
+
+          _this2.controlValues();
+        } else {
+          _this2.matchingStructures = resp.data.results;
+          _this2.finalArrayToPrint = _this2.matchingStructures;
+        }
+      })["catch"](function (er) {
+        console.error(er);
+        alert("Le strutture per la città selezionata non includono i servizi richiesti");
+      });
+
+      if (this.filters.filterServices.length < 1) {
+        this.filterServicesExist = false;
+      }
+    },
+    objects_to_array_of_id: function objects_to_array_of_id(array) {
+      var resultArray = [];
+      array.forEach(function (element) {
+        resultArray.push(element.id);
+      });
+      return resultArray;
+    },
+    controlValues: function controlValues() {
+      var _this3 = this;
+
+      if (this.upgrade && this.filterServicesExist) {
+        this.finalArrayToPrint = [];
+        this.doubleFilteredArrayIds = [];
+        this.filterResultsIds = [];
+        this.doubleFilteredArray = [];
+        this.filterResultsIds = this.objects_to_array_of_id(this.filterResults);
+        this.matchingStructuresIds = [];
+        this.matchingStructuresIds = this.objects_to_array_of_id(this.matchingStructures);
+        this.doubleFilteredArrayIds = this.intersect_safe(this.filterResultsIds, this.matchingStructuresIds);
+        this.results.forEach(function (element) {
+          if (_this3.doubleFilteredArrayIds.includes(element.id)) {
+            _this3.doubleFilteredArray.push(element);
+
+            _this3.finalArrayToPrint.push(element);
+          }
         });
       }
+    },
+    intersect_safe: function intersect_safe(a, b) {
+      var ai = 0,
+          bi = 0;
+      var result = [];
+
+      while (ai < a.length && bi < b.length) {
+        if (a[ai] < b[bi]) {
+          ai++;
+        } else if (a[ai] > b[bi]) {
+          bi++;
+        } else
+          /* they're equal */
+          {
+            result.push(a[ai]);
+            ai++;
+            bi++;
+          }
+      }
+
+      return result;
     }
   },
   mounted: function mounted() {
-    var _this3 = this;
+    var _this4 = this;
 
-    this.upgrade = false;
     var params = new URLSearchParams(this.search).toString();
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/structures/services").then(function (resp) {
-      _this3.servicesList = resp.data.results;
-      console.log(resp.data.results);
+      _this4.servicesList = resp.data.results;
     })["catch"](function (er) {
       console.error(er);
       alert("Errore in fase di filtraggio dati.");
     });
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/structures/filter?" + params).then(function (resp) {
-      _this3.requestUrl = resp.data.url;
-      _this3.results = resp.data.results; // this.filterResults = resp.data.results;
+      _this4.requestUrl = resp.data.url;
+      _this4.results = resp.data.results;
     })["catch"](function (er) {
       console.error(er);
       alert("Errore in fase di filtraggio dati.");
@@ -37872,20 +37951,20 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.filters.filterBeds,
-              expression: "filters.filterBeds"
+              value: _vm.filterBeds,
+              expression: "filterBeds"
             }
           ],
           staticClass: "form-control",
           attrs: { type: "number", id: "beds", placeholder: "beds" },
-          domProps: { value: _vm.filters.filterBeds },
+          domProps: { value: _vm.filterBeds },
           on: {
             input: [
               function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.filters, "filterBeds", $event.target.value)
+                _vm.filterBeds = $event.target.value
               },
               function($event) {
                 return _vm.upgradeFunction()
@@ -37906,55 +37985,13 @@ var render = function() {
             { key: service.id, staticClass: "form-check-label col-3 mb-1" },
             [
               _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model.lazy",
-                    value: _vm.filters.filterServices,
-                    expression: "filters.filterServices",
-                    modifiers: { lazy: true }
-                  }
-                ],
                 staticClass: "form-check-input",
                 attrs: { name: "services[]", type: "checkbox" },
-                domProps: {
-                  value: service.id,
-                  checked: Array.isArray(_vm.filters.filterServices)
-                    ? _vm._i(_vm.filters.filterServices, service.id) > -1
-                    : _vm.filters.filterServices
-                },
+                domProps: { value: service.id },
                 on: {
-                  change: [
-                    function($event) {
-                      var $$a = _vm.filters.filterServices,
-                        $$el = $event.target,
-                        $$c = $$el.checked ? true : false
-                      if (Array.isArray($$a)) {
-                        var $$v = service.id,
-                          $$i = _vm._i($$a, $$v)
-                        if ($$el.checked) {
-                          $$i < 0 &&
-                            _vm.$set(
-                              _vm.filters,
-                              "filterServices",
-                              $$a.concat([$$v])
-                            )
-                        } else {
-                          $$i > -1 &&
-                            _vm.$set(
-                              _vm.filters,
-                              "filterServices",
-                              $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                            )
-                        }
-                      } else {
-                        _vm.$set(_vm.filters, "filterServices", $$c)
-                      }
-                    },
-                    function($event) {
-                      return _vm.avancedSearch()
-                    }
-                  ]
+                  change: function($event) {
+                    return _vm.avancedSearch($event)
+                  }
                 }
               }),
               _vm._v("\n        " + _vm._s(service.name) + "\n      ")
@@ -37962,9 +37999,7 @@ var render = function() {
           )
         }),
         0
-      ),
-      _vm._v(" "),
-      _vm._m(0)
+      )
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-center" }, [
@@ -38007,11 +38042,10 @@ var render = function() {
             }),
             0
           )
-        : this.filterServicesExist && this.upgrade
-        ? _c(
+        : _c(
             "div",
             { staticClass: "col-md-8" },
-            _vm._l(this.matchhingStructuresFiltered, function(result) {
+            _vm._l(this.doubleFilteredArray, function(result) {
               return _c("div", { key: result.id, staticClass: "my-3" }, [
                 _c("h3", [_vm._v(_vm._s(result.name))]),
                 _vm._v(" "),
@@ -38020,24 +38054,10 @@ var render = function() {
             }),
             0
           )
-        : _vm._e()
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row justify-content-center" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Filtra")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -50529,15 +50549,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************************!*\
   !*** ./resources/js/components/GuestSearch.vue ***!
   \*************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _GuestSearch_vue_vue_type_template_id_c24e2ef6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GuestSearch.vue?vue&type=template&id=c24e2ef6& */ "./resources/js/components/GuestSearch.vue?vue&type=template&id=c24e2ef6&");
 /* harmony import */ var _GuestSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GuestSearch.vue?vue&type=script&lang=js& */ "./resources/js/components/GuestSearch.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _GuestSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _GuestSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -50567,7 +50586,7 @@ component.options.__file = "resources/js/components/GuestSearch.vue"
 /*!**************************************************************************!*\
   !*** ./resources/js/components/GuestSearch.vue?vue&type=script&lang=js& ***!
   \**************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

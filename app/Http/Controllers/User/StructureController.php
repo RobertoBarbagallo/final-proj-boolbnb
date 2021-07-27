@@ -108,7 +108,7 @@ class StructureController extends Controller
      */
     public function show(Request $request, Structure $structure)
     {
-        $requestUserId = $request->user()->id->get();
+        $requestUserId = $request->user()->id;
 
         if ($structure->user_id == $requestUserId){
         $messages = json_encode($structure->messages, FALSE);

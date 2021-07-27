@@ -35,7 +35,7 @@ class StructuresController extends Controller
         
         $url = $request->fullUrl();
         $nameFilter = $request->get('name');
-
+    
         $bedsFilter = $request->get('beds');
        
         $structures = Structure::where('name', 'like', "%$nameFilter%")
