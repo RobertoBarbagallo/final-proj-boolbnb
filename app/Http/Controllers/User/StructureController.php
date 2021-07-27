@@ -101,13 +101,17 @@ class StructureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Structure $structure)
+    public function show(Request $request, Structure $structure)
     {
+        $requestUserId = $request->user()->id->get();
+
+        if ($structure->user_id == $requestUserId){
         $messages = json_encode($structure->messages, FALSE);
         return view("user.structures.show", [
             "structure" => $structure,
             "messages" => $messages
         ]);
+      }
     }
 
     /**
@@ -120,10 +124,12 @@ class StructureController extends Controller
     {
         $services = Service::all();
 
-        return view("user.structures.edit", [
-            "structure" => $structure,
-            "services" => $services,
-        ]);
+     
+            return view("user.structures.edit", [
+                "structure" => $structure,
+                "services" => $services,
+            ]);
+        
     }
 
     /**
@@ -175,9 +181,7 @@ class StructureController extends Controller
     public function destroy($id)
     {
         $structure = Structure::FindOrFail($id);
-
         $structure->delete();
-
-        return redirect()->route("user.structures.index" );
+        return redirect()->route("user.structures.index");
     }
 }

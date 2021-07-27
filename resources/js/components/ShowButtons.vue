@@ -10,7 +10,7 @@
 
     <button
       class="btn btn-primary"
-      v-if="this.StructureMessages"
+      v-if="(this.StructureMessages.lenght >0)"
       @click="ShowMessages"
     >
       Visualizza messaggi
@@ -48,7 +48,9 @@ export default {
     },
   },
   mounted() {
+
     this.StructureMessages = JSON.parse(StructureMessages);
+  
   },
 };
 </script>
