@@ -50,6 +50,7 @@
     var lat = @JSON($structure['lat']);
     var lng = @JSON($structure['lng']);
     const API_KEY = @JSON(env('TOMTOM_API_KEY'));
+    
 </script>
 
 @endsection

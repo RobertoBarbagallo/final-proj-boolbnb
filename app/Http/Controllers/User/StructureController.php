@@ -64,7 +64,7 @@ class StructureController extends Controller
         ]);
 
         $address = $request->address;
-        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/geocode/' . $address. '.json?limit=1&key=qISPPmwNd3vUBqM2P2ONkZuJGTaaQEmb')->json();
+        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/geocode/' . $address. '.json?limit=1&key=' . env('TOMTOM_API_KEY'))->json();
             $lat = $response['results'][0]['position']['lat'];
             $lng = $response['results'][0]['position']['lon'];
         $newStructure = new Structure();
