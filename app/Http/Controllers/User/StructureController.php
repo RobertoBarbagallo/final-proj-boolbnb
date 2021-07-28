@@ -209,19 +209,25 @@ class StructureController extends Controller
         return redirect()->route("user.structures.index");
     }
 
-    public function sponsorship(Request $request)
-    {
-        $sponsorships= Sponsorship::all();
-        $structures = Structure::orderBy("id", "DESC")->where("user_id", $request->user()->id)->get();
-
-        
-        return view("user.structures.sponsorship",[
-            'structures' => $structures,
-            'sponsorships'=> $sponsorships
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function sponsorship(Request $request , Structure $structure,  $id)
+    {   
+        $structure = $id ;
+        $sponsorships = Sponsorship::all();
+        dump( $structure);
+        return;
+       return view("user.structures.sponsorship", [
+            'sponsorships'=> $sponsorships,
+            'structure' => $structure
         ]);
     }
 
-    public function payment(Request $request )
+    /* public function payment(Request $request )
     {
     
         $sponsorshipStructure = $request->all();
@@ -231,12 +237,12 @@ class StructureController extends Controller
         dump($sponsorshipStructure);
         return; 
 
-      /*   return view("user.structures.index",[
+       return view("user.structures.index",[
             'structures' => $structures,
             'request'=> $richiesta
-        ]); */
+        ]); 
     }
-
+ */
 
    
 }

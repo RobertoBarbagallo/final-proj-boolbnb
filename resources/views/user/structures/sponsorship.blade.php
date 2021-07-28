@@ -2,7 +2,8 @@
 @section('content')
 
 <div class="container">
-
+@dump($structure)
+{{-- 
 @foreach($structures as $structure)
         <div class="card mycard my-4">
             
@@ -16,9 +17,9 @@
                 <span class="badge badge-pill badge-info">{{$service->name}}</span>
                 @endforeach
                 @endif
-            </div>
+            </div> --}}
 
-             <form method="post" action="{{ route('user.structures.payment', $structure->id) }}" id="postform" enctype="multipart/form-data">
+             {{-- <form method="post" action="{{ route('user.structures.payment', $structure->id) }}" id="postform" enctype="multipart/form-data">
                 @csrf
                 @method('post')
                     
@@ -33,7 +34,7 @@
             </form>
 
         </div>
-
-        @endforeach
+ --}}
+        {{-- @endforeach --}}
 </div>
 @endsection

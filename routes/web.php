@@ -26,8 +26,9 @@ Route::get('/guestsearch', 'HomeController@show')->name('home.show');
 
 Auth::routes();
 
-Route::get("user/structures/sponsorship", "User\StructureController@sponsorship")->name('user.structures.sponsorship');
+
 Route::post("user/structures/payment", "User\StructureController@payment")->name('user.structures.payment');
+Route::get("user/structures/sponsorship/", "User\StructureController@sponsorship")->name('user.structures.sponsorship');
 
 
 Route::prefix('user')
