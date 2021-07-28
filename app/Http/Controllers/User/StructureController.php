@@ -238,22 +238,15 @@ class StructureController extends Controller
     public function payment(Request $request, $id)
     {
         $sponsorshipId = $request->sponsorship;
-        // $newStructure = new Structure();
         $structure = Structure::where('id', $id)->first();
         $structure->sponsorships()->sync($sponsorshipId);
 
-        // $model = new Model();
-        // $created_at = now();
-        // DB::table('sponsorship_structure')->insert([
-        //     'created_at'=> now()
+        // return view("user.structures.index",[
+        //     'structures' => $structures,
+        //     'request'=> $request
         // ]);
 
-        dump($request, $structure->id);
-        return;
-      /*   return view("user.structures.index",[
-            'structures' => $structures,
-            'request'=> $richiesta
-        ]); */
+        return redirect()->route("user.structures.show", $structure->id);
     }
 
    

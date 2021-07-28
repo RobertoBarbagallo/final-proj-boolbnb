@@ -21,7 +21,6 @@
  
  Vue.component('delete-button', require('./components/DeleteButton.vue').default);
  Vue.component('guest-search', require('./components/GuestSearch.vue').default);
- Vue.component('form-payment', require('./components/FormPayment.vue').default);
 
 
  // const files = require.context('./', true, /\.vue$/i)

@@ -51157,8 +51157,7 @@ files.keys().map(function (key) {
   return Vue.component(key.split('/').pop().split('.')[0], files(key)["default"]);
 });
 Vue.component('delete-button', __webpack_require__(/*! ./components/DeleteButton.vue */ "./resources/js/components/DeleteButton.vue")["default"]);
-Vue.component('guest-search', __webpack_require__(/*! ./components/GuestSearch.vue */ "./resources/js/components/GuestSearch.vue")["default"]);
-Vue.component('form-payment', __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './components/FormPayment.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))["default"]); // const files = require.context('./', true, /\.vue$/i)
+Vue.component('guest-search', __webpack_require__(/*! ./components/GuestSearch.vue */ "./resources/js/components/GuestSearch.vue")["default"]); // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
