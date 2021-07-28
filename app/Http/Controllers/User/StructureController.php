@@ -7,6 +7,7 @@ use App\Service;
 use App\Sponsorship;
 use App\Structure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -67,7 +68,7 @@ class StructureController extends Controller
         ]);
 
         $address = $request->address;
-        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/geocode/' . $address. '.json?limit=1&key=qISPPmwNd3vUBqM2P2ONkZuJGTaaQEmb')->json();
+        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/geocode/' . $address. '.json?limit=1&key=' . env('TOMTOM_API_KEY'))->json();
             $lat = $response['results'][0]['position']['lat'];
             $lng = $response['results'][0]['position']['lon'];
         $newStructure = new Structure();
@@ -207,6 +208,52 @@ class StructureController extends Controller
         $structure = Structure::FindOrFail($id);
         $structure->delete();
         return redirect()->route("user.structures.index");
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function sponsorship(Request $request, Structure $structures, $id)
+    {
+        
+        $sponsorships= Sponsorship::all();
+
+        $structure = Structure::where('id', $id)->first();
+        
+        return view("user.structures.sponsorship",[
+            'structure' => $structure,
+            'sponsorships'=> $sponsorships,
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function payment(Request $request, $id)
+    {
+        $sponsorshipId = $request->sponsorship;
+        // $newStructure = new Structure();
+        $structure = Structure::where('id', $id)->first();
+        $structure->sponsorships()->sync($sponsorshipId);
+
+        // $model = new Model();
+        // $created_at = now();
+        // DB::table('sponsorship_structure')->insert([
+        //     'created_at'=> now()
+        // ]);
+
+        dump($request, $structure->id);
+        return;
+      /*   return view("user.structures.index",[
+            'structures' => $structures,
+            'request'=> $richiesta
+        ]); */
     }
 
    
