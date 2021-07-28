@@ -1,4 +1,3 @@
-console.log("ciao")
 
 const viewMessage = document.getElementById("viewMessage");
 const target = document.getElementById("target");

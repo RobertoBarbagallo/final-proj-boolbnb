@@ -2055,11 +2055,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GuestSearch",
   props: {
-    name: Object
+    lat: Number,
+    lng: Number
   },
   data: function data() {
     return {
-      search: this.name,
+      latitude: this.lat,
+      longitude: this.lng,
       results: [],
       upgrade: false,
       filterResults: [],
@@ -2200,7 +2202,28 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this4 = this;
 
-    var params = new URLSearchParams(this.search).toString();
+    console.log(this.latitude);
+    console.log(this.longitude); // let params = new URLSearchParams(this.search).toString();
+    // axios
+    // .get("/api/structures/services")
+    // .then((resp) => {
+    // this.servicesList = resp.data.results;
+    // })
+    // .catch((er) => {
+    // console.error(er);
+    // alert("Errore in fase di filtraggio dati.");
+    // });
+    // axios
+    //   .get("/api/structures/filter?" + params)
+    //   .then((resp) => {
+    //     this.requestUrl = resp.data.url  
+    //     this.results = resp.data.results;
+    //   })
+    //   .catch((er) => {
+    //       console.error(er);
+    //     alert("Errore in fase di filtraggio dati.");
+    //   });
+
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/structures/services").then(function (resp) {
       _this4.servicesList = resp.data.results;
     })["catch"](function (er) {
