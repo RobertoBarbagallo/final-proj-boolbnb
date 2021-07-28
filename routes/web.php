@@ -22,9 +22,13 @@ use Illuminate\Support\Facades\Route;
 Route::match(array('GET', 'POST'), '/', 'HomeController@index')->name('home.index');
 Route::post("/search", 'HomeController@search')->name('home.search');
 Route::get('/guestsearch', 'HomeController@show')->name('home.show');
-Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
+/* Route::get('/payment/make', 'PaymentsController@make')->name('payment.make'); */
 
 Auth::routes();
+
+Route::get("user/structures/sponsorship", "User\StructureController@sponsorship")->name('user.structures.sponsorship');
+Route::post("user/structures/payment", "User\StructureController@payment")->name('user.structures.payment');
+
 
 Route::prefix('user')
     ->namespace('user')
@@ -32,7 +36,6 @@ Route::prefix('user')
     ->name("user.")
     ->group(function () {
         Route::resource("/structures", "StructureController");
-        Route::post("/structures/sponsorship", "StructureController@sponsorship")->name('structures.sponsorship');
 
     });
 
