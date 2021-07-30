@@ -2,9 +2,20 @@
   <div class="container">
     <form>
       <div class="mb-3">
+          <label for="town">Città</label>
+          <input
+            @keyup.enter="avancedSearch()"
+            type="text"
+            class="form-control"
+            id="town"
+            v-model="filters.town"
+            required
+          />
+      </div>
+      <div class="mb-3">
         <label for="beds">Numero di Ospiti</label>
         <input
-          @input="upgradeFunction()"
+          @input="avancedSearch()"
           type="number"
           class="form-control"
           id="beds"
@@ -12,7 +23,6 @@
           v-model="filterBeds"
         />
       </div>
-
       <label>Servizi</label>
       <div class="form-check row mb-3">
         <label  v-for="service in this.servicesList" :key="service.id" class="form-check-label col-3 mb-1">
@@ -21,128 +31,107 @@
             name="services[]"
             class="form-check-input"
             type="checkbox"
-            :value="service.id"
-            
+            :value="service.id"  
+            v-model="marksArray"
           />
           {{service.name}}
         </label>
       </div>
+       <div class="mb-3">
+        <label for="radius">Distanza</label>
+        <input type="range" class="custom-range" min="5000" max="200000" id="radius"
+        :value= this.filters.radius
+        @change="avancedSearch($event.target.value)"
+        >     
+      </div>
     </form>
     <div class="row justify-content-center">
-      <div v-if="this.filterServicesExist == false && this.upgrade == false" class="col-md-8">
-        <div v-for="result in this.results" :key="result.id" class="my-3">
+      <div class="col-md-8">
+        <div v-for="result in this.showArray" :key="result.id" class="my-3">
           <h3>{{ result.name }}</h3>
           <h4>{{ result.beds }}</h4>
         </div>
       </div>
-       <div v-else-if="this.filterServicesExist == false && this.upgrade" class="col-md-8">
-        <div v-for="result in this.filterResults" :key="result.id" class="my-3">
-          <h3>{{ result.name }}</h3>
-          <h4>{{ result.beds }}</h4>
-        </div>
-      </div>
-      <div  v-else-if="this.filterServicesExist && this.upgrade == false" class="col-md-8">
-        <div v-for="result in this.matchingStructures" :key="result.id" class="my-3">
-          <h3>{{ result.name }}</h3>
-          <h4>{{ result.beds }}</h4>
-        </div>
-      </div>
-      <div  v-else class="col-md-8">
-        <div v-for="result in this.doubleFilteredArray" :key="result.id" class="my-3">
-          <h3>{{ result.name }}</h3>
-          <h4>{{ result.beds }}</h4>
-        </div>
-        </div>
-    </div>
+    </div>  
  </div>
-
-
 </template>
 <script>
 import axios from "axios";
+import { EventBus } from './bus.js';
 export default {
   name: "GuestSearch",
   props: {
-    lat: Number,
-    lng: Number
+    finalarray: Array,
+    oldtown: String,
+    oldradius: String,
+    latitude: String,
+    longitude: String,
+    fromwelcomepage: Boolean,
+
   },
   data() {
     return {
-      latitude: this.lat,
-      longitude: this.lng,
-      results: [],
-      upgrade: false,
-      filterResults: [],
+      fromWichPage: this.fromwelcomepage,
+      lat: parseFloat(this.latitude),
+      lng: parseFloat(this.longitude),
+      emptyObj: {},
+      marksArray: [],
+      showArray: this.finalarray,
       servicesList: [],
-      requestUrl: "",
-      filterServicesExist: false,
-      matchingStructures: [],
-      filterResultsIds: [],
-      matchingStructuresIds: [],
-      doubleFilteredArrayIds: [],
-      doubleFilteredArray: [],
-      finalArrayToPrint: [],
       filterBeds: 1,
+      curretTown: "",
       filters: {
         filterServices: [],
+        town: "",
+        radius: 20000,
       },
     };
   },
   computed: {},
   methods: {
-    upgradeFunction() {
-      this.filterResults = [];
-      this.finalArrayToPrint = [];
-
-      if (this.filterBeds > 1) {
-        this.upgrade = true;
-      } else {
-        this.upgrade = false;
+    avancedSearch(arg) {
+      if(this.curretTown != this.filters.town){
+         this.filters.radius = 20000
+         this.filters.filterServices = []
+         this.marksArray =[]
       }
-
-      if (this.matchingStructures.length > 0) {
-        this.results.forEach((value) => {
-          if (value.beds >= this.filterBeds) {
-            this.filterResults.push(value);
-            this.finalArrayToPrint.push(value);
+      if(arg){
+        if(typeof arg == 'string'){
+          this.filters.radius = parseInt(arg)
+        }
+        if(typeof arg == 'object'){
+          if (arg.target.checked) {
+            this.filters.filterServices.push(arg.target.value);
+          } else if (!arg.target.checked) {
+            const index = this.filters.filterServices.indexOf(arg.target.value);
+            if (index > -1) {
+              this.filters.filterServices.splice(index, 1);
+            }
           }
-        });
-        this.controlValues();
-      } else {
-        this.results.forEach((value) => {
-          if (value.beds >= this.filterBeds) {
-            this.filterResults.push(value);
-            this.finalArrayToPrint.push(value);
-          }
-        });
-      }
-    },
-
-    avancedSearch(event) {
-      if (event.target.checked) {
-        this.filters.filterServices.push(event.target.value);
-      } else if (!event.target.checked) {
-        const index = this.filters.filterServices.indexOf(event.target.value);
-        if (index > -1) {
-          this.filters.filterServices.splice(index, 1);
         }
       }
-      this.matchingStructures = [];
-      this.finalArrayToPrint = [];
-
-      let params = new URLSearchParams(this.filters).toString();
+      this.emptyObj = {}
+      let params = {
+        town: this.filters.town,
+        radius: this.filters.radius,
+        filterservices: this.filters.filterServices,
+        fromguestsearch: true,
+        beds: this.filterBeds,
+      }
+      params = new URLSearchParams(params)
       this.filterServicesExist = true;
       axios
-        .get(this.requestUrl + "&" + params)
+        .get("/api/structures/search/?" + params.toString())
         .then((resp) => {
-          if (this.filters.filterServices.length > 0) {
-            this.matchingStructures = resp.data.lastFilteredData;
-            this.finalArrayToPrint = this.matchingStructures;
-            this.controlValues();
-          } else {
-            this.matchingStructures = resp.data.results;
-            this.finalArrayToPrint = this.matchingStructures;
-          }
+            this.showArray = resp.data.finalArray,
+            this.mytest = resp.data.test,
+            this.emptyObj ={
+              array: this.showArray,
+              lat: resp.data.lat,
+              lng: resp.data.lng,
+
+            }
+            EventBus.$emit('reloadMap', this.emptyObj);
         })
         .catch((er) => {
           console.error(er);
@@ -153,99 +142,16 @@ export default {
       if (this.filters.filterServices.length < 1) {
         this.filterServicesExist = false;
       }
-    },
-
-    objects_to_array_of_id(array) {
-      let resultArray = [];
-      array.forEach((element) => {
-        resultArray.push(element.id);
-      });
-      return resultArray;
-    },
-
-    controlValues() {
-      if (this.upgrade && this.filterServicesExist) {
-        this.finalArrayToPrint = [];
-        this.doubleFilteredArrayIds = [];
-        this.filterResultsIds = [];
-        this.doubleFilteredArray = [];
-        this.filterResultsIds = this.objects_to_array_of_id(this.filterResults);
-        this.matchingStructuresIds = [];
-        this.matchingStructuresIds = this.objects_to_array_of_id(
-          this.matchingStructures
-        );
-        this.doubleFilteredArrayIds = this.intersect_safe(
-          this.filterResultsIds,
-          this.matchingStructuresIds
-        );
-        this.results.forEach((element) => {
-          if (this.doubleFilteredArrayIds.includes(element.id)) {
-            this.doubleFilteredArray.push(element);
-            this.finalArrayToPrint.push(element);
-          }
-        });
-      }
-    },
-
-    intersect_safe(a, b) {
-      var ai = 0,
-        bi = 0;
-      var result = [];
-      while (ai < a.length && bi < b.length) {
-        if (a[ai] < b[bi]) {
-          ai++;
-        } else if (a[ai] > b[bi]) {
-          bi++;
-        } /* they're equal */ else {
-          result.push(a[ai]);
-          ai++;
-          bi++;
-        }
-      }
-      return result;
+    this.curretTown = this.filters.town
     },
   },
-
   mounted() {
-    console.log(this.latitude);
-    console.log(this.longitude);
-    // let params = new URLSearchParams(this.search).toString();
-    // axios
-    // .get("/api/structures/services")
-    // .then((resp) => {
-    // this.servicesList = resp.data.results;
-    // })
-    // .catch((er) => {
-    // console.error(er);
-    // alert("Errore in fase di filtraggio dati.");
-    // });
-
-    // axios
-    //   .get("/api/structures/filter?" + params)
-    //   .then((resp) => {
-    //     this.requestUrl = resp.data.url  
-    //     this.results = resp.data.results;
-    //   })
-    //   .catch((er) => {
-    //       console.error(er);
-    //     alert("Errore in fase di filtraggio dati.");
-    //   });
-
+    this.results = this.backEndArray
+    this.filters.town= this.oldtown
     axios
       .get("/api/structures/services")
       .then((resp) => {
         this.servicesList = resp.data.results;
-      })
-      .catch((er) => {
-        console.error(er);
-        alert("Errore in fase di filtraggio dati.");
-      });
-
-    axios
-      .get("/api/structures/filter?" + params)
-      .then((resp) => {
-        this.requestUrl = resp.data.url;
-        this.results = resp.data.results;
       })
       .catch((er) => {
         console.error(er);

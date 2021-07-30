@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: "GuestSearch",
+  name: "ShowButtons",
   props: {
     EditLink: String,
     StructureMessages: JSON,

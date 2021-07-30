@@ -10963,3 +10963,19 @@ a.text-dark:focus {
   height: 500px;
 }
 
+#customTownMarker {
+  background-image: url(/images/town.png?37b458ecfc1670c954cf1d08aa15f51d);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 50px;
+}
+
+#customStructureMarker {
+  background-image: url(/images/structure.png?486f0281a9846a0923261086682c1c8a);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 50px;
+}
+
