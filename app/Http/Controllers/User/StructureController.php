@@ -5,12 +5,15 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Service;
 use App\Sponsorship;
+use App\SponsorshipStructure;
 use App\Structure;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+// use Carbon\Carbon;
 
 class StructureController extends Controller
 {
@@ -237,17 +240,16 @@ class StructureController extends Controller
      */
     public function payment(Request $request, $id)
     {
-        // $request->validate([
-        //     'sponsorship' => ['required'],
-        // ]);
         $sponsorshipId = $request->sponsorship;
-        $structure = Structure::where('id', $id)->first();
-        $structure->sponsorships()->sync($sponsorshipId);
+        $spons=Sponsorship::find($sponsorshipId);
 
-        // return view("user.structures.index",[
-        //     'structures' => $structures,
-        //     'request'=> $request
-        // ]);
+        $newSponsorship = new SponsorshipStructure();
+        $newSponsorship->structure_id = $id;
+        $newSponsorship->sponsorship_id = $sponsorshipId;
+        $newSponsorship->end_date = Carbon::now()->addHours($spons->duration);
+
+        $newSponsorship->save();
+        $structure = Structure::where('id', $id)->first();
 
         return redirect()->route("user.structures.show", $structure->id);
     }
