@@ -237,6 +237,9 @@ class StructureController extends Controller
      */
     public function payment(Request $request, $id)
     {
+        // $request->validate([
+        //     'sponsorship' => ['required'],
+        // ]);
         $sponsorshipId = $request->sponsorship;
         $structure = Structure::where('id', $id)->first();
         $structure->sponsorships()->sync($sponsorshipId);

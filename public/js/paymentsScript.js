@@ -6,12 +6,11 @@ braintree.dropin.create({
 }, function (err, instance) {
   button.addEventListener('click', function () {
     instance.requestPaymentMethod(function (err, payload) {
-      // Submit payload.nonce to your server
+      if(err){
+        button.setAttribute('type', 'button');
+      } else {
+        button.setAttribute('type', 'submit');
+      }
     });
   })
 });
-
-// var buttonSponsorship = document.getElementById('buttonSponsorship');
-// buttonSponsorship.addEventListener('click', event => {
-//   document.getElementById("form-payment").classList.add('block');;
-// });
