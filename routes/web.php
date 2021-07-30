@@ -26,6 +26,8 @@ Route::get('/guestsearch', 'HomeController@show')->name('home.show');
 
 Route::get("user/structures/{id}/sponsorship", "User\StructureController@sponsorship")->name('user.structures.sponsorship')->middleware('auth');
 Route::post("user/structures/{id}/sponsorship/payment", "User\StructureController@payment")->name('user.structures.payment');
+Route::post("user/structures/{id}/sponsorship/payment2", "User\StructureController@paymentUpdate")->name('user.structures.paymentUpdate');
+
 
 Auth::routes();
 

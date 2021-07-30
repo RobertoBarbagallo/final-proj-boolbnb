@@ -25,6 +25,7 @@ class StructureController extends Controller
     public function index(Request $request)
     {
         $structures = Structure::orderBy("id", "DESC")->where("user_id", $request->user()->id)->get();
+
         return view("user.structures.index",[
             'structures' => $structures
         ]);
@@ -224,11 +225,14 @@ class StructureController extends Controller
         
         $sponsorships= Sponsorship::all();
 
+        $activeSponsorships= SponsorshipStructure::all();
+
         $structure = Structure::where('id', $id)->first();
         
         return view("user.structures.sponsorship",[
             'structure' => $structure,
             'sponsorships'=> $sponsorships,
+            'activeSponsorships' => $activeSponsorships
         ]);
     }
 
@@ -254,6 +258,30 @@ class StructureController extends Controller
         return redirect()->route("user.structures.show", $structure->id);
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function paymentUpdate(Request $request, $id)
+    {
+        $sponsorshipId = $request->sponsorship;
+        $spons=Sponsorship::find($sponsorshipId);
+
+        $activeSponsorship= SponsorshipStructure::all();
+        $end = $activeSponsorship;
+
+        dump($end);
+
+        // $activeSponsorship->sponsorship_id = $sponsorshipId;
+        // $activeSponsorship->end_date = $end->addHours($spons->duration);
+
+        // $activeSponsorship->update();
+        // $structure = Structure::where('id', $id)->first();
+
+        // return redirect()->route("user.structures.show", $structure->id);
+    }
    
 }
 

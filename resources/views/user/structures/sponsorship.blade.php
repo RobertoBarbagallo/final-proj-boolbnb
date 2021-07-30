@@ -14,7 +14,7 @@
             </div>
         </div>
     </div>
-    <form method="post" action="{{ route('user.structures.payment', $structure->id) }}" id="postform" enctype="multipart/form-data">
+    <form method="post" action='{{ route('user.structures.paymentUpdate', $structure->id) }}' id="postform" enctype="multipart/form-data">
         @csrf
         @method('POST')
 
@@ -48,6 +48,8 @@
 <script>
 
     const SANDBOX_KEY = @JSON(env('BRAINTREE_SANDBOX_KEY'));
+    let sponsoredStructuresId = @JSON($activeSponsorships);
+    const SELECTED_STRUCTURE = @JSON($structure);
 
 </script>
 
