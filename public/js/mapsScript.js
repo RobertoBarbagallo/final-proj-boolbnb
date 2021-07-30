@@ -4,7 +4,6 @@ const APPLICATION_VERSION = '1.0';
     tt.setProductInfo(APPLICATION_NAME, APPLICATION_VERSION); 
 
 let structureMap = [ lng, lat ];
-console.log(API_KEY);
 
 var map = tt.map({
     key: API_KEY,
