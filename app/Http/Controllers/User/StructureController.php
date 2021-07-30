@@ -278,15 +278,15 @@ class StructureController extends Controller
         $activeSponsorship= SponsorshipStructure::all();
         $end = $activeSponsorship;
 
-        dump($end);
+        // dump($end);
 
-        // $activeSponsorship->sponsorship_id = $sponsorshipId;
-        // $activeSponsorship->end_date = $end->addHours($spons->duration);
+        $activeSponsorship->sponsorship_id = $sponsorshipId;
+        $activeSponsorship->end_date = $end->addHours($spons->duration);
 
         // $activeSponsorship->update();
-        // $structure = Structure::where('id', $id)->first();
+        $structure = Structure::where('id', $id)->first();
 
-        // return redirect()->route("user.structures.show", $structure->id);
+        return redirect()->route("user.structures.show", $structure->id);
     }
    
 }
