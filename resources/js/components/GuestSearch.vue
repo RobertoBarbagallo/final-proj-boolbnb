@@ -45,6 +45,7 @@
         >     
       </div>
     </form>
+    <structures-sponsored></structures-sponsored>
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div v-for="result in this.showArray" :key="result.id" class="my-3">
@@ -56,10 +57,14 @@
  </div>
 </template>
 <script>
+import StructuresSponsored from './StructuresSponsored.vue';
 import axios from "axios";
 import { EventBus } from './bus.js';
 export default {
   name: "GuestSearch",
+  components: {
+    StructuresSponsored
+  },
   props: {
     finalarray: Array,
     oldtown: String,

@@ -7,6 +7,8 @@ use App\Service;
 use App\Structure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\DB;
+
 
 class StructuresController extends Controller
 {
@@ -112,6 +114,74 @@ class StructuresController extends Controller
             }
                
     }  
+
+    public function SponsoredStructure(Request $request) {        
+        
+        $currentDate = date("Y-m-d H:i:s");
+        
+        //  Cerca tutte le sponsorizzazioni attive
+        
+        $sponsorships = DB::table('sponsorship_structure')
+        ->select('structure_id')
+        ->whereDate('end_date' , '>' , $currentDate)
+        ->get();
+                
+        $sponsoredStructureIDS = [];
+        //  Cicla tutte le sponsorizzazioni attive ed aggiunge il corrispondente Id dell'appartamento
+        //  all'Array $sponsoredAptIDS, il quale, al termine del foreach conterrà gli ID di tutti gli apt sponsorizzati
+        foreach ($sponsorships as $sponsorship) {
+            if(!in_array($sponsorship->structure_id , $sponsoredStructureIDS))
+            array_push($sponsoredStructureIDS , $sponsorship->structure_id );
+        }
+        
+        $sponsoredStructureAll = []; // array contenente **tutti** gli apt sponsorizzati presenti nel DB
+        
+        //  Dall'array di Id degli apt sponsorizzati ricava le effettive informazioni relative all'apt
+        foreach ($sponsoredStructureIDS as $structureID) {
+            $structure =  DB::table('structures')
+            ->select('id' , 'beds' , 'rooms' , 'name' , 'bathrooms','sqm','cover_img_path')
+            ->where('id', $structureID)
+            ->first();
+
+            // $excerpt = substr($apt->description , 0 ,125) . '...';
+            
+           /*  $excerpt = $this->getExcerpt($structure->description);            
+            $cover_img = $this->getAptCoverImg($structureID); */
+     
+            // Salva le informazioni ottenute in un nuovo array, pushato poi in $filteredApt
+
+            $filteredStructure = array( 
+                'name' => $structure->name,
+                'id' => $structure->id ,
+                'beds' => $structure->beds , 
+                'rooms' => $structure->rooms , 
+                'bathrooms' => $structure->bathrooms ,
+                'sqm' => $structure->sqm ,
+                'cover_img_path' => $structure->cover_img_path ,
+
+             );
+
+            array_push($sponsoredStructureAll , $filteredStructure);
+        }
+
+      /*   $sponsoredStructure = []; */
+
+      /*   $nOfItems = $request->input('nOfItems');    // Numero di Apt  richiesti
+        
+        if($nOfItems > count($sponsoredAptAll) || $nOfItems == 0)
+            $nOfItems = count($sponsoredAptAll);
+        for ($i=0; $i < $nOfItems; $i++) { 
+            array_push($sponsoredApt , $sponsoredAptAll[$i]);
+        } */
+
+        //  Compila l'array finale $sponsoredApt in base al numero di apt richiesti nella chiamata API
+        //  e finalmente lo restituisce
+        
+        return response()->json([
+            'success'=> true,
+            'results'=> $sponsoredStructureAll
+        ]);
+    }
 } 
 
 

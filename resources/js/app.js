@@ -23,6 +23,7 @@
 Vue.component('delete-button', require('./components/DeleteButton.vue').default);
 Vue.component('my-maps', require('./components/MyMaps.vue').default);
 Vue.component('guest-search', require('./components/GuestSearch.vue').default);
+Vue.component('structures-sponsored', require('./components/StructuresSponsored.vue').default);
 
 
  // const files = require.context('./', true, /\.vue$/i)
