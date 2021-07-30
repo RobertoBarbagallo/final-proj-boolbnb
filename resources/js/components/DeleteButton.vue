@@ -18,7 +18,24 @@
         </div>
   </div>
 </template>
-
+<script>
+export default {
+  name: "DeleteButton",
+  props: {
+    DeleteLink: String,
+  },
+  data() {
+    return {
+      clickDelete: false,
+    };
+  },
+  methods: {
+    clikDelete() {
+      this.clickDelete = !this.clickDelete;
+    },
+  },
+};
+</script>
 <style>
 .deleteForm {
   background-color: rgba(255, 255, 255, 0.8);
@@ -29,7 +46,6 @@
   top: 0;
   z-index: 3;
 }
-
 .formButton{
     background-color: white;
      position: absolute;
@@ -38,7 +54,5 @@
      transform: translate(-50%,-50%);
      padding: 20px;
      border: 1px solid black;
-
 }
-
 </style>
