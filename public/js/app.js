@@ -6721,7 +6721,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.deleteForm {\n  background-color: rgba(255, 255, 255, 0.8);\n  height: 100%;\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 3;\n}\n.formButton{\n    background-color: white;\n     position: absolute;\n     top: 50%;\n     left: 50%;\n     transform: translate(-50%,-50%);\n     padding: 20px;\n     border: 1px solid black;\n}\n", ""]);
+exports.push([module.i, "\n.deleteForm {\r\n  background-color: rgba(255, 255, 255, 0.8);\r\n  height: 100%;\r\n  width: 100%;\r\n  position: fixed;\r\n  left: 0;\r\n  top: 0;\r\n  z-index: 3;\n}\n.formButton{\r\n    background-color: white;\r\n     position: absolute;\r\n     top: 50%;\r\n     left: 50%;\r\n     transform: translate(-50%,-50%);\r\n     padding: 20px;\r\n     border: 1px solid black;\n}\r\n", ""]);
 
 // exports
 
@@ -51516,8 +51516,8 @@ var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Progetti\final-proj-boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Progetti\final-proj-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
