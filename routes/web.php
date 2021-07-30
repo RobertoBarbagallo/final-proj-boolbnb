@@ -37,8 +37,6 @@ Route::prefix('user')
     ->name("user.")
     ->group(function () {
         Route::resource("/structures", "StructureController");
-        // Route::get("/structures/{id}/sponsorship", "StructureController@sponsorship")->name('structures.sponsorship');
-
     });
 
 

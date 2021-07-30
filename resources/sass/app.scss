@@ -60,3 +60,19 @@
   background-color: #8bdda8;
   color: white;
 }
+#customTownMarker{
+  background-image: url("../public/icons/town.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 50px;
+}  
+
+#customStructureMarker{
+  background-image: url("../public/icons/structure.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 50px;
+
+}

@@ -72,7 +72,7 @@ class StructureController extends Controller
         ]);
 
         $address = $request->address;
-        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/geocode/' . $address. '.json?limit=1&key=' . env('TOMTOM_API_KEY'))->json();
+        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/geocode/' . $address. '.json?limit=1&key='.env('TOMTOM_API_KEY') )->json();
             $lat = $response['results'][0]['position']['lat'];
             $lng = $response['results'][0]['position']['lon'];
         $newStructure = new Structure();
@@ -127,12 +127,18 @@ class StructureController extends Controller
         $lng = $structure->lng;
 
         $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/reverseGeocode/' . $lat. '%2C%20' . $lng . '.json?limit=1&key=' . env('TOMTOM_API_KEY'))->json();
+
           $readableAddress = $response['addresses'][0]['address']['freeformAddress']; 
+          $position = $response['addresses'][0]['position'];
             
         return view("user.structures.show", [
             "structure" => $structure,
+            "position" => $position,
             "messages" => $messages,
-            "address" => $readableAddress
+            "address" => $readableAddress,
+            "lat" => $lat,
+            "lng" => $lng,
+            "typeofshow" => 1
         ]);
       }
     }
