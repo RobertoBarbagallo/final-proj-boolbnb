@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Structure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
@@ -29,22 +30,21 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        $name = $request->input('search');
+        $town = $request->input('search');
         $request->validate([
             'search' => ['string', 'max:255'],
         ]);
-
-        return redirect()->route('home.show', [
-            "name" => $name
+        return redirect()->route('api.structures.search', [
+            "town" => $town,
+            "radius" => 20000,
+            "fromwelcomepage" => true
         ]);
     }
 
-    public function show(Request $request)
+    public function show (Request $request)
     {
-        $name = json_encode($request->query());
-        return view("guestsearch", [
-            "name" => json_decode($name, true)
-        ]);
+        return view('guestsearch');
     }
+
 
 }

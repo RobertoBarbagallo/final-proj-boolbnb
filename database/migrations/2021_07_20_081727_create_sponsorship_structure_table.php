@@ -16,6 +16,7 @@ class CreateSponsorshipStructureTable extends Migration
         Schema::create('sponsorship_structure', function (Blueprint $table) {
             $table->foreignId('structure_id')->constrained('structures')->onDelete('cascade');
             $table->foreignId('sponsorship_id')->constrained('sponsorships')->onDelete('cascade');
+            $table->timestamp('end_date')->nullable();
             $table->primary(["structure_id", "sponsorship_id"]);
             $table->timestamps();
         });
