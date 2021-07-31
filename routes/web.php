@@ -34,6 +34,11 @@ Route::post("user/structures/{id}/sponsorship/payment2", "User\StructureControll
 
 Auth::routes();
 
+
+Route::post("user/structures/payment", "User\StructureController@payment")->name('user.structures.payment');
+Route::get("user/structures/sponsorship/", "User\StructureController@sponsorship")->name('user.structures.sponsorship');
+
+
 Route::prefix('user')
     ->namespace('user')
     ->middleware('auth')

@@ -8,8 +8,6 @@ use App\Structure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
-
-
 class StructuresController extends Controller
 {
     public function index(){
