@@ -24,7 +24,6 @@ export default {
   props: {
     DeleteLink: String,
   },
-
   data() {
     return {
       clickDelete: false,
@@ -47,7 +46,6 @@ export default {
   top: 0;
   z-index: 3;
 }
-
 .formButton{
     background-color: white;
      position: absolute;
@@ -56,6 +54,5 @@ export default {
      transform: translate(-50%,-50%);
      padding: 20px;
      border: 1px solid black;
-
 }
 </style>

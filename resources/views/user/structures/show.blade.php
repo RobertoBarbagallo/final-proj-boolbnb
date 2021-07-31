@@ -1,5 +1,5 @@
+@dump($typeofshow)
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
 
@@ -33,9 +33,6 @@
     </div>
 
 
-
-    
-
 <div class="btn-row row d-flex justify-content-center align-items-center">
     <show-buttons edit-link="{{ route('user.structures.edit', $structure->id) }}"  :structure-messages="{{$messages}}">
     </show-buttons>
@@ -46,20 +43,12 @@
             <delete-button></delete-button>
         </form>
     </div>
-    
+    <my-maps
+    latitude = {{$lat}}
+    longitude = {{$lng}}
+    typeofshow = {{$typeofshow}}
+    tomtomkey = {{env('TOMTOM_API_KEY')}}
+    >
+    </my-maps>
 </div>
-<div id="map-div"></div>
-</div>
-@endsection
-
-@section('script')
-<script src="{{ asset('js/mapsScript.js') }}" defer></script>
-<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.5.0/maps/maps-web.min.js"></script>
-
-<script>
-    var lat = @JSON($structure['lat']);
-    var lng = @JSON($structure['lng']);
-    const API_KEY = @JSON(env('TOMTOM_API_KEY'));
-</script>
-
 @endsection

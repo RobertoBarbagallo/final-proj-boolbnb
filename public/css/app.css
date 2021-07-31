@@ -10963,3 +10963,53 @@ a.text-dark:focus {
   height: 500px;
 }
 
+.button {
+  cursor: pointer;
+  font-weight: 500;
+  left: 3px;
+  line-height: inherit;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+}
+
+.button--small {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+}
+
+.button--green {
+  outline: none;
+  background-color: #64d18a;
+  border-color: #64d18a;
+  color: white;
+  transition: all 200ms ease;
+}
+
+.button--green:hover {
+  background-color: #8bdda8;
+  color: white;
+}
+
+#customTownMarker {
+  background-image: url(/images/town.png?37b458ecfc1670c954cf1d08aa15f51d);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 50px;
+}
+
+#customStructureMarker {
+  background-image: url(/images/structure.png?486f0281a9846a0923261086682c1c8a);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 50px;
+}
+

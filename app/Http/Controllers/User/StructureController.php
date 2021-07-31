@@ -5,11 +5,15 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Service;
 use App\Sponsorship;
+use App\SponsorshipStructure;
 use App\Structure;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+// use Carbon\Carbon;
 
 class StructureController extends Controller
 {
@@ -21,6 +25,7 @@ class StructureController extends Controller
     public function index(Request $request)
     {
         $structures = Structure::orderBy("id", "DESC")->where("user_id", $request->user()->id)->get();
+
         return view("user.structures.index",[
             'structures' => $structures
         ]);
@@ -67,7 +72,7 @@ class StructureController extends Controller
         ]);
 
         $address = $request->address;
-        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/geocode/' . $address. '.json?limit=1&key=qISPPmwNd3vUBqM2P2ONkZuJGTaaQEmb')->json();
+        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/geocode/' . $address. '.json?limit=1&key='.env('TOMTOM_API_KEY') )->json();
             $lat = $response['results'][0]['position']['lat'];
             $lng = $response['results'][0]['position']['lon'];
         $newStructure = new Structure();
@@ -122,12 +127,18 @@ class StructureController extends Controller
         $lng = $structure->lng;
 
         $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/reverseGeocode/' . $lat. '%2C%20' . $lng . '.json?limit=1&key=' . env('TOMTOM_API_KEY'))->json();
+
           $readableAddress = $response['addresses'][0]['address']['freeformAddress']; 
+          $position = $response['addresses'][0]['position'];
             
         return view("user.structures.show", [
             "structure" => $structure,
+            "position" => $position,
             "messages" => $messages,
-            "address" => $readableAddress
+            "address" => $readableAddress,
+            "lat" => $lat,
+            "lng" => $lng,
+            "typeofshow" => 1
         ]);
       }
     }
@@ -209,6 +220,74 @@ class StructureController extends Controller
         return redirect()->route("user.structures.index");
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function sponsorship(Request $request, Structure $structures, $id)
+    {
+        
+        $sponsorships= Sponsorship::all();
+
+        $activeSponsorships= SponsorshipStructure::all();
+
+        $structure = Structure::where('id', $id)->first();
+        
+        return view("user.structures.sponsorship",[
+            'structure' => $structure,
+            'sponsorships'=> $sponsorships,
+            'activeSponsorships' => $activeSponsorships
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function payment(Request $request, $id)
+    {
+        $sponsorshipId = $request->sponsorship;
+        $spons=Sponsorship::find($sponsorshipId);
+
+        $newSponsorship = new SponsorshipStructure();
+        $newSponsorship->structure_id = $id;
+        $newSponsorship->sponsorship_id = $sponsorshipId;
+        $newSponsorship->end_date = Carbon::now()->addHours($spons->duration);
+
+        $newSponsorship->save();
+        $structure = Structure::where('id', $id)->first();
+
+        return redirect()->route("user.structures.show", $structure->id);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function paymentUpdate(Request $request, $id)
+    {
+        $sponsorshipId = $request->sponsorship;
+        $spons=Sponsorship::find($sponsorshipId);
+
+        $activeSponsorship= SponsorshipStructure::all();
+        $end = $activeSponsorship;
+
+        // dump($end);
+
+        $activeSponsorship->sponsorship_id = $sponsorshipId;
+        $activeSponsorship->end_date = $end->addHours($spons->duration);
+
+        // $activeSponsorship->update();
+        $structure = Structure::where('id', $id)->first();
+
+        return redirect()->route("user.structures.show", $structure->id);
+    }
    
 }
 
