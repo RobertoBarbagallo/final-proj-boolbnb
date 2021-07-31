@@ -1,4 +1,4 @@
-@extends('layouts.appNoJS')
+<!-- @extends('layouts.appNoJS')
 @section('content')
 
 <div class="container">
@@ -40,7 +40,6 @@
 @endsection
 
 @section('script')
-
 <script src="https://js.braintreegateway.com/web/dropin/1.31.0/js/dropin.js"></script>
 
 <script src="{{ asset('js/paymentsScript.js') }}" defer></script>
@@ -52,5 +51,4 @@
     const SELECTED_STRUCTURE = @JSON($structure);
 
 </script>
-
-@endsection
+@endsection -->

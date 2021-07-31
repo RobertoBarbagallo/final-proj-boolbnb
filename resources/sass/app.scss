@@ -76,3 +76,11 @@
   height: 50px;
 
 }
+
+.card-deck {
+  .card{
+    &.mycard{
+      flex-basis: 200px;
+    }
+  }
+}
