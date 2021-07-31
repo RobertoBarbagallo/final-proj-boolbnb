@@ -41,14 +41,14 @@
 
 
 <div class="row d-flex justify-content-around">
+    @if(count($structure->messages) >0) 
     <div>
-    @if($structure->messages)
         <show-messages-button :structuremessages="{{$messages}}">
         </show-messages-button>
     @endif    
     </div>
     <div>
-        <form action="{{ route('user.structures.destroy', $structure->id) }}" method="post" class="delete_form">
+        <form action="{{ route('user.structures.destroy', $structure->id) }}" method="post" class="delete_form text-center" >
             @csrf
             @method('DELETE')
             <delete-button></delete-button>
