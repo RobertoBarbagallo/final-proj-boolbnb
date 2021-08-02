@@ -7,13 +7,12 @@
                 <div class="input-group">
                     <input type="text" class="form-control" name="search" id="search" aria-describedby="searchHelp" placeholder="Inserisci la città">
                     <div class="input-group-append">
-                        <button class="btn" id="submit" type="submit">
+                        <button class="btn px-3" id="submit" type="submit">
                         <i class="fas fa-search"></i>
                         </button>
                     </div>
                 </div>
                 <small id="searchHelp" class="form-text">Dove vuoi andare?</small>
-                {{-- <input class="btn btn-primary" id='submit' type="submit" value="Invia"><br> --}}
             </form>   
         </div>
         <structures-sponsored></structures-sponsored>

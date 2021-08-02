@@ -10944,6 +10944,9 @@ a.text-dark:focus {
 
 * {
   font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .logo-container {
@@ -11066,8 +11069,8 @@ a.text-dark:focus {
   background-color: white;
   position: absolute;
   right: 0px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-radius: 20px;
+  background-color: #EA5C63;
 }
 
 .jumbotron #postform .form-text {
