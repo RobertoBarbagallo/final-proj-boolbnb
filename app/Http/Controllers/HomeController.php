@@ -65,7 +65,10 @@ class HomeController extends Controller
 
           $readableAddress = $response['addresses'][0]['address']['freeformAddress']; 
           $position = $response['addresses'][0]['position'];
-          
+
+        $minutes = 15;
+        views($structure)->cooldown($minutes)->record();
+            
         return view("details", [
             "structure" => $structure,
             "contactedStructure" => $contactedStructure,

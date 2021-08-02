@@ -132,9 +132,6 @@ class StructureController extends Controller
           $position = $response['addresses'][0]['position'];
 
 
-        $minutes = 15;
-        views($structure)->cooldown($minutes)->record();
-
         $views = views($structure)->count();
             
         return view("user.structures.show", [
