@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="count(this.StructuresSponsored) > 1">
     <h1>Strutture Sponsorizzate</h1>
 
       <div class="card-deck">

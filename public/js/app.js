@@ -39294,56 +39294,58 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v("Strutture Sponsorizzate")]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "card-deck" },
-      _vm._l(this.StructuresSponsored, function(structure) {
-        return _c(
+  return _vm.count(this.StructuresSponsored) > 1
+    ? _c("div", [
+        _c("h1", [_vm._v("Strutture Sponsorizzate")]),
+        _vm._v(" "),
+        _c(
           "div",
-          { key: structure.id, staticClass: "card mycard my-4" },
-          [
-            structure.cover_img_path
-              ? _c("img", {
-                  staticClass: "card-img-top myimg",
-                  attrs: {
-                    src: "asset(storage/ " + structure.cover_img_path + ")",
-                    alt: "Cover of structure"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "mt-0" }, [
-                _vm._v(_vm._s(structure.name))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-footer text-center" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-outline-primary my-1",
-                  attrs: {
-                    href:
-                      "http://127.0.0.1:8000/details?slug=" +
-                      structure.slug +
-                      "&contactedStructure=0",
-                    role: "button"
-                  }
-                },
-                [_vm._v("Dettagli...")]
-              ),
-              _c("br")
-            ])
-          ]
+          { staticClass: "card-deck" },
+          _vm._l(this.StructuresSponsored, function(structure) {
+            return _c(
+              "div",
+              { key: structure.id, staticClass: "card mycard my-4" },
+              [
+                structure.cover_img_path
+                  ? _c("img", {
+                      staticClass: "card-img-top myimg",
+                      attrs: {
+                        src: "asset(storage/ " + structure.cover_img_path + ")",
+                        alt: "Cover of structure"
+                      }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h5", { staticClass: "mt-0" }, [
+                    _vm._v(_vm._s(structure.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-footer text-center" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-outline-primary my-1",
+                      attrs: {
+                        href:
+                          "http://127.0.0.1:8000/details?slug=" +
+                          structure.slug +
+                          "&contactedStructure=0",
+                        role: "button"
+                      }
+                    },
+                    [_vm._v("Dettagli...")]
+                  ),
+                  _c("br")
+                ])
+              ]
+            )
+          }),
+          0
         )
-      }),
-      0
-    )
-  ])
+      ])
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
