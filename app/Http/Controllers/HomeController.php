@@ -53,6 +53,7 @@ class HomeController extends Controller
     public function details(Request $request)
 
     {
+        $ipaddress = $request->ip();
         $contactedStructure = $request->contactedStructure;
         $slug = $request->slug;
         $structure = Structure::where('slug', $slug)->first();
@@ -72,7 +73,8 @@ class HomeController extends Controller
             "address" => $readableAddress,
             "lat" => $lat,
             "lng" => $lng,
-            "typeofshow" => 1
+            "typeofshow" => 1,
+            "requestIp" => $ipaddress
         ]);
     }
     
