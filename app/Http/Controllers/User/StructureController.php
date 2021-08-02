@@ -130,6 +130,12 @@ class StructureController extends Controller
 
           $readableAddress = $response['addresses'][0]['address']['freeformAddress']; 
           $position = $response['addresses'][0]['position'];
+
+
+        $minutes = 15;
+        views($structure)->cooldown($minutes)->record();
+
+        $views = views($structure)->count();
             
         return view("user.structures.show", [
             "structure" => $structure,
@@ -138,8 +144,9 @@ class StructureController extends Controller
             "address" => $readableAddress,
             "lat" => $lat,
             "lng" => $lng,
-            "typeofshow" => 1
-        ]);
+            "typeofshow" => 1,
+            "views" => $views
+        ], compact('structure'));
       }
     }
 
@@ -236,7 +243,7 @@ class StructureController extends Controller
         $structure = Structure::where('id', $id)->first();
         
         return view("user.structures.sponsorship",[
-            'structure' => $request,
+            'structure' => $structure,
             'sponsorships'=> $sponsorships,
             'activeSponsorships' => $activeSponsorships
         ]);

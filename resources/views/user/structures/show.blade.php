@@ -25,6 +25,7 @@
                 @foreach($structure->services as $service)
                 <p class="badge badge-primary ">{{ $service->name }}</p>
                 @endforeach
+                <h5 class="text-secondary">Numero Visite: {{ $views }}</h5>
             </div>
 
           

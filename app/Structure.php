@@ -4,8 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Structure extends Model
+use CyrildeWit\EloquentViewable\InteractsWithViews;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
+
+class Structure extends Model implements Viewable
 {
+    use InteractsWithViews;
 
     protected $fillable = [
        'id', 'user_id', 'name', 'lat', 'long', 'rooms', 'beds', 'bathrooms', 'sqm', 'visible', 'slug', 'cover_img_path', 'created_at'
