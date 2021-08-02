@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
 
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
@@ -10942,9 +10942,78 @@ a.text-dark:focus {
   }
 }
 
-.avatar {
-  width: 60px;
-  height: 60px;
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.logo-container {
+  width: 200px;
+  height: 40px;
+  display: flex;
+}
+
+.logo-container .logo-img-container {
+  width: 40px;
+  height: 100%;
+}
+
+.logo-container .logo-img-container .logo {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.logo-container .logo-text {
+  color: #EA5C63;
+}
+
+.logo-container .logo-text:hover {
+  color: #EA5C63;
+}
+
+.mydropdown {
+  width: auto !important;
+}
+
+.mydropdown .dropdown-menu .dropdown-item.myitem:hover {
+  background-color: #ffdadb;
+}
+
+.mydropdown .mydropdown2 {
+  background-color: white;
+  border: 1px solid #EA5C63;
+  color: #EA5C63;
+  border-radius: 800px;
+}
+
+.mydropdown .mydropdown2:hover {
+  background-color: #EA5C63;
+  border: 1px solid white;
+  color: white;
+}
+
+.mydropdown .mydropdown2:hover .fa-bars {
+  color: white;
+}
+
+.mydropdown .mydropdown2:focus {
+  box-shadow: 0 0 0 0.2rem #ffdadb;
+}
+
+.mydropdown .mydropdown2:active {
+  background-color: white;
+  border: 1px solid #EA5C63;
+  color: white;
+}
+
+.mydropdown .mydropdown2 .fa-bars {
+  color: #EA5C63;
+}
+
+.mydropdown .mydropdown2 .avatar {
+  width: 25px;
+  height: 25px;
   -o-object-fit: contain;
   object-fit: contain;
   border-radius: 50%;

@@ -1,14 +1,11 @@
 @extends('layouts.app')
 @section('content')
-@dump($requestIp)
 @if($contactedStructure)
 <created-message-pop-up
 contactedstructure = {{$contactedStructure}}
 >
 </created-message-pop-up>
-
 @endif
-
 <div class="container">
     <div class="text-right">
         <button type="button" class="btn btn-primary"><a href="{{ route('home.index') }}" class="text-light">Torna alla home</a></button>
