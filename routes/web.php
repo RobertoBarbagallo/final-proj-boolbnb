@@ -29,14 +29,10 @@ Route::post('/storemessage', 'HomeController@storemessage')->name('home.storemes
 
 Route::get("user/structures/{id}/sponsorship", "User\StructureController@sponsorship")->name('user.structures.sponsorship')->middleware('auth');
 Route::post("user/structures/{id}/sponsorship/payment", "User\StructureController@payment")->name('user.structures.payment');
-Route::post("user/structures/{id}/sponsorship/payment2", "User\StructureController@paymentUpdate")->name('user.structures.paymentUpdate');
+// Route::post("user/structures/{id}/sponsorship/payment2", "User\StructureController@paymentUpdate")->name('user.structures.paymentUpdate');
 
 
 Auth::routes();
-
-
-Route::post("user/structures/payment", "User\StructureController@payment")->name('user.structures.payment');
-Route::get("user/structures/sponsorship/", "User\StructureController@sponsorship")->name('user.structures.sponsorship');
 
 
 Route::prefix('user')
