@@ -12,6 +12,7 @@
             <input class="btn btn-primary" id='submit' type="submit" value="Invia"><br>
         </form>    
         </div>
+        <structures-sponsored></structures-sponsored>
         @if($structures)
         <div class="card-deck">
             @foreach($structures as $structure)

@@ -2387,6 +2387,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "StructuresSponsored",
   data: function data() {
@@ -38986,192 +38991,203 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("form", [
-      _c("div", { staticClass: "mb-3" }, [
-        _c("label", { attrs: { for: "town" } }, [_vm._v("Città")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.filters.town,
-              expression: "filters.town"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "text", id: "town", required: "" },
-          domProps: { value: _vm.filters.town },
-          on: {
-            keyup: function($event) {
-              if (
-                !$event.type.indexOf("key") &&
-                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-              ) {
-                return null
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("form", [
+        _c("div", { staticClass: "mb-3" }, [
+          _c("label", { attrs: { for: "town" } }, [_vm._v("Città")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.filters.town,
+                expression: "filters.town"
               }
-              return _vm.avancedSearch()
-            },
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.filters, "town", $event.target.value)
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mb-3" }, [
-        _c("label", { attrs: { for: "beds" } }, [_vm._v("Numero di Ospiti")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.filterBeds,
-              expression: "filterBeds"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "number", id: "beds", placeholder: "beds" },
-          domProps: { value: _vm.filterBeds },
-          on: {
-            input: [
-              function($event) {
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", id: "town", required: "" },
+            domProps: { value: _vm.filters.town },
+            on: {
+              keyup: function($event) {
+                if (
+                  !$event.type.indexOf("key") &&
+                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                ) {
+                  return null
+                }
+                return _vm.avancedSearch()
+              },
+              input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.filterBeds = $event.target.value
-              },
-              function($event) {
-                return _vm.avancedSearch()
+                _vm.$set(_vm.filters, "town", $event.target.value)
               }
-            ]
-          }
-        })
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-3" }, [
+          _c("label", { attrs: { for: "beds" } }, [_vm._v("Numero di Ospiti")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.filterBeds,
+                expression: "filterBeds"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "number", id: "beds", placeholder: "beds" },
+            domProps: { value: _vm.filterBeds },
+            on: {
+              input: [
+                function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.filterBeds = $event.target.value
+                },
+                function($event) {
+                  return _vm.avancedSearch()
+                }
+              ]
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("label", [_vm._v("Servizi")]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "form-check row mb-3" },
+          _vm._l(this.servicesList, function(service) {
+            return _c(
+              "label",
+              { key: service.id, staticClass: "form-check-label col-3 mb-1" },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.marksArray,
+                      expression: "marksArray"
+                    }
+                  ],
+                  staticClass: "form-check-input",
+                  attrs: { name: "services[]", type: "checkbox" },
+                  domProps: {
+                    value: service.id,
+                    checked: Array.isArray(_vm.marksArray)
+                      ? _vm._i(_vm.marksArray, service.id) > -1
+                      : _vm.marksArray
+                  },
+                  on: {
+                    change: [
+                      function($event) {
+                        var $$a = _vm.marksArray,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = service.id,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 && (_vm.marksArray = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.marksArray = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.marksArray = $$c
+                        }
+                      },
+                      function($event) {
+                        return _vm.avancedSearch($event)
+                      }
+                    ]
+                  }
+                }),
+                _vm._v("\n         " + _vm._s(service.name) + "\n       ")
+              ]
+            )
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-3" }, [
+          _c("label", { attrs: { for: "radius" } }, [_vm._v("Distanza")]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "custom-range",
+            attrs: { type: "range", min: "5000", max: "200000", id: "radius" },
+            domProps: { value: this.filters.radius },
+            on: {
+              change: function($event) {
+                return _vm.avancedSearch($event.target.value)
+              }
+            }
+          })
+        ])
       ]),
       _vm._v(" "),
-      _c("label", [_vm._v("Servizi")]),
+      _c("structures-sponsored"),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "form-check row mb-3" },
-        _vm._l(this.servicesList, function(service) {
+        { staticClass: "card-deck" },
+        _vm._l(this.showArray, function(result) {
           return _c(
-            "label",
-            { key: service.id, staticClass: "form-check-label col-3 mb-1" },
+            "div",
+            { key: result.id, staticClass: "card mycard my-4" },
             [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.marksArray,
-                    expression: "marksArray"
-                  }
-                ],
-                staticClass: "form-check-input",
-                attrs: { name: "services[]", type: "checkbox" },
-                domProps: {
-                  value: service.id,
-                  checked: Array.isArray(_vm.marksArray)
-                    ? _vm._i(_vm.marksArray, service.id) > -1
-                    : _vm.marksArray
-                },
-                on: {
-                  change: [
-                    function($event) {
-                      var $$a = _vm.marksArray,
-                        $$el = $event.target,
-                        $$c = $$el.checked ? true : false
-                      if (Array.isArray($$a)) {
-                        var $$v = service.id,
-                          $$i = _vm._i($$a, $$v)
-                        if ($$el.checked) {
-                          $$i < 0 && (_vm.marksArray = $$a.concat([$$v]))
-                        } else {
-                          $$i > -1 &&
-                            (_vm.marksArray = $$a
-                              .slice(0, $$i)
-                              .concat($$a.slice($$i + 1)))
-                        }
-                      } else {
-                        _vm.marksArray = $$c
-                      }
-                    },
-                    function($event) {
-                      return _vm.avancedSearch($event)
+              result.cover_img_path
+                ? _c("img", {
+                    staticClass: "card-img-top myimg",
+                    attrs: {
+                      src: "asset(storage/ " + result.cover_img_path + ")",
+                      alt: "Cover of structure"
                     }
-                  ]
-                }
-              }),
-              _vm._v("\n         " + _vm._s(service.name) + "\n       ")
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "mt-0" }, [_vm._v(_vm._s(result.name))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-footer text-center" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-outline-primary my-1",
+                    attrs: {
+                      href:
+                        "http://127.0.0.1:8000/details?slug=" +
+                        result.slug +
+                        "&contactedStructure=0",
+                      role: "button"
+                    }
+                  },
+                  [_vm._v("Dettagli...")]
+                ),
+                _c("br")
+              ])
             ]
           )
         }),
         0
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "mb-3" }, [
-        _c("label", { attrs: { for: "radius" } }, [_vm._v("Distanza")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "custom-range",
-          attrs: { type: "range", min: "5000", max: "200000", id: "radius" },
-          domProps: { value: this.filters.radius },
-          on: {
-            change: function($event) {
-              return _vm.avancedSearch($event.target.value)
-            }
-          }
-        })
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "card-deck" },
-      _vm._l(this.showArray, function(result) {
-        return _c("div", { key: result.id, staticClass: "card mycard my-4" }, [
-          result.cover_img_path
-            ? _c("img", {
-                staticClass: "card-img-top myimg",
-                attrs: {
-                  src: "asset(storage/ " + result.cover_img_path + ")",
-                  alt: "Cover of structure"
-                }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "mt-0" }, [_vm._v(_vm._s(result.name))])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-footer text-center" }, [
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-outline-primary my-1",
-                attrs: {
-                  href:
-                    "http://127.0.0.1:8000/details?slug=" +
-                    result.slug +
-                    "&contactedStructure=0",
-                  role: "button"
-                }
-              },
-              [_vm._v("Dettagli...")]
-            ),
-            _c("br")
-          ])
-        ])
-      }),
-      0
-    )
-  ])
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -39278,21 +39294,56 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h1", [_vm._v("Strutture sponsorizzate")]),
-      _vm._v(" "),
+  return _c("div", [
+    _c("h1", [_vm._v("Strutture Sponsorizzate")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "card-deck" },
       _vm._l(this.StructuresSponsored, function(structure) {
-        return _c("div", { key: structure.id, staticClass: "my-3" }, [
-          _c("h3", [_vm._v(_vm._s(structure.name))]),
-          _vm._v(" "),
-          _c("h4", [_vm._v(_vm._s(structure.beds))])
-        ])
-      })
-    ],
-    2
-  )
+        return _c(
+          "div",
+          { key: structure.id, staticClass: "card mycard my-4" },
+          [
+            structure.cover_img_path
+              ? _c("img", {
+                  staticClass: "card-img-top myimg",
+                  attrs: {
+                    src: "asset(storage/ " + structure.cover_img_path + ")",
+                    alt: "Cover of structure"
+                  }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("h5", { staticClass: "mt-0" }, [
+                _vm._v(_vm._s(structure.name))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-footer text-center" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-outline-primary my-1",
+                  attrs: {
+                    href:
+                      "http://127.0.0.1:8000/details?slug=" +
+                      structure.slug +
+                      "&contactedStructure=0",
+                    role: "button"
+                  }
+                },
+                [_vm._v("Dettagli...")]
+              ),
+              _c("br")
+            ])
+          ]
+        )
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

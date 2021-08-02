@@ -23,4 +23,4 @@ Route::get('/structures', 'Api\StructuresController@index');
 Route::get('/structures/services', 'Api\StructuresController@services');
 Route::get('/structures/search', 'Api\StructuresController@search')->name("api.structures.search");
 Route::get('/structures/filter', 'Api\StructuresController@filter');
-Route::get('/structures/SponsoredStructure', 'Api\StructuresController@SponsoredStructure');
+Route::get('/structures/sponsoredstructure', 'Api\StructuresController@SponsoredStructure');

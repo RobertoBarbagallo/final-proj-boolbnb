@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-@dump($requestIp)
 @if($contactedStructure)
 <created-message-pop-up
 contactedstructure = {{$contactedStructure}}

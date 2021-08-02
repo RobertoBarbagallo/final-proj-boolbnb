@@ -137,7 +137,7 @@ class StructuresController extends Controller
         //  Dall'array di Id degli apt sponsorizzati ricava le effettive informazioni relative all'apt
         foreach ($sponsoredStructureIDS as $structureID) {
             $structure =  DB::table('structures')
-            ->select('id' , 'beds' , 'rooms' , 'name' , 'bathrooms','sqm','cover_img_path')
+            ->select('id' , 'user_id' , 'name' , 'lat' , 'lng','rooms','beds', 'bathrooms', 'sqm', 'visible', 'slug', 'cover_img_path', 'created_at', 'updated_at')
             ->where('id', $structureID)
             ->first();
 
@@ -148,18 +148,18 @@ class StructuresController extends Controller
      
             // Salva le informazioni ottenute in un nuovo array, pushato poi in $filteredApt
 
-            $filteredStructure = array( 
-                'name' => $structure->name,
-                'id' => $structure->id ,
-                'beds' => $structure->beds , 
-                'rooms' => $structure->rooms , 
-                'bathrooms' => $structure->bathrooms ,
-                'sqm' => $structure->sqm ,
-                'cover_img_path' => $structure->cover_img_path ,
+            // $filteredStructure = array( 
+            //     'name' => $structure->name,
+            //     'id' => $structure->id ,
+            //     'beds' => $structure->beds , 
+            //     'rooms' => $structure->rooms , 
+            //     'bathrooms' => $structure->bathrooms ,
+            //     'sqm' => $structure->sqm ,
+            //     'cover_img_path' => $structure->cover_img_path ,
 
-             );
+            //  );
 
-            array_push($sponsoredStructureAll , $filteredStructure);
+            array_push($sponsoredStructureAll , $structure);
         }
 
       /*   $sponsoredStructure = []; */
