@@ -76,8 +76,7 @@ class HomeController extends Controller
             "address" => $readableAddress,
             "lat" => $lat,
             "lng" => $lng,
-            "typeofshow" => 1,
-            "requestIp" => $ipaddress
+            "typeofshow" => 1
         ]);
     }
     
