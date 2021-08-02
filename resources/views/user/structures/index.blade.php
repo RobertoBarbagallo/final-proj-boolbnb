@@ -4,7 +4,6 @@
     <div class="row justify-content-center">
         <a class="btn btn-primary mb-4 mx-4" href="{{ route('user.structures.create') }}" role="button">Aggiungi struttura...</a>
     </div>
-
     <div class="card-deck flex-wrap">
         @if($structures)
 

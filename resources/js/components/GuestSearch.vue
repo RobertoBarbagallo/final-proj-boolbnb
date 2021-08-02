@@ -45,7 +45,7 @@
         >     
       </div>
     </form>
-    <!-- <structures-sponsored></structures-sponsored> -->
+    <structures-sponsored></structures-sponsored>
      <div class="card-deck">
             <div v-for="result in this.showArray" :key="result.id" class="card mycard my-4">
                 <img v-if="result.cover_img_path" class="card-img-top myimg" :src="`asset(storage/ ${result.cover_img_path})`" alt="Cover of structure">
