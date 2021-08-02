@@ -236,7 +236,7 @@ class StructureController extends Controller
         $structure = Structure::where('id', $id)->first();
         
         return view("user.structures.sponsorship",[
-            'structure' => $request,
+            'structure' => $structure,
             'sponsorships'=> $sponsorships,
             'activeSponsorships' => $activeSponsorships
         ]);

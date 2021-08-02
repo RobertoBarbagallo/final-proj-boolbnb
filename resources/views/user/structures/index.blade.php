@@ -4,6 +4,7 @@
     <div class="row justify-content-center">
         <a class="btn btn-primary mb-4 mx-4" href="{{ route('user.structures.create') }}" role="button">Aggiungi struttura...</a>
     </div>
+
     <div class="card-deck flex-wrap">
         @if($structures)
 
@@ -23,7 +24,7 @@
             </div>
             <div class="card-footer text-center">
                 <a class="btn btn-outline-primary my-1" href="{{route("user.structures.show", $structure->id)}}" role="button">Dettagli...</a><br>
-                <a class="btn btn-outline-primary my-1" href="{{route("user.structures.sponsorship", $structure->id)}}" role="button">Sponsorizza</a><br>
+                <a class="btn btn-outline-primary my-1" href="{{url('user/structures/'.$structure->id.'/sponsorship')}}" role=“button”>Sponsorizza</a><br>
             </div>
         </div>
 
