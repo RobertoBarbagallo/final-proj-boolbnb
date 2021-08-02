@@ -46,14 +46,17 @@
       </div>
     </form>
     <structures-sponsored></structures-sponsored>
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div v-for="result in this.showArray" :key="result.id" class="my-3">
-          <h3>{{ result.name }}</h3>
-          <h4>{{ result.beds }}</h4>
+     <div class="card-deck">
+            <div v-for="result in this.showArray" :key="result.id" class="card mycard my-4">
+                <img v-if="result.cover_img_path" class="card-img-top myimg" :src="`asset(storage/ ${result.cover_img_path})`" alt="Cover of structure">
+                <div class="card-body">
+                    <h5 class="mt-0">{{result.name}}</h5>
+                </div>
+                <div class="card-footer text-center">
+                    <a class="btn btn-outline-primary my-1" :href="`http://127.0.0.1:8000/details?slug=${result.slug}&contactedStructure=0`" role="button">Dettagli...</a><br>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>  
  </div>
 </template>
 <script>
@@ -151,7 +154,6 @@ export default {
     },
   },
   mounted() {
-    this.results = this.backEndArray
     this.filters.town= this.oldtown
     axios
       .get("/api/structures/services")

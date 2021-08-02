@@ -14,7 +14,7 @@
             </div>
         </div>
     </div>
-    <form method="post" action='{{ route('user.structures.payment', $structure->id) }}' id="postform" enctype="multipart/form-data">
+    <form method="post" action='{{ route('user.structures.payment', ['id' => $structure->id]) }}' id="postform" enctype="multipart/form-data">
         @csrf
         @method('POST')
 

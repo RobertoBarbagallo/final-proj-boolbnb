@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Message;
 use App\Structure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -25,7 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $structures = Structure::all();
+        return view("welcome",[
+            'structures' => $structures
+        ]);
     }
 
     public function search(Request $request)
@@ -46,5 +50,51 @@ class HomeController extends Controller
         return view('guestsearch');
     }
 
+    public function details(Request $request)
+
+    {
+        $ipaddress = $request->ip();
+        $contactedStructure = $request->contactedStructure;
+        $slug = $request->slug;
+        $structure = Structure::where('slug', $slug)->first();
+
+        $lat = $structure->lat;
+        $lng = $structure->lng;
+
+        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/reverseGeocode/' . $lat. '%2C%20' . $lng . '.json?limit=1&key=' . env('TOMTOM_API_KEY'))->json();
+
+          $readableAddress = $response['addresses'][0]['address']['freeformAddress']; 
+          $position = $response['addresses'][0]['position'];
+
+        $minutes = 15;
+        views($structure)->cooldown($minutes)->record();
+            
+        return view("details", [
+            "structure" => $structure,
+            "contactedStructure" => $contactedStructure,
+            "position" => $position,
+            "address" => $readableAddress,
+            "lat" => $lat,
+            "lng" => $lng,
+            "typeofshow" => 1
+        ]);
+    }
+    
+
+    public function storemessage(Request $request)
+    {
+        $messageData = $request->all();
+        $request->validate([
+            'sender_email' => ['required','string', 'max:255'],
+            'content' => ['required','string'],
+            'structure_id' => ['required','numeric'],
+        ]);
+        $structure = Structure::where('id', $request->structure_id)->first();
+        $newMessage = new Message();
+        $newMessage->fill($messageData);
+        $newMessage->save();
+        return redirect()->route('home.details', ["slug" => $structure->slug, "contactedStructure" => true]);
+
+    }
 
 }

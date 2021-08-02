@@ -1,4 +1,4 @@
-@dump($typeofshow)
+
 @extends('layouts.app')
 @section('content')
 <div class="container">
@@ -25,30 +25,35 @@
                 @foreach($structure->services as $service)
                 <p class="badge badge-primary ">{{ $service->name }}</p>
                 @endforeach
+                <h5 class="text-secondary">Numero Visite: {{ $views }}</h5>
             </div>
 
           
 
         </div>
+        <my-maps
+         latitude = {{$lat}}
+         longitude = {{$lng}}
+         typeofshow = {{$typeofshow}}
+         tomtomkey = {{env('TOMTOM_API_KEY')}}
+        >
+        </my-maps>
     </div>
 
 
-<div class="btn-row row d-flex justify-content-center align-items-center">
-    <show-buttons edit-link="{{ route('user.structures.edit', $structure->id) }}"  :structure-messages="{{$messages}}">
-    </show-buttons>
+<div class="row d-flex justify-content-around">
+    @if(count($structure->messages) >0) 
     <div>
-        <form action="{{ route('user.structures.destroy', $structure->id) }}" method="post" class="delete_form">
+        <show-messages-button :structuremessages="{{$messages}}">
+        </show-messages-button>
+    @endif    
+    </div>
+    <div>
+        <form action="{{ route('user.structures.destroy', $structure->id) }}" method="post" class="delete_form text-center" >
             @csrf
             @method('DELETE')
             <delete-button></delete-button>
         </form>
     </div>
-    <my-maps
-    latitude = {{$lat}}
-    longitude = {{$lng}}
-    typeofshow = {{$typeofshow}}
-    tomtomkey = {{env('TOMTOM_API_KEY')}}
-    >
-    </my-maps>
 </div>
 @endsection

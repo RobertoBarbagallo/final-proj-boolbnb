@@ -17,11 +17,10 @@ braintree.dropin.create({
   })
 });
 
-// Form Action Script
 
 // var form = document.querySelector('#postform');
 
-// // let sponsoredId = [];
+// let sponsoredId = [];
 
 // const SELECTED_STRUCTURE_ID = SELECTED_STRUCTURE['id'];
 

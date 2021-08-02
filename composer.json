@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2.5|^8.0",
         "braintree/braintree_php": "^6.4",
+        "cyrildewit/eloquent-viewable": "^6.0",
         "doctrine/cache": "^1.0",
         "doctrine/dbal": "2.13",
         "fideloper/proxy": "^4.4",

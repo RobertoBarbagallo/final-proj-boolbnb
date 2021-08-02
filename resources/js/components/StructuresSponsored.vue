@@ -1,14 +1,19 @@
 <template>
   <div>
-    <h1>Strutture sponsorizzate</h1>
-    <div
-      v-for="structure in this.StructuresSponsored"
-      :key="structure.id"
-      class="my-3"
-    >
-      <h3>{{ structure.name }}</h3>
-      <h4>{{ structure.beds }}</h4>
-    </div>
+    <h1>Strutture Sponsorizzate</h1>
+
+      <div class="card-deck">
+        <div class="card mycard my-4" v-for="structure in this.StructuresSponsored" :key="structure.id">
+          <img v-if="structure.cover_img_path" class="card-img-top myimg" :src="`asset(storage/ ${structure.cover_img_path})`" alt="Cover of structure">
+            <div class="card-body">
+              <h5 class="mt-0">{{structure.name}}</h5>
+            </div>
+            <div class="card-footer text-center">
+              <a class="btn btn-outline-primary my-1" :href="`http://127.0.0.1:8000/details?slug=${structure.slug}&contactedStructure=0`" role="button">Dettagli...</a><br>
+            </div>
+        </div>
+      </div>
+      
   </div>
 </template>
 <script>
