@@ -66,6 +66,10 @@
                                     </form>
                                 </div>
                             </li>
+                            <a href="{{ url('/user/structures/') }}">Area privata</a>
+                            @if(Auth::user()->user_img_path)
+                                <img class="avatar" src="{{ asset('storage/' . Auth::user()->user_img_path) }}" alt="Card image cap">
+                            @endif
                         @endguest
                     </ul>
                 </div>
@@ -73,7 +77,6 @@
         </nav>
 
         <main class="py-4">
-            @yield('map')
             @yield('content')
         </main>
     </div>

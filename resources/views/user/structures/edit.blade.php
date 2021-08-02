@@ -15,7 +15,7 @@
         <div class="form-group">
             <label for="name">Nome</label>
             <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder="Inserisci il nome"  value="{{ $structure->name}}">
-            <small id="titleHelp" class="form-text text-muted">Inserisci in questo campo il nome della struttura</small>
+            <small id="nameHelp" class="form-text text-muted">Inserisci in questo campo il nome della struttura</small>
         </div>
 
 
@@ -24,24 +24,6 @@
             <input type="text" class="form-control" id="address" name="address" rows="5" aria-describedby="addressHelp" value="{{ old('address', $address) }}" required readonly>
             <small id="addressHelp" class="form-text text-muted">Inserisci in questo campo l'indirizzo della struttura</small>
         </div>
-
-        {{-- <div class="form-group">
-            <label for="houseNumber">Civico</label>
-            <input type="number" class="form-control" id="houseNumber" name="houseNumber" aria-describedby="houseNumberHelp" placeholder="Inserisci il civico" >
-            <small id="houseNumberHelp" class="form-text text-muted">Inserisci in questo campo il civico della struttura</small>
-        </div>
-
-        <div class="form-group">
-            <label for="city">Città</label>
-            <input type="text" class="form-control" id="city" name="city" aria-describedby="cityHelp" placeholder="Inserisci la città">
-            <small id="cityHelp" class="form-text text-muted">Inserisci in questo campo la città della struttura</small>
-        </div>
-
-        <div class="form-group">
-            <label for="province">Provincia</label>
-            <input type="text" class="form-control" id="province" name="province" aria-describedby="provinceHelp" placeholder="Inserisci la provincia">
-            <small id="provinceHelp" class="form-text text-muted">Inserisci in questo campo la provincia della struttura</small>
-        </div> --}}
 
         <div class="form-group">
             <label for="rooms">Camere</label>

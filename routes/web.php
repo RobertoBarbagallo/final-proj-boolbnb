@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::match(array('GET', 'POST'), '/', 'HomeController@index')->name('home.index');
 Route::post("/search", 'HomeController@search')->name('home.search');
 Route::get('/guestsearch', 'HomeController@show')->name('home.show');
+Route::match(array('GET', 'POST'), '/details', 'HomeController@details')->name('home.details');
+Route::post('/storemessage', 'HomeController@storemessage')->name('home.storemessage');
+
 // Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
 
 Route::get("user/structures/{id}/sponsorship", "User\StructureController@sponsorship")->name('user.structures.sponsorship')->middleware('auth');
@@ -30,6 +33,11 @@ Route::post("user/structures/{id}/sponsorship/payment2", "User\StructureControll
 
 
 Auth::routes();
+
+
+Route::post("user/structures/payment", "User\StructureController@payment")->name('user.structures.payment');
+Route::get("user/structures/sponsorship/", "User\StructureController@sponsorship")->name('user.structures.sponsorship');
+
 
 Route::prefix('user')
     ->namespace('user')

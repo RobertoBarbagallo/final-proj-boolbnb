@@ -24,6 +24,10 @@ Vue.component('delete-button', require('./components/DeleteButton.vue').default)
 Vue.component('my-maps', require('./components/MyMaps.vue').default);
 Vue.component('guest-search', require('./components/GuestSearch.vue').default);
 Vue.component('structures-sponsored', require('./components/StructuresSponsored.vue').default);
+Vue.component('show-messages-button', require('./components/ShowMessagesButton.vue').default);
+Vue.component('create-messages-button', require('./components/CreateMessagesButton.vue').default);
+Vue.component('created-message-pop-up', require('./components/CreatedMessagePopUp.vue').default);
+
 
 
  // const files = require.context('./', true, /\.vue$/i)
