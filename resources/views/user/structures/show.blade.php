@@ -6,8 +6,8 @@
     <div class="text-right">
         <button type="button" class="btn btn-primary"><a href="{{ route('user.structures.index') }}" class="text-light">Torna alla home</a></button>
     </div>
-    <div class="border row">
-        <div class="col">
+    <div class="d-flex">
+    <div class="col-6">
             <h4 class="text-secondary">ID: {{ $structure->id }}</h4>
 
             <div class="text-left">
@@ -27,18 +27,20 @@
                 @endforeach
                 <h5 class="text-secondary">Numero Visite: {{ $views }}</h5>
             </div>
-
-          
-
         </div>
-        <my-maps
-         latitude = {{$lat}}
-         longitude = {{$lng}}
-         typeofshow = {{$typeofshow}}
-         tomtomkey = {{env('TOMTOM_API_KEY')}}
-        >
-        </my-maps>
+        <div class="col-6">   
+            <my-maps
+            latitude = {{$lat}}
+            longitude = {{$lng}}
+            typeofshow = {{$typeofshow}}
+            tomtomkey = {{env('TOMTOM_API_KEY')}}
+            >
+            </my-maps>
+        </div>
+    
     </div>
+        
+</div>
 
 
 <div class="row d-flex justify-content-around">

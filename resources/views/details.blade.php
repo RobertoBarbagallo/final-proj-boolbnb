@@ -43,10 +43,10 @@ contactedstructure = {{$contactedStructure}}
         </my-maps>
     </div>
     <div class="btn-row row d-flex justify-content-center align-items-center">
-    <create-messages-button></create-messages-button>
+        <create-messages-button></create-messages-button>
     </div>
     <div>
-       <form method="post" action="{{ route('home.storemessage')}}" class="hidden" id="target" id="postform" enctype="multipart/form-data">
+       <form method="post" action="{{ route('home.storemessage')}}" class="d-none" id="target" id="postform" enctype="multipart/form-data">
        @csrf
         <div class="form-group">
         <label for="sender_email">Email</label>

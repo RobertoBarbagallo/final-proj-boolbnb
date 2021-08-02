@@ -10948,12 +10948,12 @@ a.text-dark:focus {
 
 .logo-container {
   width: 200px;
-  height: 40px;
+  height: 30px;
   display: flex;
 }
 
 .logo-container .logo-img-container {
-  width: 40px;
+  width: 30px;
   height: 100%;
 }
 
@@ -11019,51 +11019,14 @@ a.text-dark:focus {
   border-radius: 50%;
 }
 
-.hidden {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
 #map-div {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 350px;
 }
 
-.button {
-  cursor: pointer;
-  font-weight: 500;
-  left: 3px;
-  line-height: inherit;
-  position: relative;
-  text-decoration: none;
-  text-align: center;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 3px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  display: inline-block;
-}
-
-.button--small {
-  padding: 10px 20px;
-  font-size: 0.875rem;
-}
-
-.button--green {
-  outline: none;
-  background-color: #64d18a;
-  border-color: #64d18a;
-  color: white;
-  transition: all 200ms ease;
-}
-
-.button--green:hover {
-  background-color: #8bdda8;
-  color: white;
+#map-div.small {
+  width: 100%;
+  height: 350px;
 }
 
 #customTownMarker {
@@ -11080,6 +11043,37 @@ a.text-dark:focus {
   background-repeat: no-repeat;
   width: 30px;
   height: 50px;
+}
+
+.jumbotron {
+  height: 500px;
+  background-image: url(/images/Jumbotron.jpg?fde996920b9d7fcba31b3300eb2e2716);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.jumbotron #postform {
+  width: 50%;
+  margin: auto;
+  padding-top: 100px;
+}
+
+.jumbotron #postform #search {
+  border-radius: 20px;
+}
+
+.jumbotron #postform #submit {
+  background-color: white;
+  position: absolute;
+  right: 0px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.jumbotron #postform .form-text {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .card-deck .card.mycard {

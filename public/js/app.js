@@ -1921,8 +1921,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreateMessagesButton",
-  props: {// StructureMessages: JSON,
-  },
+  props: {},
   data: function data() {
     return {
       ClickButton: false
@@ -1932,7 +1931,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     ShowForm: function ShowForm() {
       this.ClickButton = true;
-      document.getElementById("target").classList.add("show");
+      document.getElementById("target").classList.add("d-block");
     }
   },
   mounted: function mounted() {}
@@ -2374,6 +2373,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -38889,14 +38889,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("a", { attrs: { href: "#" } }, [
-      _c(
-        "i",
-        {
-          staticClass: "fa fa-trash text-white",
-          attrs: { "aria-hidden": "true" }
-        },
-        [_vm._v("Ok")]
-      )
+      _c("i", { staticClass: "text-white", attrs: { "aria-hidden": "true" } }, [
+        _vm._v("Ok")
+      ])
     ])
   }
 ]
@@ -39218,7 +39213,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("div", { attrs: { id: "map-div" } })])
+    return _c("div", [
+      _c("div", { staticClass: "small", attrs: { id: "map-div" } })
+    ])
   }
 ]
 render._withStripped = true
@@ -39295,7 +39292,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h1", [_vm._v("Strutture Sponsorizzate")]),
+    _vm._m(0),
     _vm._v(" "),
     _c(
       "div",
@@ -39345,7 +39342,21 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "btn-row row d-flex justify-content-center align-items-center"
+      },
+      [_c("h1", [_vm._v("Strutture Sponsorizzate")])]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -52227,8 +52238,8 @@ var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/robertobarbagallo/Desktop/final-proj-boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/robertobarbagallo/Desktop/final-proj-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

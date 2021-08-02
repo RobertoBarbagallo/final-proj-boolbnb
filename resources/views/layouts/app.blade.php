@@ -24,9 +24,9 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white py-1">
             <div class="container">
-                <div class="logo-container">
+                <div class="logo-container d-flex align-items-center">
                     <div class="logo-img-container">
                         <img class="logo" src="{{asset('storage/imgs/BoolBnB-logo.png')}}" alt="Logo">
                     </div>
@@ -89,7 +89,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h1>Strutture Sponsorizzate</h1>
-
+    <div class="btn-row row d-flex justify-content-center align-items-center">
+      <h1>Strutture Sponsorizzate</h1>
+    </div>
       <div class="card-deck">
         <div class="card mycard my-4" v-for="structure in this.StructuresSponsored" :key="structure.id">
           <img v-if="structure.cover_img_path" class="card-img-top myimg" :src="`asset(storage/ ${structure.cover_img_path})`" alt="Cover of structure">
