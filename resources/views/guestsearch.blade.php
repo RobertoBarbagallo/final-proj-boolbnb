@@ -7,7 +7,7 @@
     :finalarray =  '@json($finalArray)'
     typeofshow = {{$typeofshow}}
     tomtomkey = {{env('TOMTOM_API_KEY')}}
-    {{-- radiusKM = {{$radius}} --}}
+     radiusKM = {{$radius}} 
      >
     </my-maps>
     <guest-search
@@ -24,19 +24,7 @@
 @endsection  
 
 <script>
-function prev(){
-		document.getElementById('slider-container').scrollLeft -= 270;
-}
-
-function next()
-{
-		document.getElementById('slider-container').scrollLeft += 270;
-}
 
 
-$(".slide img").on("click" , function(){
-	$(this).toggleClass('zoomed');
-	$(".overlay").toggleClass('active');
-})
 </script>
 

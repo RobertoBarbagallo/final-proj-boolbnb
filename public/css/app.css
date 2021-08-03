@@ -11085,7 +11085,7 @@ a.text-dark:focus {
 }
 
 .card-deck .card.mycard {
-  flex-basis: 200px;
+  flex-basis: 350px;
 }
 
 /* ************************************************************************************* */
@@ -11143,6 +11143,14 @@ h3 {
   margin: 0 50px;
 }
 
+.slide .mycard-img-container {
+  width: 350px;
+}
+
+.slide .mycard-img-container img {
+  max-width: 100%;
+}
+
 .control-prev-btn {
   position: absolute;
   top: 50%;
@@ -11177,10 +11185,6 @@ h3 {
           user-select: none;
   color: #444;
   cursor: pointer;
-}
-
-.immagine {
-  width: 100%;
 }
 
 .overlay {

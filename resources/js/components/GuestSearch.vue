@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    
     <form>
       <div class="mb-3">
           <label for="town">Città</label>

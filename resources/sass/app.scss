@@ -30,7 +30,7 @@
 .card-deck {
   .card{
     &.mycard{
-      flex-basis: 200px;
+      flex-basis: 350px;
     }
   }
 }
@@ -83,6 +83,12 @@
    border: 1px solid black;
    width: 400px;
    margin: 0 50px;
+   .mycard-img-container{
+	   width: 350px;
+	   img{
+		max-width: 100%;
+	   }
+   }
 
 }
  .control-prev-btn {
@@ -114,9 +120,7 @@
 	 cursor: pointer;
   
 }
-.immagine{
-	width: 100%;
-}
+
 	
 .overlay{
 		position: absolute;

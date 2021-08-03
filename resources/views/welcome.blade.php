@@ -42,19 +42,4 @@
     </div>
 @endsection
 <script>
-function prev(){
-		document.getElementById('slider-container').scrollLeft -= 270;
-}
-
-function next()
-{
-		document.getElementById('slider-container').scrollLeft += 270;
-}
-
-
-$(".mycard-img-container img").on("click" , function(){
-    console.log("ciao")
-	$(this).toggleClass('zoomed');
-	$(".overlay").toggleClass('active');
-})
 </script>

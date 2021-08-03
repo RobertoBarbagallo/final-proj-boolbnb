@@ -2110,6 +2110,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 //
 //
 //
+//
 
 
 
@@ -2425,28 +2426,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "StructuresSponsored",
   data: function data() {
     return {
       StructuresSponsored: []
     };
+  },
+  methods: {
+    prev: function prev() {
+      document.getElementById('slider-container').scrollLeft -= 270;
+    },
+    next: function next() {
+      document.getElementById('slider-container').scrollLeft += 270;
+    }
   },
   mounted: function mounted() {
     var _this = this;
@@ -6913,7 +6906,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.popUp {\n  background-color: rgba(255, 255, 255, 0.8);\n  height: 100%;\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 3;\n}\n.feedbackButton{\n    background-color: white;\n     position: absolute;\n     top: 50%;\n     left: 50%;\n     transform: translate(-50%,-50%);\n     padding: 20px;\n     border: 2px solid #38c172;\n     border-radius: 8px;\n}\n", ""]);
+exports.push([module.i, "\n.popUp {\r\n  background-color: rgba(255, 255, 255, 0.8);\r\n  height: 100%;\r\n  width: 100%;\r\n  position: fixed;\r\n  left: 0;\r\n  top: 0;\r\n  z-index: 3;\n}\n.feedbackButton{\r\n    background-color: white;\r\n     position: absolute;\r\n     top: 50%;\r\n     left: 50%;\r\n     transform: translate(-50%,-50%);\r\n     padding: 20px;\r\n     border: 2px solid #38c172;\r\n     border-radius: 8px;\n}\r\n", ""]);
 
 // exports
 
@@ -6932,7 +6925,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.deleteForm {\n  background-color: rgba(255, 255, 255, 0.8);\n  height: 100%;\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 3;\n}\n.formButton{\n    background-color: white;\n     position: absolute;\n     top: 50%;\n     left: 50%;\n     transform: translate(-50%,-50%);\n     padding: 20px;\n     border: 1px solid black;\n}\n", ""]);
+exports.push([module.i, "\n.deleteForm {\r\n  background-color: rgba(255, 255, 255, 0.8);\r\n  height: 100%;\r\n  width: 100%;\r\n  position: fixed;\r\n  left: 0;\r\n  top: 0;\r\n  z-index: 3;\n}\n.formButton{\r\n    background-color: white;\r\n     position: absolute;\r\n     top: 50%;\r\n     left: 50%;\r\n     transform: translate(-50%,-50%);\r\n     padding: 20px;\r\n     border: 1px solid black;\n}\r\n", ""]);
 
 // exports
 
@@ -6951,7 +6944,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.dropdown {\n  width: 300px\n}\n\n", ""]);
+exports.push([module.i, "\n.dropdown {\r\n  width: 300px\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -39349,7 +39342,18 @@ var render = function() {
     _c("div", { staticClass: "position-relative" }, [
       _vm._m(0),
       _vm._v(" "),
-      _vm._m(1),
+      _c(
+        "div",
+        {
+          staticClass: "control-prev-btn",
+          on: {
+            click: function($event) {
+              return _vm.prev()
+            }
+          }
+        },
+        [_c("i", { staticClass: "fas fa-arrow-left" })]
+      ),
       _vm._v(" "),
       _c(
         "div",
@@ -39364,7 +39368,6 @@ var render = function() {
             [
               _c("div", { staticClass: "mycard-img-container p-3" }, [
                 _c("img", {
-                  staticClass: "immagine",
                   attrs: {
                     src: "storage/" + structure.cover_img_path,
                     alt: "Cover of structure"
@@ -39403,7 +39406,18 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "overlay" }),
       _vm._v(" "),
-      _vm._m(2)
+      _c(
+        "div",
+        {
+          staticClass: "control-next-btn",
+          on: {
+            click: function($event) {
+              return _vm.next()
+            }
+          }
+        },
+        [_c("i", { staticClass: "fas fa-arrow-right" }, [_vm._v(" > ")])]
+      )
     ])
   ])
 }
@@ -39419,26 +39433,6 @@ var staticRenderFns = [
           "btn-row row d-flex justify-content-center align-items-center"
       },
       [_c("h1", [_vm._v("Suggerimenti")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "control-prev-btn", attrs: { onclick: "prev()" } },
-      [_c("i", { staticClass: "fas fa-arrow-left" }, [_vm._v(" < ")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "control-next-btn", attrs: { onclick: "next()" } },
-      [_c("i", { staticClass: "fas fa-arrow-right" }, [_vm._v(" > ")])]
     )
   }
 ]
@@ -52323,8 +52317,8 @@ var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Progetti\final-proj-boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Progetti\final-proj-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
