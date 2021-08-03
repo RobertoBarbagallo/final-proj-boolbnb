@@ -68,7 +68,7 @@ class StructureController extends Controller
             'sqm' => ['required','numeric','min:1'],
             'visible' => ['required','boolean'],
             'services' => ['exists:services,id'],
-            'cover_img_path' => ['mimes:jpeg,jpg,bmp,png,svg,webp,gif']
+            'cover_img_path' => ['required','mimes:jpeg,jpg,bmp,png,svg,webp,gif']
         ]);
 
         $address = $request->address;
@@ -90,13 +90,9 @@ class StructureController extends Controller
         }
 
         $newStructure->slug = $slug;
+        $newStructure->cover_img_path = Storage::put('uploads' , $newStructureData['cover_img_path']);
 
         $newStructure->user_id = $request->user()->id;
-
-
-        if($request['cover_img_path']){
-            $newStructure->cover_img_path = Storage::put('uploads' , $newStructureData['cover_img_path']);
-        }
         
         $newStructure->save();
 

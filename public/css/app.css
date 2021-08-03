@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Open+Sans:800&display=swap);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
@@ -10942,59 +10942,99 @@ a.text-dark:focus {
   }
 }
 
-.avatar {
-  width: 60px;
-  height: 60px;
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.logo-container {
+  width: 200px;
+  height: 30px;
+  display: flex;
+}
+
+.logo-container .logo-img-container {
+  width: 30px;
+  height: 100%;
+}
+
+.logo-container .logo-img-container .logo {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.logo-container .logo-text {
+  color: #EA5C63;
+}
+
+.logo-container .logo-text:hover {
+  color: #EA5C63;
+}
+
+.mydropdown {
+  width: auto !important;
+}
+
+.mydropdown .dropdown-menu .dropdown-item.myitem {
+  transition: 0.3s;
+}
+
+.mydropdown .dropdown-menu .dropdown-item.myitem:hover {
+  background-color: #ffdadb;
+}
+
+.mydropdown .mydropdownbutton {
+  background-color: white;
+  border: 1px solid #EA5C63;
+  color: #EA5C63;
+  border-radius: 800px;
+  transition: 0.3s;
+}
+
+.mydropdown .mydropdownbutton:hover {
+  background-color: #EA5C63;
+  border: 1px solid white;
+  color: white;
+}
+
+.mydropdown .mydropdownbutton:hover .fa-bars {
+  color: white;
+}
+
+.mydropdown .mydropdownbutton:focus {
+  box-shadow: 0 0 0 4px #ffdadb;
+}
+
+.mydropdown .mydropdownbutton:active {
+  background-color: white;
+  border: 1px solid #EA5C63;
+  color: white;
+}
+
+.mydropdown .mydropdownbutton .fa-bars {
+  color: #EA5C63;
+}
+
+.mydropdown .mydropdownbutton .avatar {
+  width: 25px;
+  height: 25px;
   -o-object-fit: contain;
   object-fit: contain;
   border-radius: 50%;
 }
 
-.hidden {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
 #map-div {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 350px;
 }
 
-.button {
-  cursor: pointer;
-  font-weight: 500;
-  left: 3px;
-  line-height: inherit;
-  position: relative;
-  text-decoration: none;
-  text-align: center;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 3px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  display: inline-block;
-}
-
-.button--small {
-  padding: 10px 20px;
-  font-size: 0.875rem;
-}
-
-.button--green {
-  outline: none;
-  background-color: #64d18a;
-  border-color: #64d18a;
-  color: white;
-  transition: all 200ms ease;
-}
-
-.button--green:hover {
-  background-color: #8bdda8;
-  color: white;
+#map-div.small {
+  width: 100%;
+  height: 350px;
 }
 
 #customTownMarker {
@@ -11011,6 +11051,37 @@ a.text-dark:focus {
   background-repeat: no-repeat;
   width: 30px;
   height: 50px;
+}
+
+.jumbotron {
+  height: 500px;
+  /* background-image: url(../../../storage/app/public/imgs/Jumbotron.jpg); */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.jumbotron #postform {
+  width: 50%;
+  margin: auto;
+  padding-top: 100px;
+}
+
+.jumbotron #postform #search {
+  border-radius: 20px;
+}
+
+.jumbotron #postform #submit {
+  background-color: white;
+  position: absolute;
+  right: 0px;
+  border-radius: 20px;
+  background-color: #EA5C63;
+}
+
+.jumbotron #postform .form-text {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .card-deck .card.mycard {
@@ -11044,6 +11115,7 @@ h3 {
   padding: 16px;
   transform: scroll(calc(var(--i,0)/var(--n)*-100%));
   scroll-behavior: smooth;
+  padding: 0 50px;
 }
 
 .slider::-webkit-scrollbar {
@@ -11105,6 +11177,10 @@ h3 {
           user-select: none;
   color: #444;
   cursor: pointer;
+}
+
+.immagine {
+  width: 100%;
 }
 
 .overlay {

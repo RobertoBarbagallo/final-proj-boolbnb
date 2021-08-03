@@ -1921,8 +1921,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreateMessagesButton",
-  props: {// StructureMessages: JSON,
-  },
+  props: {},
   data: function data() {
     return {
       ClickButton: false
@@ -1932,7 +1931,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     ShowForm: function ShowForm() {
       this.ClickButton = true;
-      document.getElementById("target").classList.add("show");
+      document.getElementById("target").classList.add("d-block");
     }
   },
   mounted: function mounted() {}
@@ -2374,6 +2373,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38919,14 +38932,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("a", { attrs: { href: "#" } }, [
-      _c(
-        "i",
-        {
-          staticClass: "fa fa-trash text-white",
-          attrs: { "aria-hidden": "true" }
-        },
-        [_vm._v("Ok")]
-      )
+      _c("i", { staticClass: "text-white", attrs: { "aria-hidden": "true" } }, [
+        _vm._v("Ok")
+      ])
     ])
   }
 ]
@@ -39248,7 +39256,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("div", { attrs: { id: "map-div" } })])
+    return _c("div", [
+      _c("div", { staticClass: "small", attrs: { id: "map-div" } })
+    ])
   }
 ]
 render._withStripped = true
@@ -39326,60 +39336,80 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "position-relative" }, [
-      _c("h1", [_vm._v("Strutture Sponsorizzate")]),
-      _vm._v(" "),
       _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "slider", attrs: { id: "slider-container" } },
+        {
+          staticClass: "slider container d-flex  ",
+          attrs: { id: "slider-container" }
+        },
         _vm._l(this.StructuresSponsored, function(structure) {
-          return _c("div", { key: structure.id, staticClass: "slide" }, [
-            structure.cover_img_path
-              ? _c("img", {
-                  staticClass: "card-img-top myimg",
+          return _c(
+            "div",
+            { key: structure.id, staticClass: "slide mycard m-4" },
+            [
+              _c("div", { staticClass: "mycard-img-container p-3" }, [
+                _c("img", {
+                  staticClass: "immagine",
                   attrs: {
-                    src: "asset(storage/ " + structure.cover_img_path + ")",
+                    src: "storage/" + structure.cover_img_path,
                     alt: "Cover of structure"
                   }
                 })
-              : _vm._e(),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "mt-0" }, [
-                _vm._v(_vm._s(structure.name))
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "mt-0" }, [
+                  _vm._v(_vm._s(structure.name))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-footer text-center" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn m-3 mycard-body",
+                    attrs: {
+                      href:
+                        "http://127.0.0.1:8000/details?slug=" +
+                        structure.slug +
+                        "&contactedStructure=0",
+                      role: "button"
+                    }
+                  },
+                  [_vm._v("Dettagli...")]
+                ),
+                _c("br")
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-footer text-center" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-outline-primary my-1",
-                  attrs: {
-                    href:
-                      "http://127.0.0.1:8000/details?slug=" +
-                      structure.slug +
-                      "&contactedStructure=0",
-                    role: "button"
-                  }
-                },
-                [_vm._v("Dettagli...")]
-              ),
-              _c("br")
-            ])
-          ])
+            ]
+          )
         }),
         0
       ),
       _vm._v(" "),
       _c("div", { staticClass: "overlay" }),
       _vm._v(" "),
-      _vm._m(1)
+      _vm._m(2)
     ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "btn-row row d-flex justify-content-center align-items-center"
+      },
+      [_c("h1", [_vm._v("Suggerimenti")])]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
