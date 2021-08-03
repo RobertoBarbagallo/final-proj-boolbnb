@@ -143,7 +143,7 @@ class StructureController extends Controller
             "lng" => $lng,
             "typeofshow" => 1,
             "views" => $views
-        ], compact('structure'));
+        ]);
       }
     }
 
