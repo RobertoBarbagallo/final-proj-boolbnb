@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             StructuresTableSeeder::class,
             MessagesTableSeeder::class,
             ServicesStructuresTableSeeder::class,
-            ViewsTableSeeder::class
+            ViewsSeeder::class
         ]);
     }
 }

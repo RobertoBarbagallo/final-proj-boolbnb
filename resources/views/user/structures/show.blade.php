@@ -25,10 +25,10 @@
                 <p class="badge badge-primary ">{{ $service->name }}</p>
                 @endforeach
                 <h5 class="text-secondary">Numero Totale Visite: {{ $viewsLastDay }}</h5>
-                <h5 class="text-secondary">Numero Totale Visite Ultimo Giorno: {{ $viewsLastDay }}</h5>
-                <h5 class="text-secondary">Numero Totale Visite Ultima Settimana: {{ $viewsLastWeek }}</h5>
-                <h5 class="text-secondary">Numero Totale Visite Ultimo Mese: {{ $viewsLastMonth }}</h5>
-                <h5 class="text-secondary">Numero Totale Visitatori {{ $viewsUnique }}</h5>
+                <h5 class="text-secondary">Numero Visite Ultimo Giorno: {{ $viewsLastDay }}</h5>
+                <h5 class="text-secondary">Numero Visite Ultima Settimana: {{ $viewsLastWeek }}</h5>
+                <h5 class="text-secondary">Numero Visite Ultimo Mese: {{ $viewsLastMonth }}</h5>
+                <h5 class="text-secondary">Numero Totale Visitatori: {{ $viewsUnique }}</h5>
             </div>
         </div>
         <div class="col-6">   
