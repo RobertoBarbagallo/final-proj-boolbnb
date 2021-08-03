@@ -39,10 +39,11 @@
       </div>
        <div class="mb-3">
         <label for="radius">Distanza</label>
-        <input type="range" class="custom-range" min="5000" max="200000" id="radius"
+        <input type="range" class="custom-range" min="5000" max="200000" id="radius" 
         :value= this.filters.radius
         @change="avancedSearch($event.target.value)"
         >     
+        <input type="number" v-model="this.filters.radius"/>
       </div>
     </form>
     <structures-sponsored></structures-sponsored>

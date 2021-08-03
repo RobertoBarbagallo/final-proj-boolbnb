@@ -2107,6 +2107,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 //
 //
 //
+//
 
 
 
@@ -39171,6 +39172,27 @@ var render = function() {
             on: {
               change: function($event) {
                 return _vm.avancedSearch($event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: this.filters.radius,
+                expression: "this.filters.radius"
+              }
+            ],
+            attrs: { type: "number" },
+            domProps: { value: this.filters.radius },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(this.filters, "radius", $event.target.value)
               }
             }
           })
