@@ -49,7 +49,7 @@
                         <!-- Authentication Links -->
                         @guest
                         <div class="dropdown mydropdown">
-                            <button class="d-flex align-items-center mydropdown2 px-2 py-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="d-flex align-items-center mydropdownbutton px-2 py-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                              Diventa un host
                             </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -65,7 +65,7 @@
                         </div>      
                         @else
                         <div class="dropdown mydropdown">
-                            <button class="d-flex align-items-center mydropdown2 px-2 py-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="d-flex align-items-center mydropdownbutton px-2 py-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <i class="fas fa-bars"></i>
                               <img class="avatar ml-2" src="{{ asset('storage/' . Auth::user()->user_img_path) }}" alt="Card image cap">
                             </button>

@@ -24,17 +24,19 @@
     .dropdown-menu{      
           .dropdown-item{
             &.myitem{
+              transition: .3s;
               &:hover{
                 background-color: $secondary_color;
               }
             }
           }
       }
-    .mydropdown2{
+    .mydropdownbutton{
       background-color: $default_bg_color;
       border: 1px solid $primary_color;
       color: $primary_color;
       border-radius: 800px;
+      transition: .3s;
       &:hover{
         background-color: $primary_color;
         border: 1px solid $default_bg_color;
@@ -44,7 +46,7 @@
         }
       }
       &:focus{
-        box-shadow: 0 0 0 0.2rem $secondary_color;
+        box-shadow: 0 0 0 4px $secondary_color;
       }
       &:active{
         background-color: $default_bg_color;

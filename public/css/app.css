@@ -10979,42 +10979,47 @@ a.text-dark:focus {
   width: auto !important;
 }
 
+.mydropdown .dropdown-menu .dropdown-item.myitem {
+  transition: 0.3s;
+}
+
 .mydropdown .dropdown-menu .dropdown-item.myitem:hover {
   background-color: #ffdadb;
 }
 
-.mydropdown .mydropdown2 {
+.mydropdown .mydropdownbutton {
   background-color: white;
   border: 1px solid #EA5C63;
   color: #EA5C63;
   border-radius: 800px;
+  transition: 0.3s;
 }
 
-.mydropdown .mydropdown2:hover {
+.mydropdown .mydropdownbutton:hover {
   background-color: #EA5C63;
   border: 1px solid white;
   color: white;
 }
 
-.mydropdown .mydropdown2:hover .fa-bars {
+.mydropdown .mydropdownbutton:hover .fa-bars {
   color: white;
 }
 
-.mydropdown .mydropdown2:focus {
-  box-shadow: 0 0 0 0.2rem #ffdadb;
+.mydropdown .mydropdownbutton:focus {
+  box-shadow: 0 0 0 4px #ffdadb;
 }
 
-.mydropdown .mydropdown2:active {
+.mydropdown .mydropdownbutton:active {
   background-color: white;
   border: 1px solid #EA5C63;
   color: white;
 }
 
-.mydropdown .mydropdown2 .fa-bars {
+.mydropdown .mydropdownbutton .fa-bars {
   color: #EA5C63;
 }
 
-.mydropdown .mydropdown2 .avatar {
+.mydropdown .mydropdownbutton .avatar {
   width: 25px;
   height: 25px;
   -o-object-fit: contain;
