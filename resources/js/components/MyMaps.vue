@@ -41,7 +41,7 @@ export default {
                 container: 'map-div',
                 center: structureMap,
                 // style: 'tomtom://vector/1/basic-main',
-                zoom: 12
+                zoom: 10
             });
             if(parseInt(this.oneResult) === 0){
                 var toMarkFindStructures = []

@@ -2262,7 +2262,7 @@ __webpack_require__.r(__webpack_exports__);
         container: 'map-div',
         center: structureMap,
         // style: 'tomtom://vector/1/basic-main',
-        zoom: 12
+        zoom: 10
       });
 
       if (parseInt(this.oneResult) === 0) {
@@ -2374,6 +2374,36 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6864,7 +6894,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.popUp {\n  background-color: rgba(255, 255, 255, 0.8);\n  height: 100%;\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 3;\n}\n.feedbackButton{\n    background-color: white;\n     position: absolute;\n     top: 50%;\n     left: 50%;\n     transform: translate(-50%,-50%);\n     padding: 20px;\n     border: 2px solid #38c172;\n     border-radius: 8px;\n}\n", ""]);
+exports.push([module.i, "\n.popUp {\r\n  background-color: rgba(255, 255, 255, 0.8);\r\n  height: 100%;\r\n  width: 100%;\r\n  position: fixed;\r\n  left: 0;\r\n  top: 0;\r\n  z-index: 3;\n}\n.feedbackButton{\r\n    background-color: white;\r\n     position: absolute;\r\n     top: 50%;\r\n     left: 50%;\r\n     transform: translate(-50%,-50%);\r\n     padding: 20px;\r\n     border: 2px solid #38c172;\r\n     border-radius: 8px;\n}\r\n", ""]);
 
 // exports
 
@@ -6902,7 +6932,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.dropdown {\n  width: 300px\n}\n\n", ""]);
+exports.push([module.i, "\n.dropdown {\r\n  width: 300px\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -39294,17 +39324,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v("Strutture Sponsorizzate")]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "card-deck" },
-      _vm._l(this.StructuresSponsored, function(structure) {
-        return _c(
-          "div",
-          { key: structure.id, staticClass: "card mycard my-4" },
-          [
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "position-relative" }, [
+      _c("h1", [_vm._v("Strutture Sponsorizzate")]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "slider", attrs: { id: "slider-container" } },
+        _vm._l(this.StructuresSponsored, function(structure) {
+          return _c("div", { key: structure.id, staticClass: "slide" }, [
             structure.cover_img_path
               ? _c("img", {
                   staticClass: "card-img-top myimg",
@@ -39338,14 +39368,39 @@ var render = function() {
               ),
               _c("br")
             ])
-          ]
-        )
-      }),
-      0
-    )
+          ])
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "overlay" }),
+      _vm._v(" "),
+      _vm._m(1)
+    ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "control-prev-btn", attrs: { onclick: "prev()" } },
+      [_c("i", { staticClass: "fas fa-arrow-left" }, [_vm._v(" < ")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "control-next-btn", attrs: { onclick: "next()" } },
+      [_c("i", { staticClass: "fas fa-arrow-right" }, [_vm._v(" > ")])]
+    )
+  }
+]
 render._withStripped = true
 
 
