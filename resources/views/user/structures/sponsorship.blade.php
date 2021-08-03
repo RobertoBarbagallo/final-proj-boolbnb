@@ -1,6 +1,6 @@
 @extends('layouts.appNoJS')
 @section('content')
-@dump($structure->sponsorships)
+
 <div class="container">
     <div class="border row">
         <div class="col">
@@ -9,7 +9,7 @@
             <div class="text-left">
                 <h5 class="text-primary">Nome Struttura: {{ $structure->name }}</h5>
                 <div>
-                    <img src="{{ $structure->cover_image_url ? asset('storage/' . $structure->cover_img_url) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png'}}" alt="">
+                    <img src="{{ $structure->cover_img_path ? asset('storage/' . $structure->cover_img_path) : 'https://www.linga.org/site/photos/Largnewsimages/image-not-found.png'}}" alt="">
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
     
     <form method="post" action='{{ route('user.structures.payment', ['id' => $structure->id]) }}' id="postform" enctype="multipart/form-data">
         @csrf
-        @method('POST')
+        @method('PUT')
 
         <div class="form-check form-check-inline">
             @foreach($sponsorships as $sponsorship)

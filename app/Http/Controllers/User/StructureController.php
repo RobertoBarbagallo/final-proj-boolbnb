@@ -25,9 +25,13 @@ class StructureController extends Controller
     public function index(Request $request)
     {
         $structures = Structure::orderBy("id", "DESC")->where("user_id", $request->user()->id)->get();
+        $activeSponsorships= SponsorshipStructure::all();
+
 
         return view("user.structures.index",[
-            'structures' => $structures
+            'structures' => $structures,
+            'activeSponsorships' => $activeSponsorships,
+
         ]);
     }
 
@@ -226,7 +230,7 @@ class StructureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function sponsorship(Request $request, Structure $structures, $id)
+    public function sponsorship(Request $request, SponsorshipStructure $sponsorshipStructure, $id)
     {
         
         $sponsorships= Sponsorship::all();
@@ -234,23 +238,22 @@ class StructureController extends Controller
         $activeSponsorships= SponsorshipStructure::all();
 
         $structure = Structure::where('id', $id)->first();
-        
-        /* if(count($structure->sponsorships) >0){
-            
+
+        if(count($structure->sponsorships) == 0){
             return view("user.structures.sponsorship",[
                 'structure' => $structure,
                 'sponsorships'=> $sponsorships,
-                'activeSponsorships' => $activeSponsorships
+                'activeSponsorships' => $activeSponsorships,
+                
             ]);
-        }else{ */
 
+        }else{
+            return view("user.structures.structureSponsored",[
+                'structure' => $structure,
+            ]);
+        }
         
-        return view("user.structures.sponsorship",[
-            'structure' => $structure,
-            'sponsorships'=> $sponsorships,
-            'activeSponsorships' => $activeSponsorships
-        ]);
-   
+       
     }
 
     /**
@@ -259,31 +262,18 @@ class StructureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function payment(Request $request,Structure $structures, $id)
+    public function payment(Request $request, $id)
     {
         $sponsorshipId = $request->sponsorship;
         $spons=Sponsorship::find($sponsorshipId);
+
+        $newSponsorship = new SponsorshipStructure();
+        $newSponsorship->structure_id = $id;
+        $newSponsorship->sponsorship_id = $sponsorshipId;
+        $newSponsorship->end_date = Carbon::now()->addHours($spons->duration);
+
+        $newSponsorship->save();
         $structure = Structure::where('id', $id)->first();
-
-        
-
-        if(count($structure->sponsorships) == 0){
-            $newSponsorship = new SponsorshipStructure();
-            $newSponsorship->structure_id = $id;
-            $newSponsorship->sponsorship_id = $sponsorshipId;
-            $newSponsorship->end_date = Carbon::now()->addHours($spons->duration);
-            $newSponsorship->save();
-            $structure = Structure::where('id', $id)->first();
-        }else{
-            $newSponsorship = new SponsorshipStructure();
-            $newSponsorship->structure_id = $id;
-            $newSponsorship->sponsorship_id = $sponsorshipId;
-            $newSponsorship->end_date = Carbon::now()->addHours($spons->duration);
-            $newSponsorship->update();
-            $structure = Structure::where('id', $id)->first();
-        }
-
-        
 
         return redirect()->route("user.structures.show", $structure->id);
     }
