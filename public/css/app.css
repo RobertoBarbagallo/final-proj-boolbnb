@@ -11129,6 +11129,7 @@ a.text-dark:focus {
 .jumbotron #postform #submit {
   background-color: white;
   position: absolute;
+  height: 100%;
   right: 0px;
   border-radius: 20px;
   background-color: #EA5C63;
@@ -11251,4 +11252,6 @@ a.text-dark:focus {
 .myregister .myregistercard .myregisterinput.myregisterinputfile {
   font-size: 10px;
 }
+
+/* ************************************************************************************* */
 

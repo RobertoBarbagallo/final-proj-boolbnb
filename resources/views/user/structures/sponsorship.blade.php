@@ -1,6 +1,6 @@
 @extends('layouts.appNoJS')
 @section('content')
-
+@dump($structure->sponsorships)
 <div class="container">
     <div class="border row">
         <div class="col">
@@ -14,6 +14,9 @@
             </div>
         </div>
     </div>
+
+        
+    
     <form method="post" action='{{ route('user.structures.payment', ['id' => $structure->id]) }}' id="postform" enctype="multipart/form-data">
         @csrf
         @method('POST')

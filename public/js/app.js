@@ -2107,6 +2107,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2246,14 +2250,17 @@ __webpack_require__.r(__webpack_exports__);
       lat: parseFloat(this.latitude),
       lng: parseFloat(this.longitude),
       oneResult: parseInt(this.typeofshow),
-      newfindStructures: []
+      newfindStructures: [],
+      zoom: 10
     };
   },
   methods: {
     generateMap: function generateMap(array, newLat, newlng) {
       var APPLICATION_NAME = 'BoolBnb';
       var APPLICATION_VERSION = '1.0';
-      tt.setProductInfo(APPLICATION_NAME, APPLICATION_VERSION); // var marker = new tt.Marker().setLngLat(ADDRESS).addTo('map-div');
+      tt.setProductInfo(APPLICATION_NAME, APPLICATION_VERSION); // if (this.radius > 39000) {
+      //   this.zoom = 4
+      // }
 
       var structureMap = [this.lng, this.lat];
       var map = tt.map({
@@ -2261,7 +2268,7 @@ __webpack_require__.r(__webpack_exports__);
         container: 'map-div',
         center: structureMap,
         // style: 'tomtom://vector/1/basic-main',
-        zoom: 12
+        zoom: this.zoom
       });
 
       if (parseInt(this.oneResult) === 0) {
@@ -2390,12 +2397,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "StructuresSponsored",
+  props: {},
   data: function data() {
     return {
       StructuresSponsored: []
     };
+  },
+  methods: {
+    prev: function prev() {
+      document.getElementById('slider-container').scrollLeft -= 270;
+    },
+    next: function next() {
+      document.getElementById('slider-container').scrollLeft += 270;
+    }
   },
   mounted: function mounted() {
     var _this = this;
@@ -6919,7 +6958,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.mycard[data-v-0cfa051e]{\n  max-width: 300px;\n}\n.mycard-body[data-v-0cfa051e]{\n  margin: 0px !important;\n  padding: 0px;\n}\n.mycard-img-container[data-v-0cfa051e]{\n  width: 100%;\n  height: 300px;\n}\nimg[data-v-0cfa051e]{\n  width: 100%;\n  height: 100%;\n}\n.btn[data-v-0cfa051e]{\n  color: #EA5C63;\n  transition: .3s;\n}\n.btn[data-v-0cfa051e]:hover{\n  outline: 2px solid #EA5C63;\n}\n.btn:hover .mycard-img-container[data-v-0cfa051e]{\n  filter: opacity(.8);\n}\n", ""]);
+exports.push([module.i, "\n.mycontainer[data-v-0cfa051e]{\n  background-image: url(\"/images/blur.jpg\");\n}\n#slider-container[data-v-0cfa051e]{\n  height: 220px;\n}\n.slider[data-v-0cfa051e] {\n   display: flex;\n\t max-height: auto;\n\t overflow-y: hidden;\n\t overflow-x: scroll !important;\n\t padding: 16px;\n\t transform: scroll(calc(var(--i,0)/var(--n)*-100%));\n\t scroll-behavior: smooth;\n\t padding: 0 50px;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar {\n\t height: 5px;\n\t width: 150px;\n\t display: none;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-track {\n\t background: transparent;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-thumb {\n\t background: #888;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-thumb:hover {\n\t background: #555;\n}\n.slide[data-v-0cfa051e] {\n\t position: relative;\n   outline: 2px solid white;\n   width: 200px;\n   height: 200px;\n   margin: 0 50px;\n}\n.slide[data-v-0cfa051e]:hover{\n  text-decoration: none;\n}\n.mycard-img-container[data-v-0cfa051e]{\n   width: 200px;\n   height: 200px;\n}\n.mycard-img-container img[data-v-0cfa051e]{\n    width: 100%;\n    height: 100%;\n}\n.control-prev-btn[data-v-0cfa051e], .control-next-btn[data-v-0cfa051e]{\n\t position: absolute;\n\t top: 50%;\n\t text-align: center;\n\t -webkit-user-select: none;\n\t    -moz-user-select: none;\n\t     -ms-user-select: none;\n\t         user-select: none;\n\t color: white;\n\t cursor: pointer;\n}\n.control-prev-btn[data-v-0cfa051e]{\n   left: -60px;\n}\n.control-next-btn[data-v-0cfa051e]{\n   right: -60px;\n}\n.fas[data-v-0cfa051e]{\n  font-weight: 700;\n  font-size: 32px;\n}\n.myslidercardtext[data-v-0cfa051e]{\n position: absolute;\n bottom: 5px;\n left: 50%;\n transform: translateX(-50%);\n overflow: hidden;\n white-space: nowrap;\n text-overflow: ellipsis;\n}\nh2[data-v-0cfa051e], h5[data-v-0cfa051e] {\n  color: white;\n}\n.position-relative[data-v-0cfa051e]{\n  position: relative;\n}\n@media only screen and (max-width: 420px) {\n.slider[data-v-0cfa051e] {\n\t\t padding: 0;\n}\n.slide[data-v-0cfa051e] {\n\t\t padding: 16px 10px;\n}\n.slide img[data-v-0cfa051e] {\n\t\t margin: 0;\n}\n.control-prev-btn[data-v-0cfa051e] {\n\t\t top: 37%;\n}\n.control-next-btn[data-v-0cfa051e] {\n\t\t top: 37%;\n}\n}\n\n", ""]);
 
 // exports
 
@@ -39168,6 +39207,11 @@ var render = function() {
         _c("div", { staticClass: "mb-3" }, [
           _c("label", { attrs: { for: "radius" } }, [_vm._v("Distanza")]),
           _vm._v(" "),
+          _c("span", {
+            domProps: { textContent: _vm._s(this.filters.radius / 1000) }
+          }),
+          _c("span", [_vm._v("KM")]),
+          _vm._v(" "),
           _c("input", {
             staticClass: "custom-range",
             attrs: { type: "range", min: "5000", max: "200000", id: "radius" },
@@ -39338,45 +39382,77 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "container d-flex justify-content-around flex-wrap" },
-      _vm._l(this.StructuresSponsored, function(structure) {
-        return _c("div", { key: structure.id, staticClass: "mycard m-1" }, [
-          _c(
-            "a",
-            {
-              staticClass: "btn m-3 mycard-body",
-              attrs: {
-                href:
-                  "http://127.0.0.1:8000/details?slug=" +
-                  structure.slug +
-                  "&contactedStructure=0",
-                role: "button"
+  return _c("div", { staticClass: "mycontainer" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "position-relative py-2" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "control-prev-btn",
+            on: {
+              click: function($event) {
+                return _vm.prev()
               }
-            },
-            [
-              _c("div", { staticClass: "mycard-img-container p-3" }, [
-                _c("img", {
-                  attrs: {
-                    src: "storage/" + structure.cover_img_path,
-                    alt: "Cover of structure"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("h5", { staticClass: "mt-0" }, [
-                _vm._v(_vm._s(structure.name))
-              ])
-            ]
-          )
-        ])
-      }),
-      0
-    )
+            }
+          },
+          [_c("i", { staticClass: "fas fa-arrow-left" })]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "slider d-flex", attrs: { id: "slider-container" } },
+          _vm._l(this.StructuresSponsored, function(structure) {
+            return _c(
+              "a",
+              {
+                key: structure.id,
+                staticClass: "slide mt-2",
+                attrs: {
+                  href:
+                    "http://127.0.0.1:8000/details?slug=" +
+                    structure.slug +
+                    "&contactedStructure=0"
+                }
+              },
+              [
+                _c("div", { staticClass: "mycard-img-container" }, [
+                  _c("img", {
+                    attrs: {
+                      src: "storage/" + structure.cover_img_path,
+                      alt: "Cover of structure"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "myslidercardtext" }, [
+                  _c("h5", { staticClass: "my-1" }, [
+                    _vm._v(_vm._s(structure.name))
+                  ])
+                ])
+              ]
+            )
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "overlay" }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "control-next-btn",
+            on: {
+              click: function($event) {
+                return _vm.next()
+              }
+            }
+          },
+          [_c("i", { staticClass: "fas fa-arrow-right" })]
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
@@ -39390,7 +39466,7 @@ var staticRenderFns = [
         staticClass:
           "btn-row row d-flex justify-content-center align-items-center"
       },
-      [_c("h1", [_vm._v("Suggerimenti")])]
+      [_c("h2", [_vm._v("Suggerimenti")])]
     )
   }
 ]

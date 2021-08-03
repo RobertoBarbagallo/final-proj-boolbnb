@@ -55,9 +55,9 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-8 text-center m-auto">
-                            <a type="submit" class="mybtn default px-3">
+                            <button type="submit" class="mybtn default px-3">
                                 {{ __('Login') }}
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </form>
