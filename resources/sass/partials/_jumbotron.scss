@@ -1,0 +1,30 @@
+.jumbotron{
+    height: 500px;
+    /* background-image: url(../../../storage/app/public/imgs/Jumbotron.jpg); */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    #postform{
+        width: 50%;
+        margin: auto;
+        padding-top: 100px;
+
+        #search{
+            border-radius: 20px;
+        }
+
+        #submit{
+            background-color: $default_bg_color;
+            position: absolute;
+            right: 0px;
+            border-radius: 20px;
+            background-color: $primary_color;
+        }
+        .form-text{
+            text-align: center;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+    }
+}

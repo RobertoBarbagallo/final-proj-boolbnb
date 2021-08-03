@@ -1,0 +1,27 @@
+
+#map-div {
+    width: 100%;
+    height: 350px;
+    &.small{
+        width: 100%;
+        height: 350px;
+    }
+  }
+  
+  
+  #customTownMarker{
+    background-image: url("../public/icons/town.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 50px;
+  }  
+  
+  #customStructureMarker{
+    background-image: url("../public/icons/structure.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 50px;
+  
+  }

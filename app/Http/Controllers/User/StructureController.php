@@ -68,7 +68,7 @@ class StructureController extends Controller
             'sqm' => ['required','numeric','min:1'],
             'visible' => ['required','boolean'],
             'services' => ['exists:services,id'],
-            'cover_img_path' => ['mimes:jpeg,jpg,bmp,png,svg,webp,gif']
+            'cover_img_path' => ['required','mimes:jpeg,jpg,bmp,png,svg,webp,gif']
         ]);
 
         $address = $request->address;
@@ -90,13 +90,9 @@ class StructureController extends Controller
         }
 
         $newStructure->slug = $slug;
+        $newStructure->cover_img_path = Storage::put('uploads' , $newStructureData['cover_img_path']);
 
         $newStructure->user_id = $request->user()->id;
-
-
-        if($request['cover_img_path']){
-            $newStructure->cover_img_path = Storage::put('uploads' , $newStructureData['cover_img_path']);
-        }
         
         $newStructure->save();
 
@@ -239,11 +235,22 @@ class StructureController extends Controller
 
         $structure = Structure::where('id', $id)->first();
         
+        /* if(count($structure->sponsorships) >0){
+            
+            return view("user.structures.sponsorship",[
+                'structure' => $structure,
+                'sponsorships'=> $sponsorships,
+                'activeSponsorships' => $activeSponsorships
+            ]);
+        }else{ */
+
+        
         return view("user.structures.sponsorship",[
             'structure' => $structure,
             'sponsorships'=> $sponsorships,
             'activeSponsorships' => $activeSponsorships
         ]);
+   
     }
 
     /**
@@ -252,18 +259,31 @@ class StructureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function payment(Request $request, $id)
+    public function payment(Request $request,Structure $structures, $id)
     {
         $sponsorshipId = $request->sponsorship;
         $spons=Sponsorship::find($sponsorshipId);
-
-        $newSponsorship = new SponsorshipStructure();
-        $newSponsorship->structure_id = $id;
-        $newSponsorship->sponsorship_id = $sponsorshipId;
-        $newSponsorship->end_date = Carbon::now()->addHours($spons->duration);
-
-        $newSponsorship->save();
         $structure = Structure::where('id', $id)->first();
+
+        
+
+        if(count($structure->sponsorships) == 0){
+            $newSponsorship = new SponsorshipStructure();
+            $newSponsorship->structure_id = $id;
+            $newSponsorship->sponsorship_id = $sponsorshipId;
+            $newSponsorship->end_date = Carbon::now()->addHours($spons->duration);
+            $newSponsorship->save();
+            $structure = Structure::where('id', $id)->first();
+        }else{
+            $newSponsorship = new SponsorshipStructure();
+            $newSponsorship->structure_id = $id;
+            $newSponsorship->sponsorship_id = $sponsorshipId;
+            $newSponsorship->end_date = Carbon::now()->addHours($spons->duration);
+            $newSponsorship->update();
+            $structure = Structure::where('id', $id)->first();
+        }
+
+        
 
         return redirect()->route("user.structures.show", $structure->id);
     }
