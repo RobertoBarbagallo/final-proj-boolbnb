@@ -7,6 +7,7 @@
     :finalarray =  '@json($finalArray)'
     typeofshow = {{$typeofshow}}
     tomtomkey = {{env('TOMTOM_API_KEY')}}
+    {{-- radiusKM = {{$radius}} --}}
      >
     </my-maps>
     <guest-search

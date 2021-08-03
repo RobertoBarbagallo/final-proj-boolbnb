@@ -16,7 +16,7 @@
             </form>   
         </div>
         <structures-sponsored></structures-sponsored>
-        {{-- @if($structures)
+        @if($structures)
         <div class="card-deck">
             @foreach($structures as $structure)
             <div class="card mycard my-4">
@@ -38,7 +38,7 @@
             </div>
             @endforeach
         </div>
-        @endif --}}
+        @endif
     </div>
 @endsection
 <script>

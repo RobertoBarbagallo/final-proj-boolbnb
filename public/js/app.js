@@ -2108,6 +2108,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 //
 //
 //
+//
+//
 
 
 
@@ -2247,14 +2249,17 @@ __webpack_require__.r(__webpack_exports__);
       lat: parseFloat(this.latitude),
       lng: parseFloat(this.longitude),
       oneResult: parseInt(this.typeofshow),
-      newfindStructures: []
+      newfindStructures: [],
+      zoom: 10
     };
   },
   methods: {
     generateMap: function generateMap(array, newLat, newlng) {
       var APPLICATION_NAME = 'BoolBnb';
       var APPLICATION_VERSION = '1.0';
-      tt.setProductInfo(APPLICATION_NAME, APPLICATION_VERSION); // var marker = new tt.Marker().setLngLat(ADDRESS).addTo('map-div');
+      tt.setProductInfo(APPLICATION_NAME, APPLICATION_VERSION); // if (this.radius > 39000) {
+      //   this.zoom = 4
+      // }
 
       var structureMap = [this.lng, this.lat];
       var map = tt.map({
@@ -2262,7 +2267,7 @@ __webpack_require__.r(__webpack_exports__);
         container: 'map-div',
         center: structureMap,
         // style: 'tomtom://vector/1/basic-main',
-        zoom: 10
+        zoom: this.zoom
       });
 
       if (parseInt(this.oneResult) === 0) {
@@ -6908,7 +6913,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.popUp {\r\n  background-color: rgba(255, 255, 255, 0.8);\r\n  height: 100%;\r\n  width: 100%;\r\n  position: fixed;\r\n  left: 0;\r\n  top: 0;\r\n  z-index: 3;\n}\n.feedbackButton{\r\n    background-color: white;\r\n     position: absolute;\r\n     top: 50%;\r\n     left: 50%;\r\n     transform: translate(-50%,-50%);\r\n     padding: 20px;\r\n     border: 2px solid #38c172;\r\n     border-radius: 8px;\n}\r\n", ""]);
+exports.push([module.i, "\n.popUp {\n  background-color: rgba(255, 255, 255, 0.8);\n  height: 100%;\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 3;\n}\n.feedbackButton{\n    background-color: white;\n     position: absolute;\n     top: 50%;\n     left: 50%;\n     transform: translate(-50%,-50%);\n     padding: 20px;\n     border: 2px solid #38c172;\n     border-radius: 8px;\n}\n", ""]);
 
 // exports
 
@@ -6927,7 +6932,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.deleteForm {\r\n  background-color: rgba(255, 255, 255, 0.8);\r\n  height: 100%;\r\n  width: 100%;\r\n  position: fixed;\r\n  left: 0;\r\n  top: 0;\r\n  z-index: 3;\n}\n.formButton{\r\n    background-color: white;\r\n     position: absolute;\r\n     top: 50%;\r\n     left: 50%;\r\n     transform: translate(-50%,-50%);\r\n     padding: 20px;\r\n     border: 1px solid black;\n}\r\n", ""]);
+exports.push([module.i, "\n.deleteForm {\n  background-color: rgba(255, 255, 255, 0.8);\n  height: 100%;\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 3;\n}\n.formButton{\n    background-color: white;\n     position: absolute;\n     top: 50%;\n     left: 50%;\n     transform: translate(-50%,-50%);\n     padding: 20px;\n     border: 1px solid black;\n}\n", ""]);
 
 // exports
 
@@ -6946,7 +6951,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.dropdown {\r\n  width: 300px\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.dropdown {\n  width: 300px\n}\n\n", ""]);
 
 // exports
 
@@ -39165,6 +39170,11 @@ var render = function() {
         _c("div", { staticClass: "mb-3" }, [
           _c("label", { attrs: { for: "radius" } }, [_vm._v("Distanza")]),
           _vm._v(" "),
+          _c("span", {
+            domProps: { textContent: _vm._s(this.filters.radius / 1000) }
+          }),
+          _c("span", [_vm._v("KM")]),
+          _vm._v(" "),
           _c("input", {
             staticClass: "custom-range",
             attrs: { type: "range", min: "5000", max: "200000", id: "radius" },
@@ -39172,27 +39182,6 @@ var render = function() {
             on: {
               change: function($event) {
                 return _vm.avancedSearch($event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: this.filters.radius,
-                expression: "this.filters.radius"
-              }
-            ],
-            attrs: { type: "number" },
-            domProps: { value: this.filters.radius },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(this.filters, "radius", $event.target.value)
               }
             }
           })
@@ -52334,8 +52323,8 @@ var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Progetti\final-proj-boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Progetti\final-proj-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
