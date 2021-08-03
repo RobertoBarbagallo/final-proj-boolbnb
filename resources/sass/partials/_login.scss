@@ -1,0 +1,27 @@
+
+.mylogincard{
+    padding: 0;
+    border: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 50px;
+    height: 220px;
+    width: 450px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    .card-header{
+        background-color: $primary_color;
+        color: $default_bg_color;
+    }
+    .col-form-label{
+        font-size: 12px;
+    }
+    .mylogininput{
+        height: 24px;
+        &:focus{
+            box-shadow: 0 0 4px 2px $secondary_color;
+            border-color: $secondary_color;
+        }
+    }
+}

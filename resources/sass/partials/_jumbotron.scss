@@ -1,6 +1,6 @@
 .jumbotron{
     height: 500px;
-    /* background-image: url(../../../storage/app/public/imgs/Jumbotron.jpg); */
+    background-image: url(../../../storage/app/public/imgs/Jumbotron.jpg); 
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
@@ -11,14 +11,24 @@
 
         #search{
             border-radius: 20px;
+            &:focus{
+                box-shadow: 0 0 4px 2px $secondary_color;
+                border-color: $secondary_color;
+            }
         }
 
         #submit{
             background-color: $default_bg_color;
             position: absolute;
+            height: 100%;
             right: 0px;
             border-radius: 20px;
             background-color: $primary_color;
+            z-index: 3;
+            &:focus{
+                box-shadow: 0 0 4px 2px $secondary_color;
+                border-color: $secondary_color;
+            }
         }
         .form-text{
             text-align: center;

@@ -1,0 +1,36 @@
+.myregister{
+    padding: 0;
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    right: 50px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    .myregistercard{
+        border: none;
+        height: 450px;
+        width: 450px;
+        
+        .card-header{
+            background-color: $primary_color;
+            color: $default_bg_color;
+        }
+        .col-form-label{
+            font-size: 12px;
+        }
+        .myregisterinput{
+            height: 24px;
+            &:focus{
+                box-shadow: 0 0 4px 2px $secondary_color;
+                border-color: $secondary_color;
+            }
+            &.myregisterinputfile{
+                font-size: 10px;
+            }
+        }
+
+    }
+   
+}
+
+
