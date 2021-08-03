@@ -8,6 +8,7 @@ use App\Sponsorship;
 use App\SponsorshipStructure;
 use App\Structure;
 use Carbon\Carbon;
+use CyrildeWit\EloquentViewable\Support\Period;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -131,8 +132,11 @@ class StructureController extends Controller
           $readableAddress = $response['addresses'][0]['address']['freeformAddress']; 
           $position = $response['addresses'][0]['position'];
 
-
-        $views = views($structure)->count();
+        $viewsLastDay = views($structure)->period(Period::pastDays(1))->count();
+        $viewsLastWeek = views($structure)->period(Period::pastWeeks(1))->count();
+        $viewsLastMonth = views($structure)->period(Period::pastMonths(1))->count();
+        $viewsTotal = views($structure)->count();
+        $viewsUnique = views($structure)->unique()->count();
             
         return view("user.structures.show", [
             "structure" => $structure,
@@ -142,7 +146,13 @@ class StructureController extends Controller
             "lat" => $lat,
             "lng" => $lng,
             "typeofshow" => 1,
-            "views" => $views
+            "viewsTotal" => $viewsTotal,
+            "viewsLastWeek" => $viewsLastWeek,
+            "viewsLastMonth" => $viewsLastMonth,
+            "viewsUnique" => $viewsUnique,
+            "viewsLastDay" => $viewsLastDay,
+
+
         ], compact('structure'));
       }
     }

@@ -19,7 +19,7 @@
     
     <form method="post" action='{{ route('user.structures.payment', ['id' => $structure->id]) }}' id="postform" enctype="multipart/form-data">
         @csrf
-        @method('PUT')
+        @method('POST')
 
         <div class="form-check form-check-inline">
             @foreach($sponsorships as $sponsorship)
