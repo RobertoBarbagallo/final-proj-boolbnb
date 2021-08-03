@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    
     <form>
       <div class="mb-3">
           <label for="town">Città</label>
@@ -39,10 +40,13 @@
       </div>
        <div class="mb-3">
         <label for="radius">Distanza</label>
-        <input type="range" class="custom-range" min="5000" max="200000" id="radius"
+        <span v-text='(this.filters.radius/1000)'></span><span>KM</span>
+        <input type="range" class="custom-range" min="5000" max="200000" id="radius" 
         :value= this.filters.radius
         @change="avancedSearch($event.target.value)"
-        >     
+        >
+        <!-- <input :text= (this.filters.radius/1000)> -->
+
       </div>
     </form>
     <structures-sponsored></structures-sponsored>

@@ -1921,8 +1921,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreateMessagesButton",
-  props: {// StructureMessages: JSON,
-  },
+  props: {},
   data: function data() {
     return {
       ClickButton: false
@@ -1932,7 +1931,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     ShowForm: function ShowForm() {
       this.ClickButton = true;
-      document.getElementById("target").classList.add("show");
+      document.getElementById("target").classList.add("d-block");
     }
   },
   mounted: function mounted() {}
@@ -2047,6 +2046,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bus_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bus.js */ "./resources/js/components/bus.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+//
+//
+//
+//
 //
 //
 //
@@ -2247,14 +2250,17 @@ __webpack_require__.r(__webpack_exports__);
       lat: parseFloat(this.latitude),
       lng: parseFloat(this.longitude),
       oneResult: parseInt(this.typeofshow),
-      newfindStructures: []
+      newfindStructures: [],
+      zoom: 10
     };
   },
   methods: {
     generateMap: function generateMap(array, newLat, newlng) {
       var APPLICATION_NAME = 'BoolBnb';
       var APPLICATION_VERSION = '1.0';
-      tt.setProductInfo(APPLICATION_NAME, APPLICATION_VERSION); // var marker = new tt.Marker().setLngLat(ADDRESS).addTo('map-div');
+      tt.setProductInfo(APPLICATION_NAME, APPLICATION_VERSION); // if (this.radius > 39000) {
+      //   this.zoom = 4
+      // }
 
       var structureMap = [this.lng, this.lat];
       var map = tt.map({
@@ -2262,7 +2268,7 @@ __webpack_require__.r(__webpack_exports__);
         container: 'map-div',
         center: structureMap,
         // style: 'tomtom://vector/1/basic-main',
-        zoom: 12
+        zoom: this.zoom
       });
 
       if (parseInt(this.oneResult) === 0) {
@@ -2392,12 +2398,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "StructuresSponsored",
   data: function data() {
     return {
       StructuresSponsored: []
     };
+  },
+  methods: {
+    prev: function prev() {
+      document.getElementById('slider-container').scrollLeft -= 270;
+    },
+    next: function next() {
+      document.getElementById('slider-container').scrollLeft += 270;
+    }
   },
   mounted: function mounted() {
     var _this = this;
@@ -38889,14 +38931,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("a", { attrs: { href: "#" } }, [
-      _c(
-        "i",
-        {
-          staticClass: "fa fa-trash text-white",
-          attrs: { "aria-hidden": "true" }
-        },
-        [_vm._v("Ok")]
-      )
+      _c("i", { staticClass: "text-white", attrs: { "aria-hidden": "true" } }, [
+        _vm._v("Ok")
+      ])
     ])
   }
 ]
@@ -39126,6 +39163,11 @@ var render = function() {
         _c("div", { staticClass: "mb-3" }, [
           _c("label", { attrs: { for: "radius" } }, [_vm._v("Distanza")]),
           _vm._v(" "),
+          _c("span", {
+            domProps: { textContent: _vm._s(this.filters.radius / 1000) }
+          }),
+          _c("span", [_vm._v("KM")]),
+          _vm._v(" "),
           _c("input", {
             staticClass: "custom-range",
             attrs: { type: "range", min: "5000", max: "200000", id: "radius" },
@@ -39218,7 +39260,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("div", { attrs: { id: "map-div" } })])
+    return _c("div", [
+      _c("div", { staticClass: "small", attrs: { id: "map-div" } })
+    ])
   }
 ]
 render._withStripped = true
@@ -39294,60 +39338,104 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.count(this.StructuresSponsored) > 1
-    ? _c("div", [
-        _c("h1", [_vm._v("Strutture Sponsorizzate")]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "card-deck" },
-          _vm._l(this.StructuresSponsored, function(structure) {
-            return _c(
-              "div",
-              { key: structure.id, staticClass: "card mycard my-4" },
-              [
-                structure.cover_img_path
-                  ? _c("img", {
-                      staticClass: "card-img-top myimg",
-                      attrs: {
-                        src: "asset(storage/ " + structure.cover_img_path + ")",
-                        alt: "Cover of structure"
-                      }
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "mt-0" }, [
-                    _vm._v(_vm._s(structure.name))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-footer text-center" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-outline-primary my-1",
-                      attrs: {
-                        href:
-                          "http://127.0.0.1:8000/details?slug=" +
-                          structure.slug +
-                          "&contactedStructure=0",
-                        role: "button"
-                      }
-                    },
-                    [_vm._v("Dettagli...")]
-                  ),
-                  _c("br")
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "position-relative" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "control-prev-btn",
+          on: {
+            click: function($event) {
+              return _vm.prev()
+            }
+          }
+        },
+        [_c("i", { staticClass: "fas fa-arrow-left" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "slider container d-flex  ",
+          attrs: { id: "slider-container" }
+        },
+        _vm._l(this.StructuresSponsored, function(structure) {
+          return _c(
+            "div",
+            { key: structure.id, staticClass: "slide mycard m-4" },
+            [
+              _c("div", { staticClass: "mycard-img-container p-3" }, [
+                _c("img", {
+                  attrs: {
+                    src: "storage/" + structure.cover_img_path,
+                    alt: "Cover of structure"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "mt-0" }, [
+                  _vm._v(_vm._s(structure.name))
                 ])
-              ]
-            )
-          }),
-          0
-        )
-      ])
-    : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-footer text-center" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn m-3 mycard-body",
+                    attrs: {
+                      href:
+                        "http://127.0.0.1:8000/details?slug=" +
+                        structure.slug +
+                        "&contactedStructure=0",
+                      role: "button"
+                    }
+                  },
+                  [_vm._v("Dettagli...")]
+                ),
+                _c("br")
+              ])
+            ]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "overlay" }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "control-next-btn",
+          on: {
+            click: function($event) {
+              return _vm.next()
+            }
+          }
+        },
+        [_c("i", { staticClass: "fas fa-arrow-right" }, [_vm._v(" > ")])]
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "btn-row row d-flex justify-content-center align-items-center"
+      },
+      [_c("h1", [_vm._v("Suggerimenti")])]
+    )
+  }
+]
 render._withStripped = true
 
 

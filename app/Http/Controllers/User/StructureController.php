@@ -8,6 +8,7 @@ use App\Sponsorship;
 use App\SponsorshipStructure;
 use App\Structure;
 use Carbon\Carbon;
+use CyrildeWit\EloquentViewable\Support\Period;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -25,9 +26,13 @@ class StructureController extends Controller
     public function index(Request $request)
     {
         $structures = Structure::orderBy("id", "DESC")->where("user_id", $request->user()->id)->get();
+        $activeSponsorships= SponsorshipStructure::all();
+
 
         return view("user.structures.index",[
-            'structures' => $structures
+            'structures' => $structures,
+            'activeSponsorships' => $activeSponsorships,
+
         ]);
     }
 
@@ -68,7 +73,7 @@ class StructureController extends Controller
             'sqm' => ['required','numeric','min:1'],
             'visible' => ['required','boolean'],
             'services' => ['exists:services,id'],
-            'cover_img_path' => ['mimes:jpeg,jpg,bmp,png,svg,webp,gif']
+            'cover_img_path' => ['required','mimes:jpeg,jpg,bmp,png,svg,webp,gif']
         ]);
 
         $address = $request->address;
@@ -90,13 +95,9 @@ class StructureController extends Controller
         }
 
         $newStructure->slug = $slug;
+        $newStructure->cover_img_path = Storage::put('uploads' , $newStructureData['cover_img_path']);
 
         $newStructure->user_id = $request->user()->id;
-
-
-        if($request['cover_img_path']){
-            $newStructure->cover_img_path = Storage::put('uploads' , $newStructureData['cover_img_path']);
-        }
         
         $newStructure->save();
 
@@ -131,8 +132,11 @@ class StructureController extends Controller
           $readableAddress = $response['addresses'][0]['address']['freeformAddress']; 
           $position = $response['addresses'][0]['position'];
 
-
-        $views = views($structure)->count();
+        $viewsLastDay = views($structure)->period(Period::pastDays(1))->count();
+        $viewsLastWeek = views($structure)->period(Period::pastWeeks(1))->count();
+        $viewsLastMonth = views($structure)->period(Period::pastMonths(1))->count();
+        $viewsTotal = views($structure)->count();
+        $viewsUnique = views($structure)->unique()->count();
             
         return view("user.structures.show", [
             "structure" => $structure,
@@ -142,8 +146,14 @@ class StructureController extends Controller
             "lat" => $lat,
             "lng" => $lng,
             "typeofshow" => 1,
-            "views" => $views
-        ]);
+            "viewsTotal" => $viewsTotal,
+            "viewsLastWeek" => $viewsLastWeek,
+            "viewsLastMonth" => $viewsLastMonth,
+            "viewsUnique" => $viewsUnique,
+            "viewsLastDay" => $viewsLastDay,
+
+
+        ], compact('structure'));
       }
     }
 
@@ -230,7 +240,7 @@ class StructureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function sponsorship(Request $request, Structure $structures, $id)
+    public function sponsorship(Request $request, SponsorshipStructure $sponsorshipStructure, $id)
     {
         
         $sponsorships= Sponsorship::all();
@@ -238,12 +248,22 @@ class StructureController extends Controller
         $activeSponsorships= SponsorshipStructure::all();
 
         $structure = Structure::where('id', $id)->first();
+
+        if(count($structure->sponsorships) == 0){
+            return view("user.structures.sponsorship",[
+                'structure' => $structure,
+                'sponsorships'=> $sponsorships,
+                'activeSponsorships' => $activeSponsorships,
+                
+            ]);
+
+        }else{
+            return view("user.structures.structureSponsored",[
+                'structure' => $structure,
+            ]);
+        }
         
-        return view("user.structures.sponsorship",[
-            'structure' => $structure,
-            'sponsorships'=> $sponsorships,
-            'activeSponsorships' => $activeSponsorships
-        ]);
+       
     }
 
     /**

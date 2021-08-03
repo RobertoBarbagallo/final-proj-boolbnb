@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div id="map-div"></div>
+  <div class="small" id="map-div"></div>
 </div>
 </template>
 <script>
@@ -12,8 +12,7 @@ export default {
     longitude: String,
     finalarray: Array,
     typeofshow: String,
-    tomtomkey: String
- 
+    tomtomkey: String,
   },
     data() {
     return {
@@ -23,6 +22,7 @@ export default {
       lng: parseFloat(this.longitude),
       oneResult: parseInt(this.typeofshow),
       newfindStructures: [],
+      zoom: 10,
     };
   },
   methods:{
@@ -30,9 +30,11 @@ export default {
       const APPLICATION_NAME = 'BoolBnb';
           const APPLICATION_VERSION = '1.0';
         
-            tt.setProductInfo(APPLICATION_NAME, APPLICATION_VERSION); 
+          tt.setProductInfo(APPLICATION_NAME, APPLICATION_VERSION); 
 
-            // var marker = new tt.Marker().setLngLat(ADDRESS).addTo('map-div');
+          // if (this.radius > 39000) {
+          //   this.zoom = 4
+          // }
             
           
           let structureMap = [ this.lng, this.lat ];
@@ -41,7 +43,7 @@ export default {
                 container: 'map-div',
                 center: structureMap,
                 // style: 'tomtom://vector/1/basic-main',
-                zoom: 12
+                zoom: this.zoom
             });
             if(parseInt(this.oneResult) === 0){
                 var toMarkFindStructures = []

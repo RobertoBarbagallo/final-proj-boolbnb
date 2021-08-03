@@ -5,7 +5,7 @@
              <h1>Messaggio inviato con successo</h1>
                <div class="btn-row row d-flex justify-content-center align-items-center">
                     <button class="btn btn-success" @click="userConsent()">
-                    <a href="#" ><i class="fa fa-trash text-white" aria-hidden="true">Ok</i></a>
+                    <a href="#" ><i class="text-white" aria-hidden="true">Ok</i></a>
                     </button>
                 </div>
         </div>

@@ -13,7 +13,6 @@
 export default {
   name: "CreateMessagesButton",
   props: {
-    // StructureMessages: JSON,
   },
   data() {
     return {
@@ -24,9 +23,8 @@ export default {
   methods: {
     ShowForm(){
       this.ClickButton = true
-      document.getElementById("target").classList.add("show")
+      document.getElementById("target").classList.add("d-block")
     }
-
   },
   mounted() {  
   },

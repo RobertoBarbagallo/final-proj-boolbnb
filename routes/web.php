@@ -28,6 +28,10 @@ Route::post('/storemessage', 'HomeController@storemessage')->name('home.storemes
 // Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
 
 Route::get("user/structures/{id}/sponsorship", "User\StructureController@sponsorship")->name('user.structures.sponsorship')->middleware('auth');
+Route::get("user/structures/{id}/structureSponsored", "User\StructureController@sponsorship")->name('user.structures.structureSponsored')->middleware('auth');
+
+Route::get("user/structures/{id}/structureSponsored", "User\StructureController@sponsorship")->name('user.structures.structureSponsored')->middleware('auth');
+
 Route::post("user/structures/{id}/sponsorship/payment", "User\StructureController@payment")->name('user.structures.payment');
 // Route::post("user/structures/{id}/sponsorship/payment2", "User\StructureController@paymentUpdate")->name('user.structures.paymentUpdate');
 
