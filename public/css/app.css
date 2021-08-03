@@ -10949,45 +10949,96 @@ a.text-dark:focus {
   box-sizing: border-box;
 }
 
-.logo-container {
+.mybtn {
+  border-radius: 800px;
+  padding: 8px;
+  border: none;
+}
+
+.mybtn.myinvisible {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.mybtn.myinvisible:hover {
+  text-decoration: none;
+}
+
+.mybtn.default {
+  background-color: #EA5C63;
+  color: white;
+}
+
+.mybtn.default:hover {
+  text-decoration: none;
+  background-color: white;
+  color: #EA5C63;
+  border: 2px solid #EA5C63;
+}
+
+.form-group {
+  align-items: center;
+}
+
+.myvideo {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.mycont {
+  padding-top: 40px;
+  height: 100vh;
+  position: relative;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 4;
+}
+
+.navbar .logo-container {
   width: 200px;
   height: 30px;
   display: flex;
 }
 
-.logo-container .logo-img-container {
+.navbar .logo-container .logo-img-container {
   width: 30px;
   height: 100%;
 }
 
-.logo-container .logo-img-container .logo {
+.navbar .logo-container .logo-img-container .logo {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
 
-.logo-container .logo-text {
+.navbar .logo-container .logo-text {
   color: #EA5C63;
 }
 
-.logo-container .logo-text:hover {
+.navbar .logo-container .logo-text:hover {
   color: #EA5C63;
 }
 
-.mydropdown {
+.navbar .mydropdown {
   width: auto !important;
 }
 
-.mydropdown .dropdown-menu .dropdown-item.myitem {
+.navbar .mydropdown .dropdown-menu .dropdown-item.myitem {
   transition: 0.3s;
 }
 
-.mydropdown .dropdown-menu .dropdown-item.myitem:hover {
+.navbar .mydropdown .dropdown-menu .dropdown-item.myitem:hover {
   background-color: #ffdadb;
 }
 
-.mydropdown .mydropdownbutton {
+.navbar .mydropdown .mydropdownbutton {
   background-color: white;
   border: 1px solid #EA5C63;
   color: #EA5C63;
@@ -10995,31 +11046,31 @@ a.text-dark:focus {
   transition: 0.3s;
 }
 
-.mydropdown .mydropdownbutton:hover {
+.navbar .mydropdown .mydropdownbutton:hover {
   background-color: #EA5C63;
   border: 1px solid white;
   color: white;
 }
 
-.mydropdown .mydropdownbutton:hover .fa-bars {
+.navbar .mydropdown .mydropdownbutton:hover .fa-bars {
   color: white;
 }
 
-.mydropdown .mydropdownbutton:focus {
-  box-shadow: 0 0 0 4px #ffdadb;
+.navbar .mydropdown .mydropdownbutton:focus {
+  box-shadow: 0 0 4px 2px #ffdadb;
 }
 
-.mydropdown .mydropdownbutton:active {
+.navbar .mydropdown .mydropdownbutton:active {
   background-color: white;
   border: 1px solid #EA5C63;
   color: white;
 }
 
-.mydropdown .mydropdownbutton .fa-bars {
+.navbar .mydropdown .mydropdownbutton .fa-bars {
   color: #EA5C63;
 }
 
-.mydropdown .mydropdownbutton .avatar {
+.navbar .mydropdown .mydropdownbutton .avatar {
   width: 25px;
   height: 25px;
   -o-object-fit: contain;
@@ -11070,12 +11121,23 @@ a.text-dark:focus {
   border-radius: 20px;
 }
 
+.jumbotron #postform #search:focus {
+  box-shadow: 0 0 4px 2px #ffdadb;
+  border-color: #ffdadb;
+}
+
 .jumbotron #postform #submit {
   background-color: white;
   position: absolute;
   right: 0px;
   border-radius: 20px;
   background-color: #EA5C63;
+  z-index: 3;
+}
+
+.jumbotron #postform #submit:focus {
+  box-shadow: 0 0 4px 2px #ffdadb;
+  border-color: #ffdadb;
 }
 
 .jumbotron #postform .form-text {
@@ -11084,7 +11146,109 @@ a.text-dark:focus {
   font-weight: 400;
 }
 
-.card-deck .card.mycard {
-  flex-basis: 200px;
+#become-host {
+  height: 400px;
+  background-image: url(/images/Host.jpg?1458189a54426ff9d15c1439f7f2fb84);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+#become-host::after {
+  content: "";
+  background: linear-gradient(90deg, black 0%, black 15%, rgba(255, 255, 255, 0) 100%);
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 200px;
+  height: 100%;
+}
+
+.host-text {
+  height: 400px;
+  padding-top: 160px;
+  padding-left: 100px;
+  background-color: black;
+}
+
+.host-text h1 {
+  color: white;
+  font-weight: 400;
+  font-size: 32px;
+}
+
+.host-text p {
+  color: white;
+  font-weight: 200;
+  font-size: 18px;
+}
+
+.mylogincard {
+  padding: 0;
+  border: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 50px;
+  height: 220px;
+  width: 450px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.mylogincard .card-header {
+  background-color: #EA5C63;
+  color: white;
+}
+
+.mylogincard .col-form-label {
+  font-size: 12px;
+}
+
+.mylogincard .mylogininput {
+  height: 24px;
+}
+
+.mylogincard .mylogininput:focus {
+  box-shadow: 0 0 4px 2px #ffdadb;
+  border-color: #ffdadb;
+}
+
+.myregister {
+  padding: 0;
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  right: 50px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.myregister .myregistercard {
+  border: none;
+  height: 450px;
+  width: 450px;
+}
+
+.myregister .myregistercard .card-header {
+  background-color: #EA5C63;
+  color: white;
+}
+
+.myregister .myregistercard .col-form-label {
+  font-size: 12px;
+}
+
+.myregister .myregistercard .myregisterinput {
+  height: 24px;
+}
+
+.myregister .myregistercard .myregisterinput:focus {
+  box-shadow: 0 0 4px 2px #ffdadb;
+  border-color: #ffdadb;
+}
+
+.myregister .myregistercard .myregisterinput.myregisterinputfile {
+  font-size: 10px;
 }
 

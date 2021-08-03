@@ -40,4 +40,17 @@
         </div>
         @endif --}}
     </div>
+    <section class="d-flex">
+        <div class="col-6 host-text">
+            <h1>Prova ad ospitare</h1>
+            <p>Condividi il tuo spazio per guadagnare qualcosa in più e cogliere nuove opportunità.</p>
+            @guest
+            <a  href="{{ route('register') }}" class="mybtn myinvisible host-button">Scopri di più</a>
+            @else
+            <a  href="{{ url('/user/structures/') }}" class="mybtn myinvisible host-button">Scopri di più</a>
+            @endguest
+        </div>
+        <div class="col-6" id="become-host"> 
+        </div>
+    </section>
 @endsection

@@ -16,6 +16,11 @@
 
 @import 'partials/boolbnb-variables';
 
+// Commons
+
+@import 'partials/commons';
+
+
 // Navbar
 
 @import 'partials/navbar';
@@ -28,10 +33,15 @@
 
 @import 'partials/jumbotron';
 
-.card-deck {
-  .card{
-    &.mycard{
-      flex-basis: 200px;
-    }
-  }
-}
+// Sections
+
+@import 'partials/sections';
+
+// Login
+
+@import 'partials/login';
+
+// Register
+
+@import 'partials/register';
+
