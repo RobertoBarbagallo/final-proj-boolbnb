@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             SponsorshipsTableSeeder::class,
             StructuresTableSeeder::class,
             MessagesTableSeeder::class,
-            ServicesStructuresTableSeeder::class
+            ServicesStructuresTableSeeder::class,
+            ViewsSeeder::class
         ]);
     }
 }

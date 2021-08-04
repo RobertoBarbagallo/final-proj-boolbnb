@@ -39216,31 +39216,29 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "card-deck" },
+        { staticClass: "row row-cols-3" },
         _vm._l(this.showArray, function(result) {
-          return _c(
-            "div",
-            { key: result.id, staticClass: "card mycard my-4" },
-            [
-              result.cover_img_path
-                ? _c("img", {
-                    staticClass: "card-img-top myimg",
-                    attrs: {
-                      src: "asset(storage/ " + result.cover_img_path + ")",
-                      alt: "Cover of structure"
-                    }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "mt-0" }, [_vm._v(_vm._s(result.name))])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-footer text-center" }, [
+          return _c("div", { key: result.id, staticClass: "col my-4" }, [
+            result.cover_img_path
+              ? _c("img", {
+                  staticClass: "card-img-top myimg rounded",
+                  attrs: {
+                    src: "/storage/" + "" + result.cover_img_path,
+                    alt: "Cover of structure"
+                  }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "text-center" }, [
+                _c("h5", { staticClass: "mt-0 mb-3" }, [
+                  _vm._v(_vm._s(result.name))
+                ]),
+                _vm._v(" "),
                 _c(
                   "a",
                   {
-                    staticClass: "btn btn-outline-primary my-1",
+                    staticClass: "mybtn default",
                     attrs: {
                       href:
                         "http://127.0.0.1:8000/details?slug=" +
@@ -39253,8 +39251,8 @@ var render = function() {
                 ),
                 _c("br")
               ])
-            ]
-          )
+            ])
+          ])
         }),
         0
       )
