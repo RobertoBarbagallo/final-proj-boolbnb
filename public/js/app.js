@@ -2011,6 +2011,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "DeleteButton",
   props: {
@@ -2329,7 +2330,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -6918,7 +6918,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.deleteForm {\r\n  background-color: rgba(255, 255, 255, 0.8);\r\n  height: 100%;\r\n  width: 100%;\r\n  position: fixed;\r\n  left: 0;\r\n  top: 0;\r\n  z-index: 3;\n}\n.formButton{\r\n    background-color: white;\r\n     position: absolute;\r\n     top: 50%;\r\n     left: 50%;\r\n     transform: translate(-50%,-50%);\r\n     padding: 20px;\r\n     border: 1px solid black;\n}\r\n", ""]);
+exports.push([module.i, "\n.deleteForm {\r\n  background-color: rgba(255, 255, 255, 0.8);\r\n  height: 100%;\r\n  width: 100%;\r\n  position: fixed;\r\n  left: 0;\r\n  top: 0;\r\n  z-index: 3;\n}\n.formButton{\r\n    background-color: white;\r\n     position: absolute;\r\n     top: 50%;\r\n     left: 50%;\r\n     transform: translate(-50%,-50%);\r\n     padding: 20px;\r\n     border: 1px solid #EA5C63;\n}\r\n", ""]);
 
 // exports
 
@@ -38993,19 +38993,23 @@ var render = function() {
     _vm.clickDelete
       ? _c("div", { staticClass: "deleteForm" }, [
           _c("div", { staticClass: "formButton" }, [
-            _c("h1", [_vm._v("Sei sicuro di voler eliminare la struttura?")]),
+            _c("h1", { staticClass: "mydetailstitle " }, [
+              _vm._v("Sei sicuro di voler eliminare la struttura?")
+            ]),
             _vm._v(" "),
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-danger",
-                attrs: { href: "#" },
-                on: { click: _vm.clikDelete }
-              },
-              [_vm._v("Annulla")]
-            )
+            _c("div", { staticClass: "text-center" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn button-message btn-danger text-white",
+                  attrs: { href: "#" },
+                  on: { click: _vm.clikDelete }
+                },
+                [_vm._v("Annulla")]
+              )
+            ])
           ])
         ])
       : _vm._e(),
@@ -39013,8 +39017,8 @@ var render = function() {
     _c("div", [
       _c(
         "div",
-        { staticClass: "btn btn-danger", on: { click: _vm.clikDelete } },
-        [_vm._v("Cancella")]
+        { staticClass: "btn mydetailstitle", on: { click: _vm.clikDelete } },
+        [_c("i", { staticClass: "fas fa-trash" }), _vm._v(" Cancella")]
       )
     ])
   ])
@@ -39024,18 +39028,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn btn-danger" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c(
-          "i",
-          {
-            staticClass: "fa fa-trash text-white",
-            attrs: { "aria-hidden": "true" }
-          },
-          [_vm._v("\n            Elimina")]
-        )
-      ])
-    ])
+    return _c(
+      "button",
+      { staticClass: "btn button-message btn-danger text-white" },
+      [
+        _c("a", { staticClass: "text-white", attrs: { href: "#" } }, [
+          _vm._v("\n            Elimina")
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -39315,11 +39316,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "dropdown" }, [
+  return _c("div", [
     _c(
       "button",
-      { staticClass: "btn btn-primary", on: { click: _vm.ShowMessages } },
-      [_vm._v("\n    Visualizza messaggi\n  ")]
+      {
+        staticClass: "btn button-message my-5",
+        on: { click: _vm.ShowMessages }
+      },
+      [
+        _c("i", { staticClass: "fas fa-eye" }),
+        _vm._v(" Visualizza messaggi\n  ")
+      ]
     ),
     _vm._v(" "),
     this.ClickMessages
@@ -39327,13 +39334,11 @@ var render = function() {
           "div",
           _vm._l(this.messages, function(message) {
             return _c("div", { key: message.id, staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [_vm._v("Messaggio")]),
+              _c("div", { staticClass: "card-header" }, [
+                _vm._v(_vm._s(message.sender_email))
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title" }, [
-                  _vm._v(_vm._s(message.sender_email))
-                ]),
-                _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
                   _vm._v(_vm._s(message.content))
                 ])

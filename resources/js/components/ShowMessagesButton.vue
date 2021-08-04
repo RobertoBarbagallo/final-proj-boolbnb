@@ -1,16 +1,15 @@
 <template>
-  <div class="dropdown">
+  <div >
     <button
-      class="btn btn-primary"
+      class="btn button-message my-5"
       @click="ShowMessages"
     >
-      Visualizza messaggi
+     <i class="fas fa-eye"></i> Visualizza messaggi
     </button>
     <div v-if="this.ClickMessages">
       <div class="card" v-for="message in this.messages" :key="message.id">
-        <div class="card-header">Messaggio</div>
+        <div class="card-header">{{ message.sender_email }}</div>
         <div class="card-body">
-          <h5 class="card-title">{{ message.sender_email }}</h5>
           <p class="card-text">{{ message.content }}</p>
         </div>
       </div>

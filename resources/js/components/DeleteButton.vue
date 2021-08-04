@@ -2,19 +2,20 @@
   <div>
     <div v-if="clickDelete" class="deleteForm">
         <div class="formButton">
-             <h1>Sei sicuro di voler eliminare la struttura?</h1>
-                <button class="btn btn-danger">
-                <a href="#"
-             ><i class="fa fa-trash text-white" aria-hidden="true">
-              Elimina</i
-             ></a
+             <h1 class="mydetailstitle ">Sei sicuro di voler eliminare la struttura?</h1>
+             <div class="text-center">
+                <button class="btn button-message btn-danger text-white">
+                <a href="#" class="text-white"
+             >
+              Elimina</a
                  >
                 </button>
-                <a href="#" class="btn btn-danger" @click="clikDelete">Annulla</a>
+                <a href="#" class="btn button-message btn-danger text-white" @click="clikDelete">Annulla</a>
+                </div>
         </div>
     </div>
         <div>
-             <div class="btn btn-danger" @click="clikDelete">Cancella</div>
+             <div class="btn mydetailstitle" @click="clikDelete"><i class="fas fa-trash"></i> Cancella</div>
         </div>
   </div>
 </template>
@@ -54,6 +55,6 @@ export default {
      left: 50%;
      transform: translate(-50%,-50%);
      padding: 20px;
-     border: 1px solid black;
+     border: 1px solid #EA5C63;
 }
 </style>

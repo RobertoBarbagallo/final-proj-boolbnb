@@ -1,0 +1,38 @@
+.count-views{
+    border: 1px solid $primary_color;
+    padding: 50px 0 ;
+}
+
+.title-show{
+    margin-top: 55px;
+}
+
+.button-show {
+    margin-top: -40px;
+}
+
+.button-message{
+    color: white;
+    background-color: $primary_color;
+
+    &:hover{
+        background-color: lightcoral;
+        color: white;
+
+    }
+
+    &:focus{
+        box-shadow: none;
+    }
+}
+
+.card-title{
+    width: 100%;
+}
+
+@media only screen and (max-width: 770px) {
+
+    .button-show {
+        margin-top: 40px;
+    }
+    }
