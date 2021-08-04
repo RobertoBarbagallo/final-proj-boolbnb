@@ -15,6 +15,7 @@
                 <small id="searchHelp" class="form-text">Dove vuoi andare?</small>
             </form>   
         </div>
+        
         <structures-sponsored
         ></structures-sponsored>
        
