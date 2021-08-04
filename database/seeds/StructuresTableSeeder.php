@@ -31,6 +31,7 @@ class StructuresTableSeeder extends Seeder
                 'sqm' => rand(60,500),
                 'user_id' => rand(1,15),
                 'slug' => Str::slug($name),
+                'cover_img_path' => 'defaults/defaultStructure.jpeg',
                 'created_at' => now(),
                 'updated_at' => now(),
                 "lat" => $faker->latitude($min = ($lang - (rand(0,5000) / 1000)), $max = ($lang + (rand(0,500) / 1000))),

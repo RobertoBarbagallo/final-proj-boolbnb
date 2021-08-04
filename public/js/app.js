@@ -39229,31 +39229,29 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "card-deck" },
+        { staticClass: "row row-cols-3" },
         _vm._l(this.showArray, function(result) {
-          return _c(
-            "div",
-            { key: result.id, staticClass: "card mycard my-4" },
-            [
-              result.cover_img_path
-                ? _c("img", {
-                    staticClass: "card-img-top myimg",
-                    attrs: {
-                      src: "asset(storage/ " + result.cover_img_path + ")",
-                      alt: "Cover of structure"
-                    }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "mt-0" }, [_vm._v(_vm._s(result.name))])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-footer text-center" }, [
+          return _c("div", { key: result.id, staticClass: "col my-4" }, [
+            result.cover_img_path
+              ? _c("img", {
+                  staticClass: "card-img-top myimg rounded",
+                  attrs: {
+                    src: "/storage/" + "" + result.cover_img_path,
+                    alt: "Cover of structure"
+                  }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "text-center" }, [
+                _c("h5", { staticClass: "mt-0 mb-3" }, [
+                  _vm._v(_vm._s(result.name))
+                ]),
+                _vm._v(" "),
                 _c(
                   "a",
                   {
-                    staticClass: "btn btn-outline-primary my-1",
+                    staticClass: "mybtn default",
                     attrs: {
                       href:
                         "http://127.0.0.1:8000/details?slug=" +
@@ -39266,8 +39264,8 @@ var render = function() {
                 ),
                 _c("br")
               ])
-            ]
-          )
+            ])
+          ])
         }),
         0
       )
@@ -52358,7 +52356,7 @@ var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleNotFoundError: Module not found: Error: Can't resolve '../../../storage/app/public/imgs/Host.jpg' in '/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/resources/sass'\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/webpack/lib/Compilation.js:925:10\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/webpack/lib/NormalModuleFactory.js:401:22\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/webpack/lib/NormalModuleFactory.js:130:21\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/webpack/lib/NormalModuleFactory.js:224:22\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/neo-async/async.js:2830:7\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/neo-async/async.js:6877:13\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/webpack/lib/NormalModuleFactory.js:214:25\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/enhanced-resolve/lib/Resolver.js:213:14\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/enhanced-resolve/lib/UnsafeCachePlugin.js:44:7\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:27:1)\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/enhanced-resolve/lib/DescriptionFilePlugin.js:67:43\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/enhanced-resolve/lib/RootPlugin.js:37:38\n    at _next43 (eval at create (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:8:1)\n    at eval (eval at create (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:31:1)\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/enhanced-resolve/lib/DirectoryExistsPlugin.js:27:15\n    at /Users/noe/Desktop/Boolean/BoolBnb/BoolBnb/final-proj-boolbnb/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:85:15\n    at processTicksAndRejections (node:internal/process/task_queues:76:11)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
