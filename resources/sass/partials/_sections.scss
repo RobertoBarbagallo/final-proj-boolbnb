@@ -1,34 +1,40 @@
-#become-host{
-    height: 400px;
-    background-image: url(../../../storage/app/public/imgs/Host.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    &::after{
-        content: "";
-        background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 15%, rgba(255,255,255,0) 100%);
-        position: absolute;
-        display: block;
-        left: 0;
-        width: 200px;
-        height: 100%;
-    }
-}
-.host-text{
-    height: 400px;
-    padding-top: 160px;
-    padding-left: 100px;
-    background-color: black;
-    h1{
-        color: $default_bg_color;
-        font-weight: 400;
-        font-size: 32px;
-    }
+.host-section{
+    border-radius: 40px;
 
-    p{
-        color: $default_bg_color;
-        font-weight: 200;
-        font-size: 18px;
-    }
+        #become-host{
+            height: 400px;
+            background-image: url(../../../storage/app/public/imgs/Host.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            &::after{
+                content: "";
+                background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 15%, rgba(255,255,255,0) 100%);
+                position: absolute;
+                display: block;
+                left: 0;
+                width: 200px;
+                height: 100%;
+            }
+        }
+        .host-text{
+            height: 400px;
+            padding-top: 160px;
+            padding-left: 100px;
+            background-color: black;
+            h1{
+                color: $default_bg_color;
+                font-weight: 400;
+                font-size: 32px;
+            }
+        
+            p{
+                color: $default_bg_color;
+                font-weight: 200;
+                font-size: 18px;
+            }
+        
+        }
+
 
 }

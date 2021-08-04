@@ -2418,8 +2418,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "StructuresSponsored",
   props: {},
@@ -6901,7 +6899,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.popUp {\n  background-color: rgba(255, 255, 255, 0.8);\n  height: 100%;\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 3;\n}\n.feedbackButton{\n    background-color: white;\n     position: absolute;\n     top: 50%;\n     left: 50%;\n     transform: translate(-50%,-50%);\n     padding: 20px;\n     border: 2px solid #38c172;\n     border-radius: 8px;\n}\n", ""]);
+exports.push([module.i, "\n.popUp {\n  background-color: rgba(255, 255, 255, 0.8);\n  height: 100%;\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 3;\n}\n.feedbackButton{\n    background-color: white;\n     position: absolute;\n     top: 50%;\n     left: 50%;\n     transform: translate(-50%,-50%);\n     padding: 20px;\n     border: 2px solid #EA5C63;\n     border-radius: 8px;\n}\n", ""]);
 
 // exports
 
@@ -6958,7 +6956,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.mycontainer[data-v-0cfa051e]{\n  background-image: url(\"/images/blur.jpg\");\n}\n#slider-container[data-v-0cfa051e]{\n  height: 220px;\n}\n.slider[data-v-0cfa051e] {\n   display: flex;\n\t max-height: auto;\n\t overflow-y: hidden;\n\t overflow-x: scroll !important;\n\t padding: 16px;\n\t transform: scroll(calc(var(--i,0)/var(--n)*-100%));\n\t scroll-behavior: smooth;\n\t padding: 0 50px;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar {\n\t height: 5px;\n\t width: 150px;\n\t display: none;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-track {\n\t background: transparent;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-thumb {\n\t background: #888;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-thumb:hover {\n\t background: #555;\n}\n.slide[data-v-0cfa051e] {\n\t position: relative;\n   outline: 2px solid white;\n   width: 200px;\n   height: 200px;\n   margin: 0 50px;\n}\n.slide[data-v-0cfa051e]:hover{\n  text-decoration: none;\n}\n.mycard-img-container[data-v-0cfa051e]{\n   width: 200px;\n   height: 200px;\n}\n.mycard-img-container img[data-v-0cfa051e]{\n    width: 100%;\n    height: 100%;\n}\n.control-prev-btn[data-v-0cfa051e], .control-next-btn[data-v-0cfa051e]{\n\t position: absolute;\n\t top: 50%;\n\t text-align: center;\n\t -webkit-user-select: none;\n\t    -moz-user-select: none;\n\t     -ms-user-select: none;\n\t         user-select: none;\n\t color: white;\n\t cursor: pointer;\n}\n.control-prev-btn[data-v-0cfa051e]{\n   left: -60px;\n}\n.control-next-btn[data-v-0cfa051e]{\n   right: -60px;\n}\n.fas[data-v-0cfa051e]{\n  font-weight: 700;\n  font-size: 32px;\n}\n.myslidercardtext[data-v-0cfa051e]{\n position: absolute;\n bottom: 5px;\n left: 50%;\n transform: translateX(-50%);\n overflow: hidden;\n white-space: nowrap;\n text-overflow: ellipsis;\n}\nh2[data-v-0cfa051e], h5[data-v-0cfa051e] {\n  color: white;\n}\n.position-relative[data-v-0cfa051e]{\n  position: relative;\n}\n@media only screen and (max-width: 420px) {\n.slider[data-v-0cfa051e] {\n\t\t padding: 0;\n}\n.slide[data-v-0cfa051e] {\n\t\t padding: 16px 10px;\n}\n.slide img[data-v-0cfa051e] {\n\t\t margin: 0;\n}\n.control-prev-btn[data-v-0cfa051e] {\n\t\t top: 37%;\n}\n.control-next-btn[data-v-0cfa051e] {\n\t\t top: 37%;\n}\n}\n\n", ""]);
+exports.push([module.i, "\n.mycontainer[data-v-0cfa051e]{\n background: white;\n}\n#slider-container[data-v-0cfa051e]{\n  height: 220px;\n}\n.slider[data-v-0cfa051e] {\n   display: flex;\n\t max-height: auto;\n\t overflow-y: hidden;\n\t overflow-x: scroll !important;\n\t padding: 16px;\n\t transform: scroll(calc(var(--i,0)/var(--n)*-100%));\n\t scroll-behavior: smooth;\n\t padding: 0 50px;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar {\n\t height: 5px;\n\t width: 150px;\n\t display: none;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-track {\n\t background: transparent;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-thumb {\n\t background: #888;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-thumb:hover {\n\t background: #555;\n}\n.slide[data-v-0cfa051e] {\n\t position: relative;\n   border: 4px solid #ffdadb;\n   border-radius: 20px;\n   width: 200px;\n   height: 200px;\n   margin: 0 20px;\n   overflow-y: clip;\n}\n.slide[data-v-0cfa051e]:first-child{\n  margin-left: 0;\n}\n.slide[data-v-0cfa051e]:hover{\n  text-decoration: none;\n}\n.mycard-img-container[data-v-0cfa051e]{\n   width: 210px;\n   height: 210px;\n}\n.mycard-img-container img[data-v-0cfa051e]{\n    width: 100%;\n    height: 100%;\n}\n.control-prev-btn[data-v-0cfa051e], .control-next-btn[data-v-0cfa051e]{\n\t position: absolute;\n\t top: 50%;\n\t text-align: center;\n\t -webkit-user-select: none;\n\t    -moz-user-select: none;\n\t     -ms-user-select: none;\n\t         user-select: none;\n\t color:  #EA5C63;\n\t cursor: pointer;\n   z-index: 9;\n}\n.control-prev-btn[data-v-0cfa051e]{\n   left: 0;\n}\n.control-next-btn[data-v-0cfa051e]{\n   right: 0;\n}\n.fas[data-v-0cfa051e]{\n  font-weight: 700;\n  font-size: 32px;\n}\n.myslidercardtext[data-v-0cfa051e]{\n position: absolute;\n bottom: 5px;\n left: 50%;\n transform: translateX(-50%);\n overflow: hidden;\n white-space: nowrap;\n text-overflow: ellipsis;\n}\nh2[data-v-0cfa051e]{\n  color:  #EA5C63\n}\nh5[data-v-0cfa051e] {\n  color: #EA5C63;\n  background-color: #ffdadb;\n  border-radius: 20px;\n  font-size: 16px;\n}\n.position-relative[data-v-0cfa051e]{\n  position: relative;\n}\n@media only screen and (max-width: 420px) {\n.slider[data-v-0cfa051e] {\n\t\t padding: 0;\n}\n.slide[data-v-0cfa051e] {\n\t\t padding: 16px 10px;\n}\n.slide img[data-v-0cfa051e] {\n\t\t margin: 0;\n}\n.control-prev-btn[data-v-0cfa051e] {\n\t\t top: 37%;\n}\n.control-next-btn[data-v-0cfa051e] {\n\t\t top: 37%;\n}\n}\n\n", ""]);
 
 // exports
 
@@ -38904,7 +38902,7 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn btn-primary",
+        staticClass: "mybtn default",
         on: {
           click: function($event) {
             return _vm.ShowForm()
@@ -38941,26 +38939,26 @@ var render = function() {
     ? _c("div", [
         _c("div", { staticClass: "popUp" }, [
           _c("div", { staticClass: "feedbackButton" }, [
-            _c("h1", [_vm._v("Messaggio inviato con successo")]),
+            _c("h3", [_vm._v("Messaggio inviato con successo")]),
             _vm._v(" "),
             _c(
               "div",
               {
                 staticClass:
-                  "btn-row row d-flex justify-content-center align-items-center"
+                  "btn-row row d-flex justify-content-center align-items-center mt-1"
               },
               [
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-success",
+                    staticClass: "mybtn default px-4",
                     on: {
                       click: function($event) {
                         return _vm.userConsent()
                       }
                     }
                   },
-                  [_vm._m(0)]
+                  [_vm._v("\n                  Ok\n                  ")]
                 )
               ]
             )
@@ -38969,18 +38967,7 @@ var render = function() {
       ])
     : _vm._e()
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "#" } }, [
-      _c("i", { staticClass: "text-white", attrs: { "aria-hidden": "true" } }, [
-        _vm._v("Ok")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -39382,76 +39369,74 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "mycontainer" }, [
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "position-relative py-2" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "control-prev-btn",
-            on: {
-              click: function($event) {
-                return _vm.prev()
-              }
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "position-relative py-2" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "control-prev-btn",
+          on: {
+            click: function($event) {
+              return _vm.prev()
             }
-          },
-          [_c("i", { staticClass: "fas fa-arrow-left" })]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "slider d-flex", attrs: { id: "slider-container" } },
-          _vm._l(this.StructuresSponsored, function(structure) {
-            return _c(
-              "a",
-              {
-                key: structure.id,
-                staticClass: "slide mt-2",
-                attrs: {
-                  href:
-                    "http://127.0.0.1:8000/details?slug=" +
-                    structure.slug +
-                    "&contactedStructure=0"
-                }
-              },
-              [
-                _c("div", { staticClass: "mycard-img-container" }, [
-                  _c("img", {
-                    attrs: {
-                      src: "storage/" + structure.cover_img_path,
-                      alt: "Cover of structure"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "myslidercardtext" }, [
-                  _c("h5", { staticClass: "my-1" }, [
-                    _vm._v(_vm._s(structure.name))
-                  ])
+          }
+        },
+        [_c("i", { staticClass: "fas fa-chevron-left" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "slider d-flex", attrs: { id: "slider-container" } },
+        _vm._l(this.StructuresSponsored, function(structure) {
+          return _c(
+            "a",
+            {
+              key: structure.id,
+              staticClass: "slide my-1",
+              attrs: {
+                href:
+                  "http://127.0.0.1:8000/details?slug=" +
+                  structure.slug +
+                  "&contactedStructure=0"
+              }
+            },
+            [
+              _c("div", { staticClass: "mycard-img-container" }, [
+                _c("img", {
+                  attrs: {
+                    src: "storage/" + structure.cover_img_path,
+                    alt: "Cover of structure"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "myslidercardtext" }, [
+                _c("h5", { staticClass: "my-1 px-3 py-1" }, [
+                  _vm._v(_vm._s(structure.name))
                 ])
-              ]
-            )
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "overlay" }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "control-next-btn",
-            on: {
-              click: function($event) {
-                return _vm.next()
-              }
+              ])
+            ]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "overlay" }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "control-next-btn",
+          on: {
+            click: function($event) {
+              return _vm.next()
             }
-          },
-          [_c("i", { staticClass: "fas fa-arrow-right" })]
-        )
-      ])
+          }
+        },
+        [_c("i", { staticClass: "fas fa-chevron-right" })]
+      )
     ])
   ])
 }

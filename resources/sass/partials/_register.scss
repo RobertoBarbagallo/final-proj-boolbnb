@@ -15,20 +15,14 @@
             background-color: $primary_color;
             color: $default_bg_color;
         }
+        
         .col-form-label{
             font-size: 12px;
         }
-        .myregisterinput{
-            height: 24px;
-            &:focus{
-                box-shadow: 0 0 4px 2px $secondary_color;
-                border-color: $secondary_color;
-            }
-            &.myregisterinputfile{
-                font-size: 10px;
-            }
-        }
 
+        .myregisterinputfile{
+                font-size: 10px;
+        }
     }
    
 }

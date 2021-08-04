@@ -1,13 +1,15 @@
 
 .mybtn{
     border-radius: 800px;
-    padding: 8px;
+    height: 30px;
+    padding: 0 8px;
     border: none;
 
     &.myinvisible{
         background-color: transparent;
         border: 1px solid $default_bg_color;
         color: $default_bg_color;
+        padding: 8px 8px;
         &:hover{
             text-decoration: none;
         }
@@ -42,4 +44,10 @@
     position: relative;
 }
 
-
+.myinput{
+    height: 24px;
+    &:focus{
+        box-shadow: 0 0 4px 2px $secondary_color;
+        border-color: $secondary_color;
+    }
+}
