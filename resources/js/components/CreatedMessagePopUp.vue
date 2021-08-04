@@ -2,10 +2,10 @@
   <div v-if="(this.show === '1' )">
     <div class="popUp">
         <div class="feedbackButton">
-             <h1>Messaggio inviato con successo</h1>
-               <div class="btn-row row d-flex justify-content-center align-items-center">
-                    <button class="btn btn-success" @click="userConsent()">
-                    <a href="#" ><i class="text-white" aria-hidden="true">Ok</i></a>
+             <h3>Messaggio inviato con successo</h3>
+               <div class="btn-row row d-flex justify-content-center align-items-center mt-1">
+                    <button class="mybtn default px-4" @click="userConsent()">
+                    Ok
                     </button>
                 </div>
         </div>
@@ -48,7 +48,7 @@ export default {
      left: 50%;
      transform: translate(-50%,-50%);
      padding: 20px;
-     border: 2px solid #38c172;
+     border: 2px solid #EA5C63;
      border-radius: 8px;
 }
 </style>
