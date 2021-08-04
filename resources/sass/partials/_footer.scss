@@ -1,4 +1,21 @@
 footer{
     background-color: $footer_bg_color;
-    height: 500px;
+
+    p{
+        color: #5E5E5E;
+        font-weight: 100;
+        font-size: 13px;
+    }
+
+    h5{
+        font-weight: 300;
+        font-size: 16px;
+    }
 }
+
+@media (max-width: 420px) { 
+    footer{
+        padding-top: 20px;
+    }
+   
+ }

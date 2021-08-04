@@ -44,3 +44,17 @@ p{
 .detailslabel{
     color: $primary_color;
 }
+
+@media (max-width: 420px) {
+    .row{
+        padding: 0 !important;
+        .service-col{
+            padding-top: 20px;
+
+            h3{
+                font-size: 20px;
+            }
+        }
+    }
+
+}

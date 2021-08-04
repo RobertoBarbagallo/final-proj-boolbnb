@@ -18,13 +18,13 @@ contactedstructure = {{$contactedStructure}}
                 <p class="text-secondary"> {{ $address }}</p>  
         </div>
         <div class="row px-5 my-3">
-            <div class="col-6 px-0">
+            <div class="col-md-6 col-sm-12 px-0">
                 <div class="details-cover-container">
                     <img src="{{asset('storage/' . $structure->cover_img_path)}}" alt="Structure Photo">
                 </div>
 
             </div>
-                <div class="col-6 px-0">   
+                <div class="col-md-6 col-sm-12 px-0">   
                 <my-maps
                 latitude = {{$lat}}
                 longitude = {{$lng}}
@@ -34,18 +34,8 @@ contactedstructure = {{$contactedStructure}}
                 </my-maps>
             </div>
         </div>  
-
-         {{-- <div class="d-flex align-items-center">
-                    <p>Host:</p>
-                    <div class="host-details d-flex align-items-center">
-                        <div class="details-host-avatar-container mx-2">
-                            <img class="details-avatar" src="{{ asset('storage/' . $structure->user->user_img_path) }}" alt="Card image cap">
-                        </div>
-                        <small>{{$structure->user->name}} {{$structure->user->lastname}}</small>
-                    </div> 
-        </div>   --}}
         <div class="row">    
-            <div class="col-6 px-5">       
+            <div class="col-md-6 col-sm-12 px-5">       
                 <p class="text-secondary"><span class="mydetailstitle">Stanze disponibili:</span> {{ $structure->rooms }}</p>
                 <p class="text-secondary"><span class="mydetailstitle">Letti disponibili:</span> {{ $structure->beds }}</p>
                 <p class="text-secondary"><span class="mydetailstitle">Bagni:</span> {{ $structure->bathrooms }}</p>
@@ -53,7 +43,7 @@ contactedstructure = {{$contactedStructure}}
                 <p class="text-secondary"><span class="mydetailstitle">Indirizzo Struttura:</span> {{ $address }}</p> 
             </div>
 
-            <div class="col-6">
+            <div class="col-md-6 col-sm-12 service-col">
                 <h3 class="text-center">Cosa troverai</h3>
                 @foreach($structure->services as $service)
                 <p class="badge mybadge">{{ $service->name }}</p>

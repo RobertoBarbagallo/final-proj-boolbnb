@@ -11012,7 +11012,7 @@ a.text-dark:focus {
 }
 
 .navbar .logo-container {
-  width: 200px;
+  width: 125px;
   height: 30px;
   display: flex;
 }
@@ -11042,6 +11042,7 @@ a.text-dark:focus {
 }
 
 .navbar .mydropdown .dropdown-menu .dropdown-item.myitem {
+  padding-left: 20px !important;
   transition: 0.3s;
 }
 
@@ -11050,6 +11051,7 @@ a.text-dark:focus {
 }
 
 .navbar .mydropdown .mydropdownbutton {
+  position: relative;
   background-color: white;
   border: 1px solid #EA5C63;
   color: #EA5C63;
@@ -11089,6 +11091,16 @@ a.text-dark:focus {
   border-radius: 50%;
 }
 
+.navbar .dropdown-menu {
+  position: absolute;
+  top: 34px;
+  left: -40px;
+}
+
+.navbar .dropdown-menu.private {
+  left: -90px;
+}
+
 #map-div {
   width: 100%;
   height: 350px;
@@ -11116,8 +11128,8 @@ a.text-dark:focus {
 }
 
 .myjumbotron {
-  height: 500px;
-  background-image: url(/images/Jumbotron.jpg?8d6d6580894f84d4b5e5ececb2a46787);
+  height: 100vh;
+  background-image: url(/images/Jumbotron.jpg?fde996920b9d7fcba31b3300eb2e2716);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -11125,7 +11137,7 @@ a.text-dark:focus {
 .myjumbotron #postform {
   width: 50%;
   margin: auto;
-  padding-top: 100px;
+  padding-top: 300px;
 }
 
 .myjumbotron #postform #search {
@@ -11154,23 +11166,30 @@ a.text-dark:focus {
 
 .myjumbotron #postform .form-text {
   text-align: center;
-  font-size: 18px;
   font-weight: 400;
 }
 
-.host-section {
-  border-radius: 40px;
+@media (max-width: 420px) {
+  .myjumbotron {
+    background-size: 350% 100%;
+    background-position-x: 50%;
+  }
+
+  .myjumbotron #postform {
+    width: 75%;
+  }
 }
 
-.host-section #become-host {
+#become-host {
   height: 400px;
-  background-image: url(/images/Host.jpg?b2007ddf0665e348d2d0f7905f99c962);
+  border-radius: 40px;
+  background-image: url(/images/Host.jpg?1458189a54426ff9d15c1439f7f2fb84);
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
 }
 
-.host-section #become-host::after {
+#become-host::after {
   content: "";
   background: linear-gradient(90deg, black 0%, black 15%, rgba(255, 255, 255, 0) 100%);
   position: absolute;
@@ -11180,23 +11199,38 @@ a.text-dark:focus {
   height: 100%;
 }
 
-.host-section .host-text {
+.host-text {
   height: 400px;
-  padding-top: 160px;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  padding-top: 110px;
   padding-left: 100px;
   background-color: black;
 }
 
-.host-section .host-text h1 {
+.host-text h1 {
   color: white;
   font-weight: 400;
   font-size: 32px;
 }
 
-.host-section .host-text p {
+.host-text p {
   color: white;
   font-weight: 200;
   font-size: 18px;
+}
+
+@media (max-width: 767px) {
+  #become-host {
+    display: none;
+  }
+
+  .host-text {
+    border-radius: 40px;
+    padding: 20px;
+    margin: 0 20px;
+    margin-bottom: 20px;
+  }
 }
 
 .mylogincard {
@@ -11221,33 +11255,73 @@ a.text-dark:focus {
   font-size: 12px;
 }
 
-.myregister {
+@media (max-width: 420px) {
+  .mylogincard {
+    height: 250px;
+    width: 75%;
+    right: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.myregistercard {
   padding: 0;
+  border: none;
+  height: 450px;
+  width: 450px;
   position: absolute;
-  top: 60%;
+  top: 55%;
   transform: translateY(-50%);
   right: 50px;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
 
-.myregister .myregistercard {
-  border: none;
-  height: 450px;
-  width: 450px;
-}
-
-.myregister .myregistercard .card-header {
+.myregistercard .card-header {
   background-color: #EA5C63;
   color: white;
 }
 
-.myregister .myregistercard .col-form-label {
+.myregistercard .col-form-label {
   font-size: 12px;
 }
 
-.myregister .myregistercard .myregisterinputfile {
+.myregistercard .myregisterinputfile {
   font-size: 10px;
+}
+
+@media (max-width: 768px) {
+  .myregistercard {
+    width: 260px;
+    height: 500px;
+    margin: auto;
+    right: 0;
+    left: 0;
+  }
+
+  .card-body {
+    padding: 0 15px;
+  }
+
+  .card-body .form-group {
+    margin: 0;
+  }
+
+  .card-body .form-group .col-form-label {
+    padding: 0;
+  }
+
+  .card-body .form-group .myinput {
+    width: 100%;
+    height: 18px;
+  }
+
+  .card-body .form-group .myregisterinputfile {
+    height: 24px;
+    font-size: 10px;
+  }
 }
 
 p {
@@ -11298,9 +11372,39 @@ p {
   color: #EA5C63;
 }
 
+@media (max-width: 420px) {
+  .row {
+    padding: 0 !important;
+  }
+
+  .row .service-col {
+    padding-top: 20px;
+  }
+
+  .row .service-col h3 {
+    font-size: 20px;
+  }
+}
+
 footer {
   background-color: #F7F7F7;
-  height: 500px;
+}
+
+footer p {
+  color: #5E5E5E;
+  font-weight: 100;
+  font-size: 13px;
+}
+
+footer h5 {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+@media (max-width: 420px) {
+  footer {
+    padding-top: 20px;
+  }
 }
 
 .errors {

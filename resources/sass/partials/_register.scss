@@ -1,30 +1,59 @@
-.myregister{
+
+.myregistercard{
     padding: 0;
+    border: none;
+    height: 450px;
+    width: 450px;
     position: absolute;
-    top: 60%;
+    top: 55%;
     transform: translateY(-50%);
     right: 50px;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    .myregistercard{
-        border: none;
-        height: 450px;
-        width: 450px;
-        
-        .card-header{
-            background-color: $primary_color;
-            color: $default_bg_color;
-        }
-        
-        .col-form-label{
-            font-size: 12px;
-        }
+    
+    .card-header{
+        background-color: $primary_color;
+        color: $default_bg_color;
+    }
+    
+    .col-form-label{
+        font-size: 12px;
+    }
 
-        .myregisterinputfile{
+    .myregisterinputfile{
+            font-size: 10px;
+    }
+}
+   
+
+@media (max-width: 768px) { 
+
+    .myregistercard{
+        width: 260px;
+        height: 500px;
+        margin: auto;
+        right: 0;
+        left: 0;
+    }
+    .card-body{
+        padding: 0 15px;
+        .form-group{
+            margin: 0;
+            .col-form-label{
+                padding: 0;
+            }
+            .myinput{
+                width: 100%;
+                height: 18px;
+            }
+
+            .myregisterinputfile{
+                height: 24px;
                 font-size: 10px;
+            }
         }
     }
-   
-}
+    
+ }
 
 
