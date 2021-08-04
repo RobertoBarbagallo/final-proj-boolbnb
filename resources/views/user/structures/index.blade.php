@@ -3,14 +3,15 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <a class="btn btn-primary mb-4 mx-4" href="{{ route('user.structures.create') }}" role="button">Aggiungi struttura...</a>
+    <div class="row justify-content-center pt-5">
+        <a class="mybtn default fix-btn mb-4 mx-4" href="{{ route('user.structures.create') }}" role="button">Aggiungi una nuova struttura</a>
     </div>
-    <div class="row row-cols-3">
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
         @if($structures)
 
         @foreach($structures as $structure)
-        <div class="col mb-4">
+        <div class="col-md-6 col-lg-4 mb-5">
+        <a href="{{route("user.structures.show", $structure->id)}}">
         
             @if($structure->cover_img_path)
             <img class="card-img-top myimg rounded" src="{{ asset('storage/' . $structure->cover_img_path) }}" alt="Cover of structure">
@@ -19,17 +20,13 @@
                 <div class="text-center">
                     
                     <h5 class="mt-0 mb-3">{{$structure->name}}</h5>
-                    {{-- @if($structure->services)
-                    @foreach($structure->services as $service)
-                    <span class="badge badge-pill badge-info">{{$service->name}}</span>
-                    @endforeach
-                    @endif --}}
-                    <a class="mybtn default" href="{{route("user.structures.show", $structure->id)}}" role="button">Visualizza dettagli</a>
-                    <a class="mybtn default" href="{{route('user.structures.sponsorship', $structure->id)}}" role=“button”>Sponsorizza</a>
+                    <a class="mybtn default p-2" href="{{route("user.structures.show", $structure->id)}}" role="button">Visualizza dettagli</a>
+                    <a class="mybtn default p-2" href="{{route('user.structures.sponsorship', $structure->id)}}" role=“button”>Sponsorizza</a>
 
                 </div>
             </div>
 
+        </a>
         </div>
 
         @endforeach

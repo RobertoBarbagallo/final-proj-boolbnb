@@ -1,5 +1,5 @@
 .myjumbotron{
-    height: 500px;
+    height: 100vh;
     background-image: url(../../../storage/app/public/imgs/Jumbotron.jpg); 
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -7,7 +7,7 @@
     #postform{
         width: 50%;
         margin: auto;
-        padding-top: 100px;
+        padding-top: 300px;
 
         #search{
             border-radius: 20px;
@@ -32,9 +32,17 @@
         }
         .form-text{
             text-align: center;
-            font-size: 18px;
             font-weight: 400;
         }
 
     }
 }
+@media (max-width: 420px) { 
+    .myjumbotron{
+        background-size: 350% 100%;
+        background-position-x: 50%;
+        #postform{
+            width: 75%;
+        } 
+    }
+ }

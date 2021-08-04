@@ -12,24 +12,26 @@
                         </button>
                     </div>
                 </div>
-                <small id="searchHelp" class="form-text">Dove vuoi andare?</small>
+                <h3 id="searchHelp" class="form-text py-2 mt-3">Dove vuoi andare?</h3>
             </form>   
         </div>
         
         <structures-sponsored
         ></structures-sponsored>
-       <div class="container">
-            <section class="d-flex host-section">
-                <div class="col-6 host-text">
-                    <h1>Prova ad ospitare</h1>
-                    <p class="mb-5">Condividi il tuo spazio per guadagnare qualcosa in più e cogliere nuove opportunità.</p>
-                    @guest
-                    <a  href="{{ route('register') }}" class="mybtn myinvisible host-button">Scopri di più</a>
-                    @else
-                    <a  href="{{ url('/user/structures/') }}" class="mybtn myinvisible host-button">Scopri di più</a>
-                    @endguest
-                </div>
-                <div class="col-6" id="become-host"> 
+       <div class="container mt-4">
+            <section>
+                <div class="row mb-">
+                    <div class="col-md-6 col-sm-12 host-text">
+                        <h1>Prova ad ospitare</h1>
+                        <p class="mb-5">Condividi il tuo spazio per guadagnare qualcosa in più e cogliere nuove opportunità.</p>
+                        @guest
+                        <a  href="{{ route('register') }}" class="mybtn myinvisible host-button">Scopri di più</a>
+                        @else
+                        <a  href="{{ url('/user/structures/') }}" class="mybtn myinvisible host-button">Scopri di più</a>
+                        @endguest
+                    </div>
+                    <div class="col-md-6" id="become-host"> 
+                    </div>
                 </div>
             </section>
        </div>

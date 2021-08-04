@@ -245,72 +245,58 @@ class StructureController extends Controller
         
         $sponsorships= Sponsorship::all();
 
-        $activeSponsorships= SponsorshipStructure::all();
+        $activeSponsorships= SponsorshipStructure::where('structure_id', $id)->first();
 
         $structure = Structure::where('id', $id)->first();
 
-        if(count($structure->sponsorships) == 0){
-            return view("user.structures.sponsorship",[
+        return view("user.structures.sponsorship",[
                 'structure' => $structure,
                 'sponsorships'=> $sponsorships,
                 'activeSponsorships' => $activeSponsorships,
-                
             ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function payment(Request $request,SponsorshipStructure $sponsorshipStructure, $id)
+    {
+        $sponsorshipId = $request->sponsorship;
+        $spons=Sponsorship::find($sponsorshipId);
+
+        $structure = Structure::where('id', $id)->first();
+
+        $activeSponsorships= SponsorshipStructure::where('structure_id', $id)->first();
+        // $endDate = ;
+        $endDateFormatted = \Carbon\Carbon::createFromTimeStamp(strtotime($activeSponsorships->end_date));
+        
+        if(count($structure->sponsorships) == 0){
+
+            $newSponsorship = new SponsorshipStructure();
+            $newSponsorship->structure_id = $id;
+            $newSponsorship->sponsorship_id = $sponsorshipId;
+            $newSponsorship->end_date = Carbon::now()->addHours($spons->duration);
+    
+            $newSponsorship->save();
+
+            return redirect()->route("user.structures.show", $structure->id);
 
         }else{
-            return view("user.structures.structureSponsored",[
-                'structure' => $structure,
-            ]);
+
+            $selectedStructure = SponsorshipStructure::where('structure_id', $id);
+            $newData = [
+                'sponsorship_id' => $sponsorshipId,
+                'structure_id' => $id,
+                'end_date' => $endDateFormatted ->addHours($spons->duration)
+            ];
+            $selectedStructure->update($newData);
+
+            return redirect()->route("user.structures.show", $structure->id);
         }
-        
-       
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function payment(Request $request, $id)
-    {
-        $sponsorshipId = $request->sponsorship;
-        $spons=Sponsorship::find($sponsorshipId);
-
-        $newSponsorship = new SponsorshipStructure();
-        $newSponsorship->structure_id = $id;
-        $newSponsorship->sponsorship_id = $sponsorshipId;
-        $newSponsorship->end_date = Carbon::now()->addHours($spons->duration);
-
-        $newSponsorship->save();
-        $structure = Structure::where('id', $id)->first();
-
-        return redirect()->route("user.structures.show", $structure->id);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function paymentUpdate(Request $request, $id)
-    {
-        $sponsorshipId = $request->sponsorship;
-        $spons=Sponsorship::find($sponsorshipId);
-
-        $activeSponsorship= SponsorshipStructure::all();
-        $end = $activeSponsorship;
-
-        // dump($end);
-
-        $activeSponsorship->sponsorship_id = $sponsorshipId;
-        $activeSponsorship->end_date = $end->addHours($spons->duration);
-
-        // $activeSponsorship->update();
-        $structure = Structure::where('id', $id)->first();
-
-        return redirect()->route("user.structures.show", $structure->id);
     }
    
 }
