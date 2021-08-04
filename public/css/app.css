@@ -11250,6 +11250,15 @@ a.text-dark:focus {
   font-size: 10px;
 }
 
+.myimg {
+  width: 100%;
+  height: 80%;
+}
+
+.fix-btn {
+  line-height: 30px;
+}
+
 p {
   margin-bottom: 0;
 }
@@ -11301,6 +11310,13 @@ p {
 footer {
   background-color: #F7F7F7;
   height: 500px;
+}
+
+.my-radio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ************************************************************************************* */
