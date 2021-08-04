@@ -17,11 +17,4 @@
     .col-form-label{
         font-size: 12px;
     }
-    .mylogininput{
-        height: 24px;
-        &:focus{
-            box-shadow: 0 0 4px 2px $secondary_color;
-            border-color: $secondary_color;
-        }
-    }
 }

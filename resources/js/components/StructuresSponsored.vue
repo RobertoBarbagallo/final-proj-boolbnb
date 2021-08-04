@@ -1,12 +1,11 @@
 <template>
-<div class="mycontainer">
   <div class="container">
     <div class="position-relative py-2">
       <div class="btn-row row d-flex justify-content-center align-items-center">
         <h2>Suggerimenti</h2>
       </div>
       <div @click="prev()" class="control-prev-btn">
-        <i class="fas fa-arrow-left"></i>
+        <i class="fas fa-chevron-left"></i>
       </div>
 
       <div
@@ -14,7 +13,7 @@
         class="slider d-flex">
         <a
           :href="`http://127.0.0.1:8000/details?slug=${structure.slug}&contactedStructure=0`"
-          class="slide mt-2"
+          class="slide my-1"
           v-for="structure in this.StructuresSponsored"
           :key="structure.id">
           <div class="mycard-img-container">
@@ -25,18 +24,17 @@
             />
           </div>
           <div class="myslidercardtext">
-            <h5 class="my-1">{{ structure.name }}</h5>
+            <h5 class="my-1 px-3 py-1">{{ structure.name }}</h5>
           </div>
         </a>
       </div>
 
       <div class="overlay"></div>
       <div @click="next()" class="control-next-btn">
-        <i class="fas fa-arrow-right"></i>
+        <i class="fas fa-chevron-right"></i>
       </div>
     </div>
   </div>
-</div>  
 </template>
 <script>
 
@@ -72,7 +70,7 @@ export default {
 <style scoped>
 
 .mycontainer{
-  background-image: url("/images/blur.jpg");
+ background: white;
 }
 
 #slider-container{
@@ -107,10 +105,16 @@ export default {
 
  .slide {
 	 position: relative;
-   outline: 2px solid white;
+   border: 4px solid #ffdadb;
+   border-radius: 20px;
    width: 200px;
    height: 200px;
-   margin: 0 50px;
+   margin: 0 20px;
+   overflow-y: clip;
+}
+
+.slide:first-child{
+  margin-left: 0;
 }
 
 .slide:hover{
@@ -118,8 +122,8 @@ export default {
 }
 
 .mycard-img-container{
-   width: 200px;
-   height: 200px;
+   width: 210px;
+   height: 210px;
 }
 
 .mycard-img-container img{
@@ -131,16 +135,17 @@ export default {
 	 top: 50%;
 	 text-align: center;
 	 user-select: none;
-	 color: white;
+	 color:  #EA5C63;
 	 cursor: pointer;
+   z-index: 9;
 }
 
 .control-prev-btn{
-   left: -60px;
+   left: 0;
 }
 
 .control-next-btn{
-   right: -60px;
+   right: 0;
 }
 
 .fas{
@@ -157,9 +162,15 @@ export default {
  white-space: nowrap;
  text-overflow: ellipsis;
 }
+h2{
+  color:  #EA5C63
+}
 
-h2, h5 {
-  color: white;
+h5 {
+  color: #EA5C63;
+  background-color: #ffdadb;
+  border-radius: 20px;
+  font-size: 16px;
 }
 
 .position-relative{

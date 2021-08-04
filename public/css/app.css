@@ -72,7 +72,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: white;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -510,7 +510,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #f8fafc;
+  background-color: white;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -4256,15 +4256,15 @@ input[type=button].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px white, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px white, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px white, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range::-moz-focus-outer {
@@ -4467,8 +4467,8 @@ input[type=button].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #f8fafc;
-  border-color: #dee2e6 #dee2e6 #f8fafc;
+  background-color: white;
+  border-color: #dee2e6 #dee2e6 white;
 }
 
 .nav-tabs .dropdown-menu {
@@ -10951,7 +10951,8 @@ a.text-dark:focus {
 
 .mybtn {
   border-radius: 800px;
-  padding: 8px;
+  height: 30px;
+  padding: 0 8px;
   border: none;
 }
 
@@ -10959,6 +10960,7 @@ a.text-dark:focus {
   background-color: transparent;
   border: 1px solid white;
   color: white;
+  padding: 8px 8px;
 }
 
 .mybtn.myinvisible:hover {
@@ -10992,6 +10994,15 @@ a.text-dark:focus {
   padding-top: 40px;
   height: 100vh;
   position: relative;
+}
+
+.myinput {
+  height: 24px;
+}
+
+.myinput:focus {
+  box-shadow: 0 0 4px 2px #ffdadb;
+  border-color: #ffdadb;
 }
 
 .navbar {
@@ -11085,7 +11096,7 @@ a.text-dark:focus {
 
 #map-div.small {
   width: 100%;
-  height: 350px;
+  height: 300px;
 }
 
 #customTownMarker {
@@ -11104,50 +11115,54 @@ a.text-dark:focus {
   height: 50px;
 }
 
-.jumbotron {
+.myjumbotron {
   height: 500px;
   background-image: url(/images/Jumbotron.jpg?8d6d6580894f84d4b5e5ececb2a46787);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 
-.jumbotron #postform {
+.myjumbotron #postform {
   width: 50%;
   margin: auto;
   padding-top: 100px;
 }
 
-.jumbotron #postform #search {
+.myjumbotron #postform #search {
   border-radius: 20px;
 }
 
-.jumbotron #postform #search:focus {
+.myjumbotron #postform #search:focus {
   box-shadow: 0 0 4px 2px #ffdadb;
   border-color: #ffdadb;
 }
 
-.jumbotron #postform #submit {
+.myjumbotron #postform #submit {
   background-color: white;
   position: absolute;
   height: 100%;
-  right: 0px;
+  right: -1px;
   border-radius: 20px;
   background-color: #EA5C63;
   z-index: 3;
 }
 
-.jumbotron #postform #submit:focus {
+.myjumbotron #postform #submit:focus {
   box-shadow: 0 0 4px 2px #ffdadb;
   border-color: #ffdadb;
 }
 
-.jumbotron #postform .form-text {
+.myjumbotron #postform .form-text {
   text-align: center;
   font-size: 18px;
   font-weight: 400;
 }
 
-#become-host {
+.host-section {
+  border-radius: 40px;
+}
+
+.host-section #become-host {
   height: 400px;
   background-image: url(/images/Host.jpg?b2007ddf0665e348d2d0f7905f99c962);
   background-repeat: no-repeat;
@@ -11155,7 +11170,7 @@ a.text-dark:focus {
   position: relative;
 }
 
-#become-host::after {
+.host-section #become-host::after {
   content: "";
   background: linear-gradient(90deg, black 0%, black 15%, rgba(255, 255, 255, 0) 100%);
   position: absolute;
@@ -11165,20 +11180,20 @@ a.text-dark:focus {
   height: 100%;
 }
 
-.host-text {
+.host-section .host-text {
   height: 400px;
   padding-top: 160px;
   padding-left: 100px;
   background-color: black;
 }
 
-.host-text h1 {
+.host-section .host-text h1 {
   color: white;
   font-weight: 400;
   font-size: 32px;
 }
 
-.host-text p {
+.host-section .host-text p {
   color: white;
   font-weight: 200;
   font-size: 18px;
@@ -11206,15 +11221,6 @@ a.text-dark:focus {
   font-size: 12px;
 }
 
-.mylogincard .mylogininput {
-  height: 24px;
-}
-
-.mylogincard .mylogininput:focus {
-  box-shadow: 0 0 4px 2px #ffdadb;
-  border-color: #ffdadb;
-}
-
 .myregister {
   padding: 0;
   position: absolute;
@@ -11240,17 +11246,61 @@ a.text-dark:focus {
   font-size: 12px;
 }
 
-.myregister .myregistercard .myregisterinput {
-  height: 24px;
-}
-
-.myregister .myregistercard .myregisterinput:focus {
-  box-shadow: 0 0 4px 2px #ffdadb;
-  border-color: #ffdadb;
-}
-
-.myregister .myregistercard .myregisterinput.myregisterinputfile {
+.myregister .myregistercard .myregisterinputfile {
   font-size: 10px;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.details-host-avatar-container {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.details-host-avatar-container .details-avatar {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.details-cover-container {
+  width: 100%;
+  height: 300px;
+}
+
+.details-cover-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.mybadge {
+  background-color: #EA5C63;
+  color: white;
+}
+
+.mydetailstitle {
+  color: #EA5C63;
+}
+
+.mydetailsinput {
+  width: 100%;
+}
+
+.mytextarea {
+  height: 200px;
+}
+
+.detailslabel {
+  color: #EA5C63;
+}
+
+footer {
+  background-color: #F7F7F7;
+  height: 500px;
 }
 
 /* ************************************************************************************* */

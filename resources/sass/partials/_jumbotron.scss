@@ -1,4 +1,4 @@
-.jumbotron{
+.myjumbotron{
     height: 500px;
     background-image: url(../../../storage/app/public/imgs/Jumbotron.jpg); 
     background-repeat: no-repeat;
@@ -21,7 +21,7 @@
             background-color: $default_bg_color;
             position: absolute;
             height: 100%;
-            right: 0px;
+            right: -1px;
             border-radius: 20px;
             background-color: $primary_color;
             z-index: 3;
