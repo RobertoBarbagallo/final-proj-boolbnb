@@ -15,11 +15,11 @@ class ServicesStructuresTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=1; $i < 15; $i++) { 
+        for ($i=1; $i < 10; $i++) { 
 
             DB::table('service_structure')->insert([
 
-                'structure_id' => rand(1,9),
+                'structure_id' => rand(1,29),
                 'service_id' => $faker->unique()->numberBetween(1,21),
         
             ]);

@@ -15,11 +15,11 @@ class MessagesTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 8; $i++) { 
+        for ($i=0; $i < 15; $i++) { 
 
             DB::table('messages')->insert([
                 'sender_email' => $faker->unique()->Email,
-                'structure_id' => rand(1,10),
+                'structure_id' => rand(1,30),
                 'content' => $faker->text,
                 'created_at' => now(),
                 'updated_at' => now(),
