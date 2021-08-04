@@ -37,7 +37,7 @@ class StructuresController extends Controller
             $lng= "";    
             $lat = $response['results'][0]['position']['lat'];
             $lng = $response['results'][0]['position']['lon'];
-            $structures = Structure::all();
+            $structures = Structure::where('visible', 1 )->get();
             $finalArray = [];
             $finalResponseResultsLat = null;
             $finalResponseResultsLon = null;

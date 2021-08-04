@@ -1,0 +1,17 @@
+.errors{
+    background-color: $primary_color;  
+    padding: 5px;
+    border-radius: 2px;
+  }
+
+  .text-boolbnb{
+    color: $primary_color;
+  }
+
+  .bg-boolbnb{
+      background-color: $primary_color;
+      border-radius: 50px;
+      &:hover{
+        background-color: lightcoral;
+      }
+  }

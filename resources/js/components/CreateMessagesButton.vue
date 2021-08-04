@@ -1,7 +1,7 @@
 <template>
   <div>
     <button
-      class="mybtn default"
+      class="mybtn default mb-5"
       @click="ShowForm()"
     >
       Contatta la struttura

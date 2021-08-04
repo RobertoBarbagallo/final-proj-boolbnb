@@ -3,7 +3,7 @@
   width: 100%;
   z-index: 4;
   .logo-container{
-      width: 200px;
+      width: 125px;
       height: 30px;
       display: flex;
         .logo-img-container{
@@ -28,6 +28,7 @@
       .dropdown-menu{      
             .dropdown-item{
               &.myitem{
+                padding-left: 20px !important;
                 transition: .3s;
                 &:hover{
                   background-color: $secondary_color;
@@ -36,6 +37,7 @@
             }
         }
       .mydropdownbutton{
+        position: relative;
         background-color: $default_bg_color;
         border: 1px solid $primary_color;
         color: $primary_color;
@@ -67,6 +69,16 @@
           object-fit: contain;
           border-radius: 50%;
         }
+      }
+    }
+
+    .dropdown-menu{
+      position: absolute;
+      top: 34px;
+      left: -40px;
+
+      &.private{
+        left: -90px;
       }
     }
 }
