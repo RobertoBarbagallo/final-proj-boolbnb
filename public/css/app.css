@@ -11005,6 +11005,16 @@ a.text-dark:focus {
   border-color: #ffdadb;
 }
 
+.my-4 {
+  height: 320px;
+}
+
+.myfinaltitle {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .navbar {
   position: fixed;
   width: 100%;

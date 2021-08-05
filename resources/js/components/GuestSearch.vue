@@ -49,13 +49,13 @@
 
       </div>
     </form>
-    <structures-sponsored></structures-sponsored>
+    <!-- <structures-sponsored></structures-sponsored> -->
       <div class="row row-cols-3">
           <div v-for="result in this.showArray" :key="result.id" class="col my-4">
               <img v-if="result.cover_img_path" class="card-img-top myimg rounded" :src="'/storage/' + `${result.cover_img_path}`" alt="Cover of structure">
               <div class="card-body">
                 <div class="text-center">
-                  <h5 class="mt-0 mb-3">{{result.name}}</h5>
+                  <h5 class="mt-0 mb-3 myfinaltitle">{{result.name}}</h5>
                   <a class="mybtn default" :href="`http://127.0.0.1:8000/details?slug=${result.slug}&contactedStructure=0`" role="button">Dettagli...</a><br>
                 </div>
               </div>

@@ -57,7 +57,7 @@
             </div>
         
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mb-3">
         
             <button type='button' id="submit-button" class="mybtn default">Purchase</button>
 

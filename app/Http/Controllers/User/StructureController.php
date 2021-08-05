@@ -269,23 +269,23 @@ class StructureController extends Controller
 
         $structure = Structure::where('id', $id)->first();
 
-        $activeSponsorships= SponsorshipStructure::where('structure_id', $id)->first();
-        // $endDate = ;
-        $endDateFormatted = \Carbon\Carbon::createFromTimeStamp(strtotime($activeSponsorships->end_date));
+      
         
         if(count($structure->sponsorships) == 0){
-
+            
             $newSponsorship = new SponsorshipStructure();
             $newSponsorship->structure_id = $id;
             $newSponsorship->sponsorship_id = $sponsorshipId;
             $newSponsorship->end_date = Carbon::now()->addHours($spons->duration);
-    
+            
             $newSponsorship->save();
-
+            
             return redirect()->route("user.structures.show", $structure->id);
-
+            
         }else{
-
+            
+            $activeSponsorships= SponsorshipStructure::where('structure_id', $id)->first();
+            $endDateFormatted = \Carbon\Carbon::createFromTimeStamp(strtotime($activeSponsorships->end_date));
             $selectedStructure = SponsorshipStructure::where('structure_id', $id);
             $newData = [
                 'sponsorship_id' => $sponsorshipId,

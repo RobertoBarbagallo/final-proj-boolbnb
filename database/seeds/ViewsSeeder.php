@@ -20,7 +20,7 @@ class ViewsSeeder extends Seeder
 
             DB::table('views')->insert([
                 'visitor' => 'XNEUxQT315dwmRqHSswxUlkLbR7D9vl32uM3VZsbeJizL4V59FgGa4eMXKiK5vHgvrBfbQ6NlQqwc9vP',
-                'viewable_id' => rand(1,30),
+                'viewable_id' => rand(1,8),
                 'viewable_type' => 'App\Structure',
                 'viewed_at' => $randomDate,
             ]);
