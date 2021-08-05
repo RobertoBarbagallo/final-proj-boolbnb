@@ -4,11 +4,8 @@
         <div class="formButton">
              <h1 class="mydetailstitle ">Sei sicuro di voler eliminare la struttura?</h1>
              <div class="text-center">
-                <button class="btn button-message btn-danger text-white">
-                <a href="#" class="text-white"
-             >
-              Elimina</a
-                 >
+                <button class="btn button-message btn-danger text-white" >
+              Elimina
                 </button>
                 <a href="#" class="btn button-message btn-danger text-white" @click="clikDelete">Annulla</a>
                 </div>

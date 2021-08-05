@@ -2009,9 +2009,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "DeleteButton",
   props: {
@@ -38998,7 +38995,11 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "text-center" }, [
-              _vm._m(0),
+              _c(
+                "button",
+                { staticClass: "btn button-message btn-danger text-white" },
+                [_vm._v("\n            Elimina\n              ")]
+              ),
               _vm._v(" "),
               _c(
                 "a",
@@ -39023,22 +39024,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      { staticClass: "btn button-message btn-danger text-white" },
-      [
-        _c("a", { staticClass: "text-white", attrs: { href: "#" } }, [
-          _vm._v("\n            Elimina")
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

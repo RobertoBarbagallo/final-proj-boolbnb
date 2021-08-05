@@ -53,14 +53,14 @@
         <div class="form-group">
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="visible" id="visible" value="0" checked>
+                <input class="form-check-input" type="radio" name="visible" id="visible" value="1" checked>
                 <label class="form-check-label" for="visible">
                     Struttura visibile
                 </label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="visible" id="visible" value="1">
+                <input class="form-check-input" type="radio" name="visible" id="visible" value="0">
                 <label class="form-check-label" for="visible">
                     Struttura non visibile
                 </label>
