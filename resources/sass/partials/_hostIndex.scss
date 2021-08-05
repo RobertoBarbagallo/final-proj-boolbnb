@@ -5,3 +5,18 @@
 .fix-btn{
     line-height: 30px;
 }
+.mycol{
+    height: 320px;
+}
+
+.myinfo{
+    height: 35px;
+    color: black;
+}
+@media (max-width: 420px) { 
+
+    .fix-btn{
+        line-height: 30px;
+        margin-top: 80px !important;
+    }
+ }

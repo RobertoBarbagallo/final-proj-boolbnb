@@ -6896,7 +6896,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.popUp {\r\n  background-color: rgba(255, 255, 255, 0.8);\r\n  height: 100%;\r\n  width: 100%;\r\n  position: fixed;\r\n  left: 0;\r\n  top: 0;\r\n  z-index: 3;\n}\n.feedbackButton{\r\n    background-color: white;\r\n     position: absolute;\r\n     top: 50%;\r\n     left: 50%;\r\n     transform: translate(-50%,-50%);\r\n     padding: 20px;\r\n     border: 2px solid #EA5C63;\r\n     border-radius: 8px;\n}\r\n", ""]);
+exports.push([module.i, "\n.popUp {\n  background-color: rgba(255, 255, 255, 0.8);\n  height: 100%;\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 3;\n}\n.feedbackButton{\n    background-color: white;\n     position: absolute;\n     top: 50%;\n     left: 50%;\n     transform: translate(-50%,-50%);\n     padding: 20px;\n     border: 2px solid #EA5C63;\n     border-radius: 8px;\n}\n", ""]);
 
 // exports
 
@@ -6915,7 +6915,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.deleteForm {\r\n  background-color: rgba(255, 255, 255, 0.8);\r\n  height: 100%;\r\n  width: 100%;\r\n  position: fixed;\r\n  left: 0;\r\n  top: 0;\r\n  z-index: 3;\n}\n.formButton{\r\n    background-color: white;\r\n     position: absolute;\r\n     top: 50%;\r\n     left: 50%;\r\n     transform: translate(-50%,-50%);\r\n     padding: 20px;\r\n     border: 1px solid #EA5C63;\n}\r\n", ""]);
+exports.push([module.i, "\n.deleteForm {\n  background-color: rgba(255, 255, 255, 0.8);\n  height: 100%;\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 3;\n}\n.formButton{\n    background-color: white;\n     position: absolute;\n     top: 50%;\n     left: 50%;\n     transform: translate(-50%,-50%);\n     padding: 20px;\n     border: 1px solid #EA5C63;\n}\n", ""]);
 
 // exports
 
@@ -6934,7 +6934,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.dropdown {\r\n  width: 300px\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.dropdown {\n  width: 300px\n}\n\n", ""]);
 
 // exports
 
@@ -6953,7 +6953,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.mycontainer[data-v-0cfa051e]{\r\n background: white;\n}\n#slider-container[data-v-0cfa051e]{\r\n  height: 220px;\n}\n.slider[data-v-0cfa051e] {\r\n   display: flex;\r\n\t max-height: auto;\r\n\t overflow-y: hidden;\r\n\t overflow-x: scroll !important;\r\n\t padding: 16px;\r\n\t transform: scroll(calc(var(--i,0)/var(--n)*-100%));\r\n\t scroll-behavior: smooth;\r\n\t padding: 0 50px;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar {\r\n\t height: 5px;\r\n\t width: 150px;\r\n\t display: none;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-track {\r\n\t background: transparent;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-thumb {\r\n\t background: #888;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-thumb:hover {\r\n\t background: #555;\n}\n.slide[data-v-0cfa051e] {\r\n\t position: relative;\r\n   border: 4px solid #ffdadb;\r\n   border-radius: 20px;\r\n   width: 200px;\r\n   height: 200px;\r\n   margin: 0 20px;\r\n   overflow-y: clip;\n}\n.slide[data-v-0cfa051e]:first-child{\r\n  margin-left: 0;\n}\n.slide[data-v-0cfa051e]:hover{\r\n  text-decoration: none;\n}\n.mycard-img-container[data-v-0cfa051e]{\r\n   width: 210px;\r\n   height: 210px;\n}\n.mycard-img-container img[data-v-0cfa051e]{\r\n    width: 100%;\r\n    height: 100%;\n}\n.control-prev-btn[data-v-0cfa051e], .control-next-btn[data-v-0cfa051e]{\r\n\t position: absolute;\r\n\t top: 50%;\r\n\t text-align: center;\r\n\t -webkit-user-select: none;\r\n\t    -moz-user-select: none;\r\n\t     -ms-user-select: none;\r\n\t         user-select: none;\r\n\t color:  #EA5C63;\r\n\t cursor: pointer;\r\n   z-index: 3;\n}\n.control-prev-btn[data-v-0cfa051e]{\r\n   left: 0;\n}\n.control-next-btn[data-v-0cfa051e]{\r\n   right: 0;\n}\n.fas[data-v-0cfa051e]{\r\n  font-weight: 700;\r\n  font-size: 32px;\n}\n.myslidercardtext[data-v-0cfa051e]{\r\n width: 100%;\r\n position: absolute;\r\n bottom: -5px;\r\n left: 50%;\r\n transform: translateX(-50%);\r\n overflow: hidden;\r\n white-space: nowrap;\r\n text-overflow: ellipsis;\r\n background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,218,219,1) 50%);\n}\nh2[data-v-0cfa051e]{\r\n  color:  #EA5C63\n}\nh5[data-v-0cfa051e] {\r\n  padding-top: 1px;\r\n  color: black;\r\n  font-size: 16px;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  text-overflow: ellipsis;\n}\n.position-relative[data-v-0cfa051e]{\r\n  position: relative;\n}\n@media only screen and (max-width: 420px) {\n#slider-container[data-v-0cfa051e]{\r\n     height: 160px;\n}\n.slider[data-v-0cfa051e] {\r\n\t\t padding: 0;\n}\n.slide[data-v-0cfa051e] {\r\n\t\t width: 150px;\r\n     height: 150px;\n}\n.slide[data-v-0cfa051e]:first-child{\r\n  margin-left: 50px;\n}\nh2[data-v-0cfa051e]{\r\n    font-size: 18px;\n}\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.mycontainer[data-v-0cfa051e]{\n background: white;\n}\n#slider-container[data-v-0cfa051e]{\n  height: 220px;\n}\n.slider[data-v-0cfa051e] {\n   display: flex;\n\t max-height: auto;\n\t overflow-y: hidden;\n\t overflow-x: scroll !important;\n\t padding: 16px;\n\t transform: scroll(calc(var(--i,0)/var(--n)*-100%));\n\t scroll-behavior: smooth;\n\t padding: 0 50px;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar {\n\t height: 5px;\n\t width: 150px;\n\t display: none;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-track {\n\t background: transparent;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-thumb {\n\t background: #888;\n}\n.slider[data-v-0cfa051e]::-webkit-scrollbar-thumb:hover {\n\t background: #555;\n}\n.slide[data-v-0cfa051e] {\n\t position: relative;\n   border: 4px solid #ffdadb;\n   border-radius: 20px;\n   width: 200px;\n   height: 200px;\n   margin: 0 20px;\n   overflow-y: clip;\n}\n.slide[data-v-0cfa051e]:first-child{\n  margin-left: 0;\n}\n.slide[data-v-0cfa051e]:hover{\n  text-decoration: none;\n}\n.mycard-img-container[data-v-0cfa051e]{\n   width: 210px;\n   height: 210px;\n}\n.mycard-img-container img[data-v-0cfa051e]{\n    width: 100%;\n    height: 100%;\n}\n.control-prev-btn[data-v-0cfa051e], .control-next-btn[data-v-0cfa051e]{\n\t position: absolute;\n\t top: 50%;\n\t text-align: center;\n\t -webkit-user-select: none;\n\t    -moz-user-select: none;\n\t     -ms-user-select: none;\n\t         user-select: none;\n\t color:  #EA5C63;\n\t cursor: pointer;\n   z-index: 3;\n}\n.control-prev-btn[data-v-0cfa051e]{\n   left: 0;\n}\n.control-next-btn[data-v-0cfa051e]{\n   right: 0;\n}\n.fas[data-v-0cfa051e]{\n  font-weight: 700;\n  font-size: 32px;\n}\n.myslidercardtext[data-v-0cfa051e]{\n width: 100%;\n position: absolute;\n bottom: -5px;\n left: 50%;\n transform: translateX(-50%);\n overflow: hidden;\n white-space: nowrap;\n text-overflow: ellipsis;\n background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,218,219,1) 50%);\n}\nh2[data-v-0cfa051e]{\n  color:  #EA5C63\n}\nh5[data-v-0cfa051e] {\n  padding-top: 1px;\n  color: black;\n  font-size: 16px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.position-relative[data-v-0cfa051e]{\n  position: relative;\n}\n@media only screen and (max-width: 420px) {\n#slider-container[data-v-0cfa051e]{\n     height: 160px;\n}\n.slider[data-v-0cfa051e] {\n\t\t padding: 0;\n}\n.slide[data-v-0cfa051e] {\n\t\t width: 150px;\n     height: 150px;\n}\n.slide[data-v-0cfa051e]:first-child{\n  margin-left: 50px;\n}\nh2[data-v-0cfa051e]{\n    font-size: 18px;\n}\n}\n\n", ""]);
 
 // exports
 
@@ -52343,8 +52343,8 @@ var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Progetti\final-proj-boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Progetti\final-proj-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/robertobarbagallo/Desktop/final-proj-boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/robertobarbagallo/Desktop/final-proj-boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
